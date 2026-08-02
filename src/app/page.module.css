@@ -1,0 +1,138 @@
+.main {
+  min-height: calc(100vh - 80px); /* header height approx */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  background-color: var(--color-white);
+}
+
+.hero {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  gap: 4rem;
+  align-items: center;
+}
+
+.heroContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.heroTitle {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-dark-blue);
+  letter-spacing: -0.02em;
+}
+
+.heroTitle span {
+  color: #60a5fa; /* slightly darker light blue for text contrast */
+}
+
+.heroDescription {
+  font-size: 1.25rem;
+  color: var(--color-text-main);
+  max-width: 90%;
+  line-height: 1.6;
+}
+
+.primaryButton {
+  margin-top: 1rem;
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.primaryButton:hover {
+  background-color: var(--color-dark-blue-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.heroImageContainer {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.heroImage {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .heroTitle {
+    font-size: 3rem;
+  }
+  .hero {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 2rem 1.5rem;
+  }
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .heroContent {
+    align-items: center;
+  }
+  .heroDescription {
+    max-width: 100%;
+  }
+  .heroImageContainer {
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
+
+.splashScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00B8F1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.splashTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.splashImage {
+  width: 300px;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  object-fit: cover;
+}
