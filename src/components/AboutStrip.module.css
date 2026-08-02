@@ -68,8 +68,17 @@
 }
 
 @media (max-width: 768px) {
+  .aboutSection {
+    padding: 4rem 1.5rem;
+  }
+  
+  .container {
+    gap: 3rem;
+  }
+
   .statsGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
   
   .brandStory {
@@ -78,7 +87,20 @@
 }
 
 @media (max-width: 480px) {
+  .aboutSection {
+    padding: 4rem 1rem;
+  }
+
   .statsGrid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .statItem {
+    padding: 1.2rem;
+  }
+
+  .statNumber {
+    font-size: 2.5rem;
   }
 }

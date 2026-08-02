@@ -162,6 +162,14 @@ export const LanguageProvider = ({ children }) => {
     setLang((prev) => (prev === 'en' ? 'ta' : 'en'));
   };
 
+  React.useEffect(() => {
+    if (lang === 'ta') {
+      document.documentElement.classList.add('tamil-mode');
+    } else {
+      document.documentElement.classList.remove('tamil-mode');
+    }
+  }, [lang]);
+
   const t = (key) => translations[lang][key] || key;
 
   return (

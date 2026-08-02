@@ -114,11 +114,46 @@
 }
 
 @media (max-width: 768px) {
+  .menuSection {
+    padding: 4rem 1.5rem;
+  }
+  .sectionTitle {
+    font-size: 2rem;
+  }
   .tabsContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    width: calc(100% + 3rem);
+    margin-left: -1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     gap: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .tabsContainer::-webkit-scrollbar {
+    display: none;
   }
   .tab {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
+    flex: 0 0 auto;
+    padding: 0.8rem 1.2rem;
+    min-height: 44px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .menuGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .menuCard {
+    padding: 1.5rem;
+  }
+  .itemName {
+    font-size: 1.15rem;
+    white-space: normal; /* allow wrapping on narrow screens */
   }
 }

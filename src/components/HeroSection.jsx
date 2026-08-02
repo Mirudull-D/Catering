@@ -20,29 +20,29 @@ export default function HeroSection() {
         <div className={styles.textContainer}>
           <motion.h1 
             className={styles.heroTitle}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             {t('heroHeadline1')} <span className={styles.highlight}>{t('heroHeadline2')}</span>
           </motion.h1>
           
           <motion.p 
             className={styles.heroDescription}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
             {t('heroDesc')}
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
             <Link href="#services" className={`${styles.primaryButton} shimmer-btn`}>
               {t('viewMenus')}

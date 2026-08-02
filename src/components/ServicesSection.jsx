@@ -78,9 +78,10 @@ export default function ServicesSection() {
       <div className={styles.container}>
         <motion.h2 
           className={styles.sectionTitle}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
           {t('servicesTitle')}
         </motion.h2>
@@ -90,10 +91,10 @@ export default function ServicesSection() {
             <motion.div 
               key={service.id}
               className={styles.card}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.05, duration: 0.4 }}
               whileHover={{ y: -8 }}
             >
               <div className={styles.icon}>{service.icon}</div>

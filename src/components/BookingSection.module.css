@@ -162,8 +162,40 @@
   }
   .formRow {
     flex-direction: column;
+    gap: 1.5rem;
   }
   .formContainer {
     padding: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .bookingSection {
+    padding: 4rem 1rem;
+  }
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  .formContainer {
+    padding: 1.5rem 1rem;
+  }
+  .infoCard {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+  .infoCard p {
+    font-size: 0.95rem;
+  }
+  .mapContainer {
+    min-height: 250px;
+  }
+  .submitBtn {
+    padding: 1rem;
+    font-size: 1rem;
   }
 }

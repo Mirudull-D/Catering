@@ -46,10 +46,10 @@ export default function AboutStrip() {
       <div className={styles.container}>
         <motion.div 
           className={styles.storyContainer}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
           <div className="animate-line" style={{ margin: '0 auto 1.5rem' }}></div>
           <p className={styles.brandStory}>{t('aboutStory')}</p>

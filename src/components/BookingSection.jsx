@@ -12,9 +12,10 @@ export default function BookingSection() {
       <div className={styles.container}>
         <motion.div 
           className={styles.header}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
           <h2 className={styles.sectionTitle}>{t('contactTitle')}</h2>
           <p className={styles.sectionDesc}>{t('contactDesc')}</p>
@@ -24,9 +25,10 @@ export default function BookingSection() {
           {/* Form Side */}
           <motion.div 
             className={styles.formContainer}
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -15 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
             <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
               <div className={styles.formGroup}>
@@ -70,9 +72,10 @@ export default function BookingSection() {
           {/* Contact Info & Map Side */}
           <motion.div 
             className={styles.contactInfo}
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 15 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
             <div className={styles.infoCards}>
               <div className={styles.infoCard}>
