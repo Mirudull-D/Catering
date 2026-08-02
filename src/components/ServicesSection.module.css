@@ -1,0 +1,214 @@
+.servicesSection {
+  padding: 6rem 2rem;
+  background-color: var(--color-off-white);
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.card {
+  background-color: var(--color-white);
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-medium);
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  background: var(--color-blue-light);
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.cardDesc {
+  color: var(--color-text-main);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.viewBtn {
+  color: var(--color-royal-blue);
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap 0.2s;
+}
+
+.viewBtn:hover {
+  gap: 0.8rem;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(13, 34, 68, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modalContent {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-medium);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem; right: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--color-text-light);
+  background: none; border: none;
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  color: var(--color-text-main);
+}
+
+.printableArea {
+  padding: 3rem 2.5rem;
+}
+
+.printHeader, .printFooter {
+  display: none;
+}
+
+.modalIcon {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.modalTitle {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.modalDesc {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-text-main);
+  margin-bottom: 2rem;
+}
+
+.modalDetails {
+  background: var(--color-off-white);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+}
+
+.modalDetails h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.modalDetails ul {
+  padding-left: 1.2rem;
+  color: var(--color-text-main);
+}
+
+.modalDetails li {
+  margin-bottom: 0.5rem;
+}
+
+.modalActions {
+  padding: 1.5rem 2.5rem 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.downloadBtn {
+  background-color: var(--color-royal-blue);
+  color: var(--color-white);
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Print Styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .printableArea, .printableArea * {
+    visibility: visible;
+  }
+  .printableArea {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0;
+  }
+  .printHeader {
+    display: block;
+    text-align: center;
+    border-bottom: 2px solid var(--color-gold);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
+  .printTitle {
+    color: var(--color-royal-blue);
+    font-size: 2.5rem;
+  }
+  .printFooter {
+    display: block;
+    margin-top: 3rem;
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+  }
+}
