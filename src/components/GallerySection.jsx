@@ -15,21 +15,24 @@ const images = [
 export default function GallerySection() {
   const { t } = useLanguage();
   const [selectedImage, setSelectedImage] = useState(null);
+  const extendedImages = [...images, ...images.map(img => ({ ...img, id: img.id + 4 }))];
 
   return (
     <section id="gallery" className={styles.gallerySection}>
       <div className={styles.container}>
-        <motion.h2 
-          className={styles.sectionTitle}
-          initial={{ opacity: 0, y: 20 }}
+        <motion.div 
+          className={styles.header}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
-          {t('galleryTitle')}
-        </motion.h2>
+          <span className={styles.tagline}>{t('gallery')}</span>
+          <h2 className={styles.sectionTitle}>{t('galleryTitle')}</h2>
+        </motion.div>
 
         <div className={styles.masonryGrid}>
-          {images.map((img, index) => (
+          {extendedImages.map((img, index) => (
             <motion.div
               key={img.id}
               className={styles.gridItem}
@@ -41,7 +44,7 @@ export default function GallerySection() {
             >
               <img src={img.src} alt={img.alt} loading="lazy" className={styles.image} />
               <div className={styles.overlay}>
-                <span>View</span>
+                <span>↗ View</span>
               </div>
             </motion.div>
           ))}

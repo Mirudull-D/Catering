@@ -3,12 +3,56 @@
   color: var(--color-white);
   padding: 5rem 2rem 2rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px);
 }
 
 .container {
   max-width: 1200px;
   width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaBanner {
+  background: linear-gradient(135deg, var(--color-gold) 0%, #b3913a 100%);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  color: var(--color-blue-dark);
+}
+
+.ctaText h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-blue-dark);
+}
+
+.ctaText p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.ctaButton {
+  background-color: var(--color-blue-dark);
+  color: var(--color-white);
+  padding: 1rem 2.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
 }
 
 .grid {
@@ -112,5 +156,12 @@
   
   .brandDesc {
     max-width: 100%;
+  }
+
+  .ctaBanner {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem;
   }
 }

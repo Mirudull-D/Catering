@@ -42,8 +42,7 @@ export default function Header() {
       </button>
 
       <nav className={`${styles.nav} ${isMobileMenuOpen ? styles.mobileOpen : ''}`}>
-        <Link href="#services" className={styles.navLink} onClick={closeMenu}>{t('services')}</Link>
-        <Link href="#menu" className={styles.navLink} onClick={closeMenu}>{t('menu')}</Link>
+        <Link href="#about" className={styles.navLink} onClick={closeMenu}>{t('about')}</Link>
         <Link href="#gallery" className={styles.navLink} onClick={closeMenu}>{t('gallery')}</Link>
         <Link href="#testimonials" className={styles.navLink} onClick={closeMenu}>{t('testimonials')}</Link>
         <Link href="#contact" className={styles.navLink} onClick={closeMenu}>{t('contact')}</Link>

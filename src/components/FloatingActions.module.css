@@ -31,18 +31,21 @@
 }
 
 .callBtn {
-  background-color: var(--color-royal-blue);
+  background-color: var(--color-gold);
+  color: var(--color-blue-dark);
 }
 
 .waBtn {
-  background-color: #25D366; /* WhatsApp Green */
+  background-color: var(--color-blue-dark);
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(201, 168, 76, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0); }
 }
 
 .tooltip {

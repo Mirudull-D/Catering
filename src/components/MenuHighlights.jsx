@@ -7,24 +7,24 @@ import styles from './MenuHighlights.module.css';
 
 const menuData = {
   veg: [
-    { id: 'v1', name: 'Paneer Butter Masala', desc: 'Rich and creamy curry made with paneer, spices, onions, tomatoes, and butter.' },
-    { id: 'v2', name: 'Vegetable Biryani', desc: 'Aromatic basmati rice cooked with mixed vegetables and traditional spices.' },
-    { id: 'v3', name: 'Malai Kofta', desc: 'Fried dumpling balls in a creamy, sweet and mildly spiced curry.' },
+    { id: 'v1', icon: '🍲', name: 'Paneer Butter Masala', desc: 'Rich and creamy curry made with paneer, spices, onions, tomatoes, and butter.' },
+    { id: 'v2', icon: '🍚', name: 'Vegetable Biryani', desc: 'Aromatic basmati rice cooked with mixed vegetables and traditional spices.' },
+    { id: 'v3', icon: '🥘', name: 'Malai Kofta', desc: 'Fried dumpling balls in a creamy, sweet and mildly spiced curry.' },
   ],
   nonveg: [
-    { id: 'nv1', name: 'Chettinad Chicken', desc: 'Classic South Indian chicken curry made with fresh ground spices.' },
-    { id: 'nv2', name: 'Mutton Rogan Josh', desc: 'Aromatic lamb dish of Persian origin, which is one of the signature recipes of Kashmiri cuisine.' },
-    { id: 'nv3', name: 'Fish Curry', desc: 'Tangy and spicy fish curry made in traditional style with tamarind and coconut.' },
+    { id: 'nv1', icon: '🍗', name: 'Chettinad Chicken', desc: 'Classic South Indian chicken curry made with fresh ground spices.' },
+    { id: 'nv2', icon: '🥩', name: 'Mutton Rogan Josh', desc: 'Aromatic lamb dish of Persian origin, which is one of the signature recipes of Kashmiri cuisine.' },
+    { id: 'nv3', icon: '🐟', name: 'Fish Curry', desc: 'Tangy and spicy fish curry made in traditional style with tamarind and coconut.' },
   ],
   desserts: [
-    { id: 'd1', name: 'Gulab Jamun', desc: 'Fried dough balls soaked in a sweet, sticky sugar syrup.' },
-    { id: 'd2', name: 'Rasmalai', desc: 'Flattened balls of chhena soaked in malai flavored with cardamom.' },
-    { id: 'd3', name: 'Elaneer Payasam', desc: 'Refreshing South Indian dessert made with tender coconut.' },
+    { id: 'd1', icon: '🧆', name: 'Gulab Jamun', desc: 'Fried dough balls soaked in a sweet, sticky sugar syrup.' },
+    { id: 'd2', icon: '🥣', name: 'Rasmalai', desc: 'Flattened balls of chhena soaked in malai flavored with cardamom.' },
+    { id: 'd3', icon: '🥥', name: 'Elaneer Payasam', desc: 'Refreshing South Indian dessert made with tender coconut.' },
   ],
   live: [
-    { id: 'l1', name: 'Live Dosa Counter', desc: 'Fresh dosas made to order: Masala, Onion, Paneer, and more.' },
-    { id: 'l2', name: 'Chaat Station', desc: 'Pani Puri, Bhel Puri, and Aloo Tikki prepared fresh.' },
-    { id: 'l3', name: 'Appam & Stew', desc: 'Soft appams served with warm vegetable or meat stew.' },
+    { id: 'l1', icon: '🥞', name: 'Live Dosa Counter', desc: 'Fresh dosas made to order: Masala, Onion, Paneer, and more.' },
+    { id: 'l2', icon: '🌮', name: 'Chaat Station', desc: 'Pani Puri, Bhel Puri, and Aloo Tikki prepared fresh.' },
+    { id: 'l3', icon: '🥣', name: 'Appam & Stew', desc: 'Soft appams served with warm vegetable or meat stew.' },
   ]
 };
 
@@ -90,6 +90,7 @@ export default function MenuHighlights() {
                   transition={{ delay: index * 0.1 }}
                 >
                   <div className={styles.cardHeader}>
+                    <span className={styles.itemIcon}>{item.icon}</span>
                     <h3 className={styles.itemName}>{item.name}</h3>
                     <div className={styles.itemLine}></div>
                   </div>

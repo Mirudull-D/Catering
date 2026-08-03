@@ -1,5 +1,5 @@
 .servicesSection {
-  padding: 6rem 2rem;
+  padding: 4rem 2rem;
   background-color: var(--color-off-white);
   display: flex;
   justify-content: center;
@@ -13,69 +13,13 @@
 .sectionTitle {
   font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
-}
-
-.card {
-  background-color: var(--color-white);
-  padding: 2.5rem 2rem;
-  border-radius: var(--radius-xl);
-  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  transition: box-shadow 0.3s ease;
-  border: 1px solid rgba(0,0,0,0.03);
-}
-
-.card:hover {
-  box-shadow: var(--shadow-medium);
-}
-
-.icon {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  background: var(--color-blue-light);
-  width: 70px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.cardTitle {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-}
-
-.cardDesc {
-  color: var(--color-text-main);
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  flex-grow: 1;
-}
-
-.viewBtn {
-  color: var(--color-royal-blue);
-  font-weight: 600;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: gap 0.2s;
-  min-height: 44px; /* Ensure 44px tap target */
-  padding: 8px 0;
-}
-
-.viewBtn:hover {
-  gap: 0.8rem;
 }
 
 /* Modal Styles */
@@ -249,13 +193,6 @@
 
   .grid::-webkit-scrollbar {
     display: none;
-  }
-
-  .card {
-    flex: 0 0 82vw;
-    max-width: 310px;
-    scroll-snap-align: center;
-    padding: 2rem 1.5rem;
   }
 
   .modalContent {

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import ServiceCard from './ServiceCard';
 import styles from './ServicesSection.module.css';
 
 const ServiceModal = ({ isOpen, onClose, service, t }) => {
@@ -65,12 +66,12 @@ export default function ServicesSection() {
   const [selectedService, setSelectedService] = useState(null);
 
   const services = [
-    { id: 1, icon: '💍', title: t('service1'), desc: t('service1Desc') },
-    { id: 2, icon: '🏢', title: t('service2'), desc: t('service2Desc') },
-    { id: 3, icon: '🎉', title: t('service3'), desc: t('service3Desc') },
-    { id: 4, icon: '🍳', title: t('service4'), desc: t('service4Desc') },
-    { id: 5, icon: '🍲', title: t('service5'), desc: t('service5Desc') },
-    { id: 6, icon: '🌿', title: t('service6'), desc: t('service6Desc') },
+    { id: 1, icon: '💍', title: t('service1'), desc: t('service1Desc'), image: '/gallery/wedding_catering.png' },
+    { id: 2, icon: '🏢', title: t('service2'), desc: t('service2Desc'), image: '/gallery/corporate_catering.png' },
+    { id: 3, icon: '🎉', title: t('service3'), desc: t('service3Desc'), image: '/gallery/dessert_platter_1785684210041.png' },
+    { id: 4, icon: '🍳', title: t('service4'), desc: t('service4Desc'), image: '/gallery/live_counter_1785684260521.png' },
+    { id: 5, icon: '🍲', title: t('service5'), desc: t('service5Desc'), image: '/gallery/buffet_setup_1785684198318.png' },
+    { id: 6, icon: '🌿', title: t('service6'), desc: t('service6Desc'), image: '/gallery/south_indian_meals_1785684185063.png' },
   ];
 
   return (
@@ -90,22 +91,17 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <motion.div 
               key={service.id}
-              className={styles.card}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05, duration: 0.4 }}
-              whileHover={{ y: -8 }}
+              style={{ display: 'contents' }} /* support native swipe row but allow Framer Motion container wrapper */
             >
-              <div className={styles.icon}>{service.icon}</div>
-              <h3 className={styles.cardTitle}>{service.title}</h3>
-              <p className={styles.cardDesc}>{service.desc}</p>
-              <button 
-                className={styles.viewBtn}
-                onClick={() => setSelectedService(service)}
-              >
-                {t('viewDetails')} →
-              </button>
+              <ServiceCard 
+                service={service}
+                onOpenDetails={() => setSelectedService(service)}
+                t={t}
+              />
             </motion.div>
           ))}
         </div>

@@ -5,10 +5,10 @@ import { AnimatePresence } from "framer-motion";
 import SplashScreen from "../components/SplashScreen";
 import HeroSection from "../components/HeroSection";
 import AboutStrip from "../components/AboutStrip";
-import ServicesSection from "../components/ServicesSection";
+import PhilosophySection from "../components/PhilosophySection";
 import GallerySection from "../components/GallerySection";
 import TestimonialsSection from "../components/TestimonialsSection";
-import MenuHighlights from "../components/MenuHighlights";
+import ProcessSection from "../components/ProcessSection";
 import BookingSection from "../components/BookingSection";
 import Footer from "../components/Footer";
 import FloatingActions from "../components/FloatingActions";
@@ -32,10 +32,10 @@ export default function Home() {
         <main>
           <HeroSection />
           <AboutStrip />
-          <ServicesSection />
+          <PhilosophySection />
           <GallerySection />
           <TestimonialsSection />
-          <MenuHighlights />
+          <ProcessSection />
           <BookingSection />
           <Footer />
           <FloatingActions />

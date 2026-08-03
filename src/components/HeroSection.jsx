@@ -44,8 +44,8 @@ export default function HeroSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Link href="#services" className={`${styles.primaryButton} shimmer-btn`}>
-              {t('viewMenus')}
+            <Link href="#gallery" className={`${styles.primaryButton} shimmer-btn`}>
+              {t('gallery')}
             </Link>
           </motion.div>
         </div>
@@ -69,11 +69,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className={styles.divider}>
-        <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,50 C320,100 420,0 720,50 C1020,100 1120,0 1440,50 L1440,100 L0,100 Z" fill="var(--color-white)"/>
-        </svg>
-      </div>
     </section>
   );
 }
