@@ -3,119 +3,83 @@
 import { motion } from 'framer-motion';
 import styles from './ProcessSection.module.css';
 
-const features = [
-  {
-    id: "01",
-    icon: "🌿",
-    title: "Fresh Ingredients",
-    desc: "Locally sourced, farm-fresh produce for every event we cater."
-  },
-  {
-    id: "02",
-    icon: "👨‍🍳",
-    title: "Expert Chefs",
-    desc: "Master chefs with decades of authentic South Indian culinary experience."
-  },
-  {
-    id: "03",
-    icon: "✅",
-    title: "Hygiene Certified",
-    desc: "Strict FSSAI hygiene protocols from kitchen to your plate."
-  },
-  {
-    id: "04",
-    icon: "💬",
-    title: "Transparent Pricing",
-    desc: "Honest, upfront packages — no hidden charges, ever."
-  }
-];
-
 export default function ProcessSection() {
-  return (
-    <section className={styles.trustSection}>
-      <div className={styles.container}>
+  const trustFeatures = [
+    {
+      id: "01",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+      ),
+      title: "Fresh Ingredients",
+      desc: "Locally sourced, premium quality ingredients for every single dish."
+    },
+    {
+      id: "02",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      ),
+      title: "Expert Chefs",
+      desc: "Decades of authentic culinary experience spanning diverse regional cuisines."
+    },
+    {
+      id: "03",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg>
+      ),
+      title: "Hygiene First",
+      desc: "Strict adherence to safety and hygiene protocols during prep and service."
+    },
+    {
+      id: "04",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+      ),
+      title: "Transparent Pricing",
+      desc: "Honest, straightforward packages. No hidden fees or last-minute surprises."
+    }
+  ];
 
-        {/* Top: Title row */}
-        <div className={styles.topRow}>
-          <div className={styles.topLeft}>
+  return (
+    <section className={`${styles.trustSection}`}>
+      <div className={styles.gridOverlay}></div>
+      <div className={styles.container}>
+        
+        <div className={styles.header}>
+          <div className={styles.headerLeft}>
             <span className={styles.preTitle}>WHY CHOOSE US</span>
-            <motion.h2
+            <motion.h2 
               className={styles.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
             >
-              Built on <span className={styles.titleAccent}>Trust.</span>
+              Built on Trust.
             </motion.h2>
           </div>
-          <div className={styles.topRight}>
+          <div className={styles.headerRight}>
             <p className={styles.subtitle}>
-              15+ years of serving Chennai's finest events with heart, skill, and devotion. 
-              We don't just cater — we create memories.
+              Chennai's most reliable catering partner since day one.<br/> Experience flawless service and exceptional taste.
             </p>
           </div>
         </div>
 
-        {/* Middle: Big stat + Image + Features grid */}
-        <div className={styles.mainGrid}>
-
-          {/* Left: Big image card */}
-          <motion.div
-            className={styles.imageCard}
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <img src="/gallery/buffet_setup_1785684198318.png" alt="Our Catering Setup" className={styles.trustImage} />
-            <div className={styles.imageOverlay}>
-              <div className={styles.imageStat}>
-                <span className={styles.imageStatNum}>500+</span>
-                <span className={styles.imageStatLabel}>Events Served</span>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right: Feature list */}
-          <div className={styles.featuresCol}>
-            {features.map((f, i) => (
-              <motion.div
-                key={f.id}
-                className={styles.featureRow}
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-              >
-                <div className={styles.featureIcon}>{f.icon}</div>
-                <div className={styles.featureText}>
-                  <h3 className={styles.featureTitle}>{f.title}</h3>
-                  <p className={styles.featureDesc}>{f.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Bottom: Stat bar */}
-        <div className={styles.statBar}>
-          {[
-            { num: "15+", label: "Years of Experience" },
-            { num: "500+", label: "Events Completed" },
-            { num: "10K+", label: "Happy Guests" },
-            { num: "4.9★", label: "Average Rating" },
-          ].map((s, i) => (
-            <motion.div
-              key={i}
-              className={styles.statBarItem}
-              initial={{ opacity: 0, y: 15 }}
+        <div className={styles.featuresGrid}>
+          {trustFeatures.map((feature, index) => (
+            <motion.div 
+              key={feature.id}
+              className={styles.featureCard}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
             >
-              <span className={styles.statBarNum}>{s.num}</span>
-              <span className={styles.statBarLabel}>{s.label}</span>
+              <div className={styles.cardHeader}>
+                <div className={styles.iconBox}>{feature.icon}</div>
+                <span className={styles.bgNumber}>{feature.id}</span>
+              </div>
+              <h3 className={styles.featureTitle}>{feature.title}</h3>
+              <p className={styles.featureDesc}>{feature.desc}</p>
             </motion.div>
           ))}
         </div>

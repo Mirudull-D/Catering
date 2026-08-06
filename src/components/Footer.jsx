@@ -116,7 +116,12 @@ export default function Footer() {
 
           {/* Bottom bar */}
           <div className={styles.bottomBar}>
-            <p className={styles.copyright}>© 2025 Sri Sankara Catering Services. All rights reserved.</p>
+            <p className={styles.copyright}>© 2026 Sri Sankara Catering Services. All rights reserved.</p>
+
+            <div className={styles.poweredByCenter}>
+              Powered by <a href="https://www.cenexasystems.com" target="_blank" rel="noopener noreferrer" className={styles.cenexaLink}>Cenexa Systems</a> © 2026
+            </div>
+
             <div className={styles.bottomLinks}>
               <a href="#">Privacy Policy</a>
               <a href="#">Terms of Service</a>

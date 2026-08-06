@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import SplashScreen from "../components/SplashScreen";
 import HeroSection from "../components/HeroSection";
+import InteractiveMenuExplorer from "../components/InteractiveMenuExplorer";
 import ProcessSection from "../components/ProcessSection";
 import FoodHighlightSection from "../components/FoodHighlightSection";
+import InteractiveDishPoll from "../components/InteractiveDishPoll";
 import ServicesSection from "../components/ServicesSection";
 import GallerySection from "../components/GallerySection";
 import TestimonialsSection from "../components/TestimonialsSection";
@@ -22,24 +24,30 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      <AnimatePresence mode="wait">
+    <LayoutGroup>
+      <AnimatePresence>
         {showSplash && <SplashScreen key="splash" />}
       </AnimatePresence>
 
       {!showSplash && (
-        <main>
+        <motion.main 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+        >
           <HeroSection />
+          <InteractiveMenuExplorer />
           <ProcessSection />
           <FoodHighlightSection />
+          <InteractiveDishPoll />
           <ServicesSection />
           <GallerySection />
           <TestimonialsSection />
           <BookingSection />
           <Footer />
           <FloatingActions />
-        </main>
+        </motion.main>
       )}
-    </>
+    </LayoutGroup>
   );
 }
