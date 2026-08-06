@@ -2,73 +2,115 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import { useBooking } from '../context/BookingContext';
 import styles from './HeroSection.module.css';
 import Link from 'next/link';
 
 export default function HeroSection() {
   const { t } = useLanguage();
+  const { openBookingModal } = useBooking();
 
   return (
-    <section className={styles.hero}>
-      <div className={styles.heroBg}>
-        <div className={styles.overlay}></div>
-        {/* We use an img tag for background to keep it simple, but styled as object-fit cover */}
-        <img src="/hero-image.png" alt="Catering Background" className={styles.bgImage} />
-      </div>
-
+    <section className={`${styles.hero} bg-grid`}>
       <div className={styles.heroContent}>
+        
+        {/* Left: Text */}
         <div className={styles.textContainer}>
+          <div className={styles.badge}>
+            <span className={styles.badgeDot}></span>
+            Premium Catering Services · Chennai
+          </div>
+
           <motion.h1 
             className={styles.heroTitle}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
           >
-            {t('heroHeadline1')} <span className={styles.highlight}>{t('heroHeadline2')}</span>
+            Experience <br />
+            pure <span className={styles.highlight}>culinary<br />joy.</span>
           </motion.h1>
           
           <motion.p 
             className={styles.heroDescription}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.25 }}
           >
-            {t('heroDesc')}
+            Premium catering for weddings, corporate events, and celebrations — delivered with devotion.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            className={styles.ctaRow}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
           >
-            <Link href="#gallery" className={`${styles.primaryButton} shimmer-btn`}>
-              {t('gallery')}
+            <button className={styles.primaryButton} onClick={openBookingModal}>
+              Book Your Event <span className={styles.arrow}>→</span>
+            </button>
+            <Link href="#services" className={styles.secondaryButton}>
+              Our Services
             </Link>
           </motion.div>
+
+          <div className={styles.heroStats}>
+            <div className={styles.statItem}>
+              <h3 className={styles.statNum}>15<span className={styles.statPlus}>+</span></h3>
+              <p className={styles.statLabel}>YEARS EXP.</p>
+            </div>
+            <div className={styles.statDivider}></div>
+            <div className={styles.statItem}>
+              <h3 className={styles.statNum}>500<span className={styles.statPlus}>+</span></h3>
+              <p className={styles.statLabel}>EVENTS DONE</p>
+            </div>
+            <div className={styles.statDivider}></div>
+            <div className={styles.statItem}>
+              <h3 className={styles.statNum}>10K<span className={styles.statPlus}>+</span></h3>
+              <p className={styles.statLabel}>GUESTS SERVED</p>
+            </div>
+          </div>
         </div>
 
+        {/* Right: Deity Image */}
         <div className={styles.imageContainer}>
           <motion.div 
-            className={styles.decorativeFrame}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
+            className={styles.deityFrame}
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, delay: 0.2 }}
           >
-            <motion.img
-              src="/deity.png"
-              alt="Murugan Blessing"
-              layoutId="deity-image"
-              className={styles.heroImage}
-              transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            />
+            <img src="/deity.png" alt="Divine Blessing" className={styles.deityImage} />
+
+            {/* Floating review badge */}
+            <motion.div 
+              className={styles.floatingReview}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1 }}
+            >
+              <div className={styles.stars}>⭐⭐⭐⭐⭐</div>
+              <p className={styles.reviewText}>"The most delicious catering experience ever."</p>
+              <p className={styles.reviewAuthor}>— Ananya S., Wedding Client</p>
+            </motion.div>
+
+            {/* Floating badge top */}
+            <motion.div
+              className={styles.floatingBadge}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 1.1 }}
+            >
+              <span className={styles.badgeIcon}>🍛</span>
+              <div>
+                <p className={styles.badgeLabel}>Authentic Cuisine</p>
+                <p className={styles.badgeSub}>South Indian & Multi-Cuisine</p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
-      </div>
 
+      </div>
     </section>
   );
 }

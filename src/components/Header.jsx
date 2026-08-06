@@ -3,10 +3,12 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext';
+import { useBooking } from '../context/BookingContext';
 import styles from './Header.module.css';
 
 export default function Header() {
   const { lang, toggleLanguage, t } = useLanguage();
+  const { openBookingModal } = useBooking();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -42,7 +44,7 @@ export default function Header() {
       </button>
 
       <nav className={`${styles.nav} ${isMobileMenuOpen ? styles.mobileOpen : ''}`}>
-        <Link href="#about" className={styles.navLink} onClick={closeMenu}>{t('about')}</Link>
+        <Link href="#services" className={styles.navLink} onClick={closeMenu}>Services</Link>
         <Link href="#gallery" className={styles.navLink} onClick={closeMenu}>{t('gallery')}</Link>
         <Link href="#testimonials" className={styles.navLink} onClick={closeMenu}>{t('testimonials')}</Link>
         <Link href="#contact" className={styles.navLink} onClick={closeMenu}>{t('contact')}</Link>
@@ -51,9 +53,15 @@ export default function Header() {
           <button className={styles.langToggle} onClick={toggleLanguage}>
             {lang === 'en' ? 'தமிழ்' : 'English'}
           </button>
-          <Link href="#contact" className={`${styles.ctaButton} shimmer-btn`} onClick={closeMenu}>
+          <button 
+            className={styles.ctaButton} 
+            onClick={() => {
+              closeMenu();
+              openBookingModal();
+            }}
+          >
             {t('bookNow')}
-          </Link>
+          </button>
         </div>
       </nav>
     </header>

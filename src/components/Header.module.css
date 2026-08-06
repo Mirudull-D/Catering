@@ -11,7 +11,6 @@
   background-color: transparent;
   z-index: 1000;
   transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header.scrolled {
@@ -23,21 +22,17 @@
 }
 
 .logo a {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-white);
+  font-weight: 800;
+  color: var(--color-black);
   display: flex;
   align-items: center;
   transition: color 0.3s ease;
 }
 
-.header.scrolled .logo a {
-  color: var(--color-royal-blue);
-}
-
 .logoDot {
-  color: var(--color-gold);
+  color: var(--color-blue);
   font-size: 2rem;
   line-height: 0;
   margin-left: 2px;
@@ -45,21 +40,17 @@
 
 .nav {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: center;
 }
 
 .navLink {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-main);
   position: relative;
   transition: color 0.2s ease;
-}
-
-.header.scrolled .navLink {
-  color: var(--color-text-main);
 }
 
 .navLink::after {
@@ -69,16 +60,12 @@
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: var(--color-gold);
+  background-color: var(--color-blue);
   transition: width 0.3s ease;
 }
 
 .navLink:hover {
-  color: var(--color-gold);
-}
-
-.header.scrolled .navLink:hover {
-  color: var(--color-royal-blue);
+  color: var(--color-blue);
 }
 
 .navLink:hover::after {
@@ -93,12 +80,12 @@
 }
 
 .langToggle {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--color-white);
+  color: var(--color-text-main);
   padding: 0.5rem 1.2rem;
-  border: 1px solid var(--color-white);
+  border: 1px solid rgba(0,0,0,0.1);
   border-radius: 999px;
   transition: all 0.2s;
   background: transparent;
@@ -108,23 +95,14 @@
   min-height: 44px;
 }
 
-.header.scrolled .langToggle {
-  color: var(--color-royal-blue);
-  border-color: var(--color-royal-blue);
-}
-
 .langToggle:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.header.scrolled .langToggle:hover {
-  background-color: var(--color-blue-light);
+  background-color: var(--color-off-white);
 }
 
 .ctaButton {
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--color-gold);
-  color: var(--color-blue-dark);
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-black);
+  color: var(--color-white);
   padding: 0.6rem 1.5rem;
   border-radius: 999px;
   font-weight: 600;
@@ -133,38 +111,25 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: none;
+  border: 1px solid var(--color-black);
   min-height: 44px;
 }
 
-.header.scrolled .ctaButton {
-  background-color: var(--color-royal-blue);
-  color: var(--color-white);
-}
-
 .ctaButton:hover {
-  background-color: var(--color-shimmer);
+  background-color: var(--color-blue);
+  border-color: var(--color-blue);
   transform: translateY(-2px);
-}
-
-.header.scrolled .ctaButton:hover {
-  background-color: var(--color-blue-dark);
-  color: var(--color-white);
 }
 
 .menuButton {
   display: none;
   font-size: 1.5rem;
-  color: var(--color-white);
+  color: var(--color-black);
   z-index: 1001;
   background: transparent;
   border: none;
   width: 44px;
   height: 44px;
-}
-
-.header.scrolled .menuButton {
-  color: var(--color-royal-blue);
 }
 
 /* Mobile Responsive */
@@ -199,6 +164,7 @@
   
   .navLink {
     font-size: 1.25rem;
+    color: var(--color-black);
   }
   
   .actions {
@@ -207,4 +173,3 @@
     margin-top: 1rem;
   }
 }
-

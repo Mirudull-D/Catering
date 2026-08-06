@@ -10,80 +10,13 @@ export default function BookingSection() {
   return (
     <section id="contact" className={styles.bookingSection}>
       <div className={styles.container}>
-        {/* Enquiry Form Sub-section */}
-        <div className={styles.formSection}>
-          <motion.div 
-            className={styles.header}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className={styles.tagline}>{t('contactTag') || 'Enquiry'}</span>
-            <h2 className={styles.sectionTitle}>{t('contactTitle')}</h2>
-            <p className={styles.sectionDesc}>{t('contactDesc')}</p>
-          </motion.div>
-
-          <motion.div 
-            className={styles.formContainer}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
-              <div className={styles.formGroup}>
-                <label htmlFor="name">{t('formName')}</label>
-                <input type="text" id="name" className={styles.input} required />
-              </div>
-              
-              <div className={styles.formRow}>
-                <div className={styles.formGroup}>
-                  <label htmlFor="date">{t('formDate')}</label>
-                  <input type="date" id="date" className={styles.input} required />
-                </div>
-                <div className={styles.formGroup}>
-                  <label htmlFor="guests">{t('formGuests')}</label>
-                  <input type="number" id="guests" min="50" className={styles.input} required />
-                </div>
-              </div>
-              
-              <div className={styles.formGroup}>
-                <label htmlFor="type">{t('formType')}</label>
-                <select id="type" className={styles.input} required>
-                  <option value="">Select an option</option>
-                  <option value="wedding">{t('service1')}</option>
-                  <option value="corporate">{t('service2')}</option>
-                  <option value="party">{t('service3')}</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              
-              <div className={styles.formGroup}>
-                <label htmlFor="message">{t('formMessage')}</label>
-                <textarea id="message" rows="4" className={styles.textarea}></textarea>
-              </div>
-              
-              <button type="submit" className={`${styles.submitBtn} shimmer-btn`}>
-                {t('submitForm')}
-              </button>
-            </form>
-          </motion.div>
-        </div>
-
-        {/* Location Sub-section (Matching Screenshot) */}
+        
         <div className={styles.locationSection}>
-          <motion.div 
-            className={styles.header}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className={styles.tagline}>{t('locationTag') || 'Visit Us'}</span>
-            <h2 className={styles.sectionTitle}>{t('locationTitle') || 'Our Store Location'}</h2>
-            <p className={styles.sectionDesc}>{t('locationDesc') || 'Come experience our premium catering services in person'}</p>
-          </motion.div>
+          <div className={styles.header}>
+            <span className={styles.preTitle}>VISIT US</span>
+            <h2 className={styles.sectionTitle}>Our Location</h2>
+            <p className={styles.sectionDesc}>Come experience our premium catering services in person</p>
+          </div>
 
           <motion.div 
             className={styles.mapWrapper}
@@ -109,36 +42,43 @@ export default function BookingSection() {
               rel="noopener noreferrer" 
               className={styles.openMapBtn}
             >
-              <span>📍</span> {t('openInMap') || 'Open in Map'}
+              Open in Maps →
             </a>
           </motion.div>
 
           <div className={styles.locationCards}>
             <div className={styles.locationCard}>
-              <div className={styles.cardIcon}>📍</div>
+              <div className={styles.cardIcon}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
               <div className={styles.cardText}>
-                <h4>{t('address')}</h4>
+                <h4>Address</h4>
                 <p>123 Catering St, Chennai, TN</p>
               </div>
             </div>
 
             <div className={styles.locationCard}>
-              <div className={styles.cardIcon}>🕒</div>
+              <div className={styles.cardIcon}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
               <div className={styles.cardText}>
-                <h4>{t('hours') || 'Business Hours'}</h4>
+                <h4>Business Hours</h4>
                 <p>Monday – Sunday<br />10:00 AM – 8:00 PM</p>
               </div>
             </div>
 
             <div className={styles.locationCard}>
-              <div className={styles.cardIcon}>📞</div>
+              <div className={styles.cardIcon}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
               <div className={styles.cardText}>
-                <h4>{t('phone')}</h4>
+                <h4>Phone</h4>
                 <p>+91 98765 43210<br />+91 98765 43211</p>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

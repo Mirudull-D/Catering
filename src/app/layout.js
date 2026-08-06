@@ -1,6 +1,8 @@
 import './globals.css';
 import Header from '../components/Header';
 import { LanguageProvider } from '../context/LanguageContext';
+import { BookingProvider } from '../context/BookingContext';
+import BookingModalWrapper from '../components/BookingModalWrapper';
 
 export const metadata = {
   title: 'Sri Sankara Catering Services | Premium Catering',
@@ -12,8 +14,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <LanguageProvider>
-          <Header />
-          {children}
+          <BookingProvider>
+            <Header />
+            {children}
+            <BookingModalWrapper />
+          </BookingProvider>
         </LanguageProvider>
       </body>
     </html>
