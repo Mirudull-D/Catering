@@ -495,7 +495,7 @@
 
 .particle3 {
   top: 40%;
-  left: -5%;
+  left: 2%;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -508,7 +508,7 @@
 @media (max-width: 968px) {
   .heroContent {
     grid-template-columns: 1fr;
-    padding: 8rem 2rem 4rem;
+    padding: 8rem 1.25rem 4rem;
     text-align: center;
     gap: 2.5rem;
   }
@@ -563,5 +563,12 @@
   .dishImageWrap {
     width: 100%;
     height: 120px;
+  }
+
+  /* Hide floating particles on mobile to avoid overflow */
+  .particle1,
+  .particle2,
+  .particle3 {
+    display: none;
   }
 }

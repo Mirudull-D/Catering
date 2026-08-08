@@ -1,38 +1,33 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
+import { getGalleryImages } from '../lib/supabase';
 import styles from './GallerySection.module.css';
-
-const images = [
-  { id: 1, src: '/gallery/south_indian_meals_1785684185063.png', alt: 'South Indian Meals' },
-  { id: 2, src: '/gallery/buffet_setup_1785684198318.png', alt: 'Buffet Setup' },
-  { id: 3, src: '/gallery/dessert_platter_1785684210041.png', alt: 'Dessert Platter' },
-  { id: 4, src: '/gallery/live_counter_1785684260521.png', alt: 'Live Counter' },
-  { id: 5, src: '/gallery/wedding_catering.png', alt: 'Wedding Catering' },
-  { id: 6, src: '/gallery/corporate_catering.png', alt: 'Corporate Catering' },
-  { id: 7, src: '/gallery/south_indian_meals_1785684185063.png', alt: 'Traditional Feast' },
-  { id: 8, src: '/gallery/buffet_setup_1785684198318.png', alt: 'Grand Buffet' },
-  { id: 9, src: '/gallery/dessert_platter_1785684210041.png', alt: 'Sweet Platters' },
-  { id: 10, src: '/gallery/live_counter_1785684260521.png', alt: 'Live Station' },
-  { id: 11, src: '/gallery/wedding_catering.png', alt: 'Wedding Setup' },
-  { id: 12, src: '/gallery/corporate_catering.png', alt: 'Office Catering' },
-  { id: 13, src: '/gallery/south_indian_meals_1785684185063.png', alt: 'Banana Leaf Meals' },
-  { id: 14, src: '/gallery/buffet_setup_1785684198318.png', alt: 'Event Buffet' },
-  { id: 15, src: '/gallery/dessert_platter_1785684210041.png', alt: 'Dessert Spread' },
-  { id: 16, src: '/gallery/live_counter_1785684260521.png', alt: 'Interactive Counter' },
-  { id: 17, src: '/gallery/wedding_catering.png', alt: 'Bridal Catering' },
-  { id: 18, src: '/gallery/corporate_catering.png', alt: 'Conference Catering' },
-  { id: 19, src: '/gallery/south_indian_meals_1785684185063.png', alt: 'Festival Meals' },
-  { id: 20, src: '/gallery/buffet_setup_1785684198318.png', alt: 'Premium Setup' },
-];
 
 export default function GallerySection() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadData() {
+      const data = await getGalleryImages();
+      setImages(data);
+      setLoading(false);
+    }
+    loadData();
+  }, []);
+
+  // Display initial 4 phone-sized compact images
+  const displayImages = images.slice(0, 4);
 
   return (
     <section id="gallery" className={styles.gallerySection}>
       <div className={styles.container}>
+
+        {/* Section Header */}
         <div className={styles.header}>
           <span className={styles.preTitle}>OUR PORTFOLIO</span>
           <motion.h2
@@ -44,31 +39,46 @@ export default function GallerySection() {
           >
             Gallery
           </motion.h2>
-          <p className={styles.sectionDesc}>A glimpse of the moments we've crafted</p>
+          <p className={styles.sectionDesc}>A glimpse of the divine culinary journeys we&apos;ve crafted</p>
         </div>
 
-        <div className={styles.grid}>
-          {images.map((img, index) => (
-            <motion.div
-              key={img.id}
-              className={styles.gridItem}
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: (index % 8) * 0.05 }}
-              onClick={() => setSelectedImage(img)}
-            >
-              <img src={img.src} alt={img.alt} loading="lazy" className={styles.image} />
-              <div className={styles.overlay}>
-                <span className={styles.expandIcon}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg>
-                </span>
-              </div>
-            </motion.div>
-          ))}
+        {/* Compact Phone-Sized Cards Grid (No text on top of images) */}
+        {loading ? (
+          <p className={styles.loadingText}>Loading gallery...</p>
+        ) : (
+          <div className={styles.grid}>
+            {displayImages.map((img, index) => (
+              <motion.div
+                key={img.id || index}
+                className={styles.gridItem}
+                initial={{ opacity: 0, scale: 0.92 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.06, duration: 0.4 }}
+                onClick={() => setSelectedImage(img)}
+              >
+                <img src={img.src} alt={img.title || 'Gallery image'} loading="lazy" className={styles.image} />
+                
+                {/* Clean Hover Overlay with Zoom Icon */}
+                <div className={styles.overlay}>
+                  <span className={styles.expandIcon}>🔍</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
+
+        {/* Open Full Gallery Page Button */}
+        <div className={styles.btnWrapper}>
+          <Link href="/gallery" scroll={true} className={styles.openFullGalleryBtn}>
+            <span>View Full Gallery Page ({images.length > 0 ? images.length : '20+'} Photos)</span>
+            <span className={styles.btnArrow}>→</span>
+          </Link>
         </div>
+
       </div>
 
+      {/* Lightbox */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
@@ -79,15 +89,21 @@ export default function GallerySection() {
             onClick={() => setSelectedImage(null)}
           >
             <button className={styles.closeLightbox}>✕</button>
-            <motion.img
-              src={selectedImage.src}
-              alt={selectedImage.alt}
-              className={styles.lightboxImage}
+            <motion.div 
+              className={styles.lightboxCard}
               initial={{ scale: 0.85 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.85 }}
               onClick={(e) => e.stopPropagation()}
-            />
+            >
+              <img src={selectedImage.src} alt={selectedImage.title || 'Gallery Image'} className={styles.lightboxImage} />
+              {selectedImage.title && (
+                <div className={styles.lightboxMeta}>
+                  <span className={styles.lightboxTag}>{selectedImage.category || 'Feast'}</span>
+                  <h3 className={styles.lightboxTitle}>{selectedImage.title}</h3>
+                </div>
+              )}
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

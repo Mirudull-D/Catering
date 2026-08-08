@@ -259,8 +259,7 @@
 /* Scrolling carousel */
 .carouselWrapper {
   position: relative;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  width: 100%;
   overflow: hidden;
   padding: 1rem 0;
 }
