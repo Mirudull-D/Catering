@@ -60,8 +60,7 @@ const translations = {
     tabNonVeg: "Non-Vegetarian",
     tabDesserts: "Desserts",
     tabLive: "Live Counters",
-    
-    // Booking / Contact Section
+       // Booking / Contact Section
     contactTitle: "Plan Your Event With Us",
     contactDesc: "Ready to start planning? Fill out the form below or reach out to us directly.",
     contactTag: "Enquiry",
@@ -79,6 +78,14 @@ const translations = {
     phone: "Phone",
     email: "Email",
     address: "Address",
+    visitUs: "visit us",
+    bookingTitle: "Experience Divine\nFlavours.",
+    bookingAddress: "No 04 Udaiyaar Street, Ninnakarai Road,\nKattankulathur, Tamil Nadu 603203",
+    bookingHours: "Mon — Sun · 10:00 AM — 9:00 PM",
+    bookingPhoneLabel: "PHONE / WHATSAPP",
+    bookingInstaLabel: "INSTAGRAM",
+    waBooking: "WhatsApp Booking",
+    directions: "Directions",
     
     // Philosophy Section
     philTitle: "Our Culinary Philosophy",
@@ -98,6 +105,25 @@ const translations = {
     step2Desc: "Our expert chefs prepare selected highlights so you can taste and perfect the menu prior to the event.",
     step3Title: "3. Flawless Execution",
     step3Desc: "From preparation to setup and service, our professional team delivers an impeccable dining experience.",
+    
+    // Gallery Page
+    portfolioTag: "OUR PORTFOLIO",
+    galleryHeading: "Gallery",
+    gallerySubText: "A glimpse of the divine culinary journeys we've crafted",
+    loadingGallery: "Loading gallery...",
+    viewFullGallery: "View Full Gallery Page",
+    photosText: "Photos",
+    completePortfolio: "OUR COMPLETE PORTFOLIO",
+    fullGallery: "Full Gallery",
+    exploreGallery: "Explore all our signature dishes, sadhya sequence spreads, live counters, and catering setups.",
+    backToHome: "← Back to Home",
+    catAll: "All",
+    catSadhya: "Sadhya",
+    catBuffet: "Buffet",
+    catLive: "Live Station",
+    catDesserts: "Desserts",
+    catWedding: "Wedding",
+    catCorporate: "Corporate",
     
     // Footer
     quickLinks: "Quick Links",
@@ -180,6 +206,14 @@ const translations = {
     phone: "தொலைபேசி",
     email: "மின்னஞ்சல்",
     address: "முகவரி",
+    visitUs: "எங்களை சந்திக்கவும்",
+    bookingTitle: "தெய்வீக சுவையை\nஅனுபவியுங்கள்.",
+    bookingAddress: "எண் 04 உடையார் தெரு, நின்னக்கரை சாலை,\nகாட்டங்குளத்தூர், தமிழ்நாடு 603203",
+    bookingHours: "திங்கள் — ஞாயிறு · காலை 10:00 — இரவு 9:00",
+    bookingPhoneLabel: "தொலைபேசி / வாட்ஸ்அப்",
+    bookingInstaLabel: "இன்ஸ்டாகிராம்",
+    waBooking: "வாட்ஸ்அப் முன்பதிவு",
+    directions: "வழிசெலுத்தல்",
     
     // Philosophy Section
     philTitle: "எங்கள் சமையல் தத்துவம்",
@@ -189,7 +223,7 @@ const translations = {
     philPoint1: "100% சுத்தமான சைவ மற்றும் தரமான பொருட்கள்",
     philPoint2: "தலைமுறைகள் கடந்த பாரம்பரிய சமையல் முறைகள்",
     philPoint3: "நவீன மற்றும் நேர்த்தியான உணவு அலங்காரம்",
-
+ 
     // Process Section
     procTitle: "எங்கள் சேவை செயல்முறை",
     procSub: "உங்கள் கனவு சமையல் அனுபவத்தை நாங்கள் எவ்வாறு உருவாக்குகிறோம்",
@@ -199,6 +233,25 @@ const translations = {
     step2Desc: "எங்கள் சமையல்காரர்கள் மெனுவை தயாரித்து, நிகழ்வுக்கு முன்பே நீங்கள் சுவைத்துப் பார்த்து இறுதி செய்ய உதவுகிறோம்.",
     step3Title: "3. நேர்த்தியான செயலாக்கம்",
     step3Desc: "தயாரிப்பு முதல் மேஜை அலங்காரம் மற்றும் சேவை வரை, எங்கள் குழு ஒரு குறைபாடற்ற உணவு அனுபவத்தை வழங்குகிறது.",
+    
+    // Gallery Page
+    portfolioTag: "எங்கள் தொகுப்பு",
+    galleryHeading: "புகைப்படங்கள்",
+    gallerySubText: "நாங்கள் உருவாக்கிய தெய்வீக சமையல் பயணங்களின் ஒரு பார்வை",
+    loadingGallery: "ஏற்றப்படுகிறது...",
+    viewFullGallery: "முழு கேலரி பக்கத்தைக் காண்க",
+    photosText: "புகைப்படங்கள்",
+    completePortfolio: "எங்கள் முழுமையான தொகுப்பு",
+    fullGallery: "முழு கேலரி",
+    exploreGallery: "எங்கள் அனைத்து சிக்னேச்சர் உணவுகள், சாத்யா விரிப்புகள், லைவ் கவுண்டர்கள் மற்றும் கேட்டரிங் அமைப்புகளை ஆராயுங்கள்.",
+    backToHome: "← முகப்புக்குத் திரும்பு",
+    catAll: "அனைத்தும்",
+    catSadhya: "சாத்யா",
+    catBuffet: "பஃபே",
+    catLive: "லைவ் ஸ்டேஷன்",
+    catDesserts: "இனிப்புகள்",
+    catWedding: "திருமணம்",
+    catCorporate: "கார்ப்பரேட்",
     
     // Footer
     quickLinks: "முக்கிய இணைப்புகள்",

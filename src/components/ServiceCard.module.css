@@ -79,3 +79,16 @@
 .card:hover .arrow {
   transform: translateX(4px);
 }
+
+@media (max-width: 640px) {
+  .cardContent {
+    padding: 1rem 0.85rem;
+  }
+  .cardTitle {
+    font-size: 1.15rem;
+    margin-bottom: 0.35rem;
+  }
+  .viewBtn {
+    font-size: 0.68rem;
+  }
+}

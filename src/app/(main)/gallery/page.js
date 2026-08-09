@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import Footer from '../../components/Footer';
-import { getGalleryImages } from '../../lib/supabase';
+import Footer from '../../../components/Footer';
+import { getGalleryImages } from '../../../lib/supabase';
+import { useLanguage } from '../../../context/LanguageContext';
 import styles from './GalleryPage.module.css';
 
 export default function FullGalleryPage() {
@@ -12,6 +13,7 @@ export default function FullGalleryPage() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { t } = useLanguage();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,7 +25,15 @@ export default function FullGalleryPage() {
     loadData();
   }, []);
 
-  const categories = ['All', 'Sadhya', 'Buffet', 'Live Station', 'Desserts', 'Wedding', 'Corporate'];
+  const categories = [
+    { id: 'All', label: t('catAll') },
+    { id: 'Sadhya', label: t('catSadhya') },
+    { id: 'Buffet', label: t('catBuffet') },
+    { id: 'Live Station', label: t('catLive') },
+    { id: 'Desserts', label: t('catDesserts') },
+    { id: 'Wedding', label: t('catWedding') },
+    { id: 'Corporate', label: t('catCorporate') }
+  ];
 
   const filteredImages = activeFilter === 'All' 
     ? images 
@@ -38,33 +48,33 @@ export default function FullGalleryPage() {
         {/* Back Link & Title */}
         <div className={styles.topBarRow}>
           <Link href="/" className={styles.backBtn}>
-            ← Back to Home
+            {t('backToHome')}
           </Link>
-          <span className={styles.itemCountBadge}>{images.length} Photos</span>
+          <span className={styles.itemCountBadge}>{images.length} {t('photosText')}</span>
         </div>
 
         <div className={styles.titleArea}>
-          <span className={styles.preTitle}>OUR COMPLETE PORTFOLIO</span>
-          <h1 className={styles.mainHeading}>Full Gallery</h1>
-          <p className={styles.subHeading}>Explore all our signature dishes, sadhya sequence spreads, live counters, and catering setups.</p>
+          <span className={styles.preTitle}>{t('completePortfolio')}</span>
+          <h1 className={styles.mainHeading}>{t('fullGallery')}</h1>
+          <p className={styles.subHeading}>{t('exploreGallery')}</p>
         </div>
 
         {/* Category Filters */}
         <div className={styles.filterBar}>
           {categories.map((cat) => (
             <button
-              key={cat}
-              className={`${styles.filterBtn} ${activeFilter === cat ? styles.filterBtnActive : ''}`}
-              onClick={() => setActiveFilter(cat)}
+              key={cat.id}
+              className={`${styles.filterBtn} ${activeFilter === cat.id ? styles.filterBtnActive : ''}`}
+              onClick={() => setActiveFilter(cat.id)}
             >
-              {cat}
+              {cat.label}
             </button>
           ))}
         </div>
 
         {/* Compact Phone-Sized Cards Grid */}
         {loading ? (
-          <p className={styles.loadingText}>Loading full gallery...</p>
+          <p className={styles.loadingText}>{t('loadingGallery')}</p>
         ) : (
           <motion.div className={styles.grid} layout>
             <AnimatePresence>

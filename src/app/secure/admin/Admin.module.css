@@ -1,0 +1,365 @@
+.adminWrap {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Login */
+.loginWrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+  padding: 2rem;
+}
+
+.loginCard {
+  background: white;
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.lockHeader {
+  margin-bottom: 2rem;
+}
+
+.lockIcon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.loginTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.loginSubtitle {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.inputGroup {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.loginBtn {
+  width: 100%;
+  padding: 0.875rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.loginBtn:hover {
+  background: #1d4ed8;
+}
+
+.errorText {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.loginFooter {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+.backHome {
+  color: #6b7280;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+/* Header */
+.adminHeader {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brandGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brandTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.badge {
+  background: #f3f4f6;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.navActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.previewBtn {
+  padding: 0.5rem 1rem;
+  background: #f3f4f6;
+  color: #374151;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.logoutBtn {
+  padding: 0.5rem 1rem;
+  background: white;
+  color: #ef4444;
+  border: 1px solid #ef4444;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+/* Main Container */
+.mainContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.managerSection {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+
+.sectionHeaderWrap {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.sectionIconWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sectionHeading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.25rem;
+}
+
+.sectionSub {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.slotsCard {
+  padding: 2rem;
+  background: #fdfdfd;
+}
+
+.slotsLabel {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #991b1b;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+/* Slots Grid - Gallery (portrait cards) */
+.slotsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Slots Grid - Video (vertical portrait) */
+.videoSlotsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.slotBox, .videoSlotBox {
+  background: #fff0f0;
+  border-radius: 16px;
+  aspect-ratio: 9 / 12;
+  position: relative;
+  overflow: hidden;
+  border: 2px dashed #fecaca;
+  display: flex;
+  flex-direction: column;
+}
+
+.videoSlotBox {
+  background: #f9fafb;
+  border-color: #e5e7eb;
+  aspect-ratio: 9 / 16;
+}
+
+.slotHeader {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.slotName {
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.slotActive {
+  background: #10b981;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.slotEmpty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.slotEmpty:hover {
+  background: rgba(255,255,255,0.5);
+}
+
+.hiddenFileInput {
+  display: none;
+}
+
+.uploadIcon {
+  margin-bottom: 0.5rem;
+}
+
+.uploadText {
+  color: #fca5a5;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.slotFilled {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slotImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slotOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.slotFilled:hover .slotOverlay {
+  opacity: 1;
+}
+
+.slotDeleteBtn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.slotDeleteBtn:hover {
+  background: #dc2626;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .slotsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .videoSlotsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .slotsGrid, .videoSlotsGrid {
+    grid-template-columns: 1fr;
+  }
+  .sectionHeaderWrap {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

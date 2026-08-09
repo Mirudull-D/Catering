@@ -7,7 +7,14 @@ const BookingContext = createContext();
 export function BookingProvider({ children }) {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
-  const openBookingModal = () => setIsBookingModalOpen(true);
+  const openBookingModal = () => {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      setIsBookingModalOpen(true);
+    }
+  };
   const closeBookingModal = () => setIsBookingModalOpen(false);
 
   return (

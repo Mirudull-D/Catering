@@ -51,10 +51,11 @@
 
 @media (max-width: 640px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
   }
   .sectionTitle {
-    font-size: 2.5rem;
+    font-size: 1.85rem;
   }
 }
 
@@ -146,26 +147,96 @@
   font-weight: bold;
 }
 
+.headerActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.brochureHeaderBtn {
+  background-color: #1e293b;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.brochureHeaderBtn:hover {
+  background-color: var(--color-blue);
+  transform: translateY(-2px);
+}
+
+.whatsappHeaderBtn {
+  background-color: #25d366;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+}
+
+.whatsappHeaderBtn:hover {
+  background-color: #128c7e;
+  transform: translateY(-2px);
+}
+
 .modalActions {
   display: flex;
   justify-content: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .downloadBtn {
   background-color: var(--color-black);
   color: var(--color-white);
-  padding: 1rem 2rem;
+  padding: 0.85rem 1.5rem;
   border-radius: 999px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  border: none;
+  cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .downloadBtn:hover {
   background-color: var(--color-blue);
+  transform: translateY(-2px);
+}
+
+.whatsappBtn {
+  background-color: #25d366;
+  color: #ffffff;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.whatsappBtn:hover {
+  background-color: #128c7e;
   transform: translateY(-2px);
 }
 

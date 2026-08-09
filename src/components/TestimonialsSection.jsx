@@ -1,24 +1,17 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { getGalleryImages, getCustomerReviews, saveCustomerReview } from '../lib/supabase';
 import styles from './TestimonialsSection.module.css';
 
-const videoTestimonials = [
-  { id: 1, title: 'A Memorable Wedding', name: 'Priya & Karthik', thumb: '/gallery/wedding_catering.png' },
-  { id: 2, title: 'Corporate Excellence', name: 'Tech Mahindra Chennai', thumb: '/gallery/corporate_catering.png' },
-  { id: 3, title: 'Delightful Desserts', name: 'Swetha R.', thumb: '/gallery/dessert_platter_1785684210041.png' },
-  { id: 4, title: 'Live Counter Magic', name: 'Ravi Family Event', thumb: '/gallery/live_counter_1785684260521.png' },
-  { id: 5, title: 'Traditional Sadhya', name: 'Murugan Wedding', thumb: '/gallery/south_indian_meals_1785684185063.png' },
-  { id: 6, title: 'Flawless Execution', name: 'Suresh Silver Jubilee', thumb: '/gallery/buffet_setup_1785684198318.png' },
-];
-
-const initialReviews = [
-  { id: 1, name: 'Ananya S.', event: 'Wedding Sadhya', text: 'The food was absolutely divine! Every guest complimented the traditional sadhya. The service was impeccable.', rating: 5 },
-  { id: 2, name: 'Rahul M.', event: 'Corporate Banquet', text: 'Professional, punctual, and delicious. They handled our 500-person conference with ease. Highly recommended.', rating: 5 },
-  { id: 3, name: 'Kavita R.', event: 'Birthday Party', text: 'The live dosa counter was a huge hit. Great taste and very hygienic setup. Would book again!', rating: 5 },
-  { id: 4, name: 'Vikram K.', event: 'Silver Jubilee', text: 'They made our silver jubilee unforgettable. The dessert platter was completely out of this world!', rating: 5 },
-  { id: 5, name: 'Priya K.', event: 'Engagement', text: 'Excellent coordination, polite staff, and warm, delicious traditional food. Highly recommended!', rating: 5 },
+const defaultVideoTestimonials = [
+  { id: 'default-1', title: 'A Memorable Wedding', thumb: '/gallery/wedding_catering.png' },
+  { id: 'default-2', title: 'Corporate Excellence', thumb: '/gallery/corporate_catering.png' },
+  { id: 'default-3', title: 'Delightful Desserts', thumb: '/gallery/dessert_platter_1785684210041.png' },
+  { id: 'default-4', title: 'Live Counter Magic', thumb: '/gallery/live_counter_1785684260521.png' },
+  { id: 'default-5', title: 'Traditional Sadhya', thumb: '/gallery/south_indian_meals_1785684185063.png' },
+  { id: 'default-6', title: 'Flawless Execution', thumb: '/gallery/buffet_setup_1785684198318.png' },
 ];
 
 function StarRating({ value, onChange }) {
@@ -37,18 +30,36 @@ function StarRating({ value, onChange }) {
 }
 
 export default function TestimonialsSection() {
-  const [reviews, setReviews] = useState(initialReviews);
+  const [reviews, setReviews] = useState([]);
+  const [videos, setVideos] = useState(defaultVideoTestimonials);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({ name: '', event: '', text: '', rating: 5 });
 
+  useEffect(() => {
+    async function loadData() {
+      const allData = await getGalleryImages();
+      const customVideos = (allData || []).filter(item => item.category === 'Video');
+      if (customVideos.length > 0) {
+        setVideos(customVideos);
+      }
+
+      const revData = await getCustomerReviews();
+      setReviews(revData || []);
+    }
+    loadData();
+  }, []);
+
   const duplicated = [...reviews, ...reviews];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.text) return;
-    setReviews(prev => [{ ...formData, id: Date.now() }, ...prev]);
+
+    const saved = await saveCustomerReview(formData);
+    setReviews(prev => [saved, ...prev]);
     setFormData({ name: '', event: '', text: '', rating: 5 });
     setShowForm(false);
+    alert('Thank you! Your review has been published.');
   };
 
   return (
@@ -60,13 +71,13 @@ export default function TestimonialsSection() {
           <div className={styles.sectionHeader}>
             <div>
               <span className={styles.preTitle}>REAL STORIES</span>
-              <h2 className={styles.sectionTitle}>Video Testimonials</h2>
+              <h2 className={styles.sectionTitle}>Video Showcase</h2>
             </div>
           </div>
           <div className={styles.videoGrid}>
-            {videoTestimonials.map((v, i) => (
+            {videos.map((v, i) => (
               <motion.div
-                key={v.id}
+                key={v.id || i}
                 className={styles.reelCard}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -74,15 +85,15 @@ export default function TestimonialsSection() {
                 transition={{ delay: i * 0.08, duration: 0.5 }}
               >
                 <div className={styles.reelThumb}>
-                  <img src={v.thumb} alt={v.title} loading="lazy" />
+                  {v.src && (v.src.endsWith('.mp4') || v.src.endsWith('.webm') || v.src.endsWith('.mov') || v.src.startsWith('data:video')) ? (
+                    <video src={v.src} autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  ) : (
+                    <img src={v.thumb || v.src} alt={v.title || 'Video Showcase'} loading="lazy" />
+                  )}
                   <div className={styles.reelOverlay}>
                     <div className={styles.playBtn}>
                       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
                     </div>
-                  </div>
-                  <div className={styles.reelMeta}>
-                    <p className={styles.reelTitle}>{v.title}</p>
-                    <p className={styles.reelName}>{v.name}</p>
                   </div>
                 </div>
               </motion.div>

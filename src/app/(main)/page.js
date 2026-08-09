@@ -2,18 +2,18 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
-import SplashScreen from "../components/SplashScreen";
-import HeroSection from "../components/HeroSection";
-import InteractiveMenuExplorer from "../components/InteractiveMenuExplorer";
-import ProcessSection from "../components/ProcessSection";
-import FoodHighlightSection from "../components/FoodHighlightSection";
-import InteractiveDishPoll from "../components/InteractiveDishPoll";
-import ServicesSection from "../components/ServicesSection";
-import GallerySection from "../components/GallerySection";
-import TestimonialsSection from "../components/TestimonialsSection";
-import BookingSection from "../components/BookingSection";
-import Footer from "../components/Footer";
-import FloatingActions from "../components/FloatingActions";
+import SplashScreen from "../../components/SplashScreen";
+import HeroSection from "../../components/HeroSection";
+import InteractiveMenuExplorer from "../../components/InteractiveMenuExplorer";
+import ProcessSection from "../../components/ProcessSection";
+import FoodHighlightSection from "../../components/FoodHighlightSection";
+import InteractiveDishPoll from "../../components/InteractiveDishPoll";
+import ServicesSection from "../../components/ServicesSection";
+import GallerySection from "../../components/GallerySection";
+import TestimonialsSection from "../../components/TestimonialsSection";
+import BookingSection from "../../components/BookingSection";
+import Footer from "../../components/Footer";
+import FloatingActions from "../../components/FloatingActions";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);

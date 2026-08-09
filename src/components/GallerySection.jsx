@@ -4,12 +4,14 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { getGalleryImages } from '../lib/supabase';
+import { useLanguage } from '../context/LanguageContext';
 import styles from './GallerySection.module.css';
 
 export default function GallerySection() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { t } = useLanguage();
 
   useEffect(() => {
     async function loadData() {
@@ -29,7 +31,7 @@ export default function GallerySection() {
 
         {/* Section Header */}
         <div className={styles.header}>
-          <span className={styles.preTitle}>OUR PORTFOLIO</span>
+          <span className={styles.preTitle}>{t('portfolioTag')}</span>
           <motion.h2
             className={styles.sectionTitle}
             initial={{ opacity: 0, y: 15 }}
@@ -37,14 +39,14 @@ export default function GallerySection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Gallery
+            {t('galleryHeading')}
           </motion.h2>
-          <p className={styles.sectionDesc}>A glimpse of the divine culinary journeys we&apos;ve crafted</p>
+          <p className={styles.sectionDesc}>{t('gallerySubText')}</p>
         </div>
 
         {/* Compact Phone-Sized Cards Grid (No text on top of images) */}
         {loading ? (
-          <p className={styles.loadingText}>Loading gallery...</p>
+          <p className={styles.loadingText}>{t('loadingGallery')}</p>
         ) : (
           <div className={styles.grid}>
             {displayImages.map((img, index) => (
@@ -71,7 +73,7 @@ export default function GallerySection() {
         {/* Open Full Gallery Page Button */}
         <div className={styles.btnWrapper}>
           <Link href="/gallery" scroll={true} className={styles.openFullGalleryBtn}>
-            <span>View Full Gallery Page ({images.length > 0 ? images.length : '20+'} Photos)</span>
+            <span>{t('viewFullGallery')} ({images.length > 0 ? images.length : '20+'} {t('photosText')})</span>
             <span className={styles.btnArrow}>→</span>
           </Link>
         </div>
