@@ -16,27 +16,27 @@ export default function Footer() {
       <div className={styles.ctaBannerWrap}>
         <div className={styles.ctaBanner}>
           <div className={styles.ctaBannerLeft}>
-            <span className={styles.ctaTag}>START PLANNING</span>
+            <span className={styles.ctaTag}>{t('startPlanningTag')}</span>
             <h2 className={styles.ctaTitle}>
-              Ready to make your event unforgettable?
+              {t('readyTitle')}
             </h2>
             <p className={styles.ctaDesc}>
-              Talk to our team — custom menus, full-service setup, and a team that cares.
+              {t('readySub')}
             </p>
             <div className={styles.ctaBtnRow}>
               <button className={styles.ctaPrimary} onClick={openBookingModal}>
-                Book Your Event →
+                {t('bookEventBtn')} →
               </button>
               <a href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919840874966'}`} target="_blank" rel="noopener noreferrer" className={styles.ctaWA}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                WhatsApp Us
+                {t('whatsappUsBtn')}
               </a>
             </div>
           </div>
           <div className={styles.ctaBannerRight}>
             <div className={styles.ctaImageStack}>
               <img src="/gallery/wedding_catering.png" alt="Wedding" className={styles.stackImg1} />
-              <img src="/gallery/buffet_setup_1785684198318.png" alt="Buffet" className={styles.stackImg2} />
+              <img src="/gallery/buffet_setup_1785684185063.png" alt="Buffet" className={styles.stackImg2} />
             </div>
           </div>
         </div>
@@ -72,24 +72,24 @@ export default function Footer() {
 
             {/* Quick links */}
             <div className={styles.linksCol}>
-              <h4 className={styles.colTitle}>Quick Links</h4>
+              <h4 className={styles.colTitle}>{t('quickLinks')}</h4>
               <ul className={styles.linkList}>
                 {[
-                  { label: 'Services', href: '#services' },
-                  { label: 'Gallery', href: '#gallery' },
-                  { label: 'Testimonials', href: '#testimonials' },
-                  { label: 'Location', href: '#contact' },
+                  { label: t('services'), href: '#services' },
+                  { label: t('gallery'), href: '#gallery' },
+                  { label: t('testimonials'), href: '#testimonials' },
+                  { label: t('contact'), href: '#contact' },
                 ].map(l => (
-                  <li key={l.label}><Link href={l.href}>{l.label}</Link></li>
+                  <li key={l.href}><Link href={l.href}>{l.label}</Link></li>
                 ))}
               </ul>
             </div>
 
             {/* Services */}
             <div className={styles.linksCol}>
-              <h4 className={styles.colTitle}>Services</h4>
+              <h4 className={styles.colTitle}>{t('services')}</h4>
               <ul className={styles.linkList}>
-                {['Wedding Catering', 'Corporate Events', 'Birthday Parties', 'Live Counters', 'Custom Buffets', 'South Indian Sadhya'].map(s => (
+                {[t('service1'), t('service2'), t('service3'), t('service4'), t('service5'), t('service6')].map(s => (
                   <li key={s}><Link href="#services">{s}</Link></li>
                 ))}
               </ul>
@@ -97,7 +97,7 @@ export default function Footer() {
 
             {/* Contact */}
             <div className={styles.contactCol}>
-              <h4 className={styles.colTitle}>Contact Us</h4>
+              <h4 className={styles.colTitle}>{t('contact')}</h4>
               <div className={styles.contactList}>
                 <div className={styles.contactItem}>
                   <span className={styles.contactIcon}>

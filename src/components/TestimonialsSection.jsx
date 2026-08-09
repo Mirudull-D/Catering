@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 import { getGalleryImages, getCustomerReviews, saveCustomerReview } from '../lib/supabase';
 import styles from './TestimonialsSection.module.css';
 
@@ -30,6 +31,7 @@ function StarRating({ value, onChange }) {
 }
 
 export default function TestimonialsSection() {
+  const { t } = useLanguage();
   const [reviews, setReviews] = useState([]);
   const [videos, setVideos] = useState(defaultVideoTestimonials);
   const [showForm, setShowForm] = useState(false);
@@ -70,8 +72,8 @@ export default function TestimonialsSection() {
         <div className={styles.videoSection}>
           <div className={styles.sectionHeader}>
             <div>
-              <span className={styles.preTitle}>REAL STORIES</span>
-              <h2 className={styles.sectionTitle}>Video Showcase</h2>
+              <span className={styles.preTitle}>{t('realStoriesTag')}</span>
+              <h2 className={styles.sectionTitle}>{t('videoShowcaseTitle')}</h2>
             </div>
           </div>
           <div className={styles.videoGrid}>
@@ -105,11 +107,11 @@ export default function TestimonialsSection() {
         <div className={styles.reviewSection}>
           <div className={styles.sectionHeader}>
             <div>
-              <span className={styles.preTitle}>WHAT THEY SAY</span>
-              <h2 className={styles.sectionTitle}>Customer Reviews</h2>
+              <span className={styles.preTitle}>{t('socialProofTag')}</span>
+              <h2 className={styles.sectionTitle}>{t('testimonialsTitle')}</h2>
             </div>
             <button className={styles.addReviewBtn} onClick={() => setShowForm(!showForm)}>
-              {showForm ? 'Cancel' : '+ Write a Review'}
+              {showForm ? 'Cancel' : `+ ${t('writeReview')}`}
             </button>
           </div>
 

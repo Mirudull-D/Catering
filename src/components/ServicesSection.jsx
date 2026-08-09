@@ -105,13 +105,13 @@ export default function ServicesSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Our Services
+            {t('servicesTitle')}
           </motion.h2>
-          <p className={styles.sectionDesc}>Choose the perfect catering package for your special occasion. View or download our official brochure PDF below.</p>
+          <p className={styles.sectionDesc}>{t('servicesSub')}</p>
           
           <div className={styles.headerActions}>
             <button className={styles.brochureHeaderBtn} onClick={handleGlobalBrochurePrint}>
-              📄 Download Brochure PDF
+              📄 {t('downloadBrochure')}
             </button>
             <a 
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hi Sri Sankara Catering, I would like to inquire about your catering services.')}`}
@@ -119,7 +119,7 @@ export default function ServicesSection() {
               rel="noopener noreferrer"
               className={styles.whatsappHeaderBtn}
             >
-              💬 Contact via WhatsApp
+              💬 {t('contactWhatsapp')}
             </a>
           </div>
         </div>

@@ -80,7 +80,7 @@ export default function HeroSection() {
             transition={{ duration: 0.5 }}
           >
             <span className={styles.badgeDot}></span>
-            Premium Catering Services · Chennai
+            {t('heroBadge')}
           </motion.div>
 
           <motion.h1
@@ -89,8 +89,8 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            Crafting <br />
-            divine <span className={styles.highlight}>feasts<br />for you.</span>
+            {t('heroTitle1')} <br />
+            {t('heroTitle2')} <span className={styles.highlight}>{t('heroTitle3')}</span>
           </motion.h1>
 
           <motion.p
@@ -99,7 +99,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25 }}
           >
-            Transforming every celebration into an unforgettable culinary journey, blessed with authentic flavours and pristine service.
+            {t('heroDesc')}
           </motion.p>
 
           <motion.div
@@ -109,10 +109,10 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.45 }}
           >
             <button className={styles.primaryButton} onClick={openBookingModal}>
-              Begin Your Journey <span className={styles.arrow}>→</span>
+              {t('heroCta1')} <span className={styles.arrow}>→</span>
             </button>
             <Link href="#services" className={styles.secondaryButton}>
-              Explore Menus
+              {t('heroCta2')}
             </Link>
           </motion.div>
 
@@ -120,17 +120,17 @@ export default function HeroSection() {
           <div className={styles.heroStats} ref={statsRef}>
             <div className={styles.statItem}>
               <h3 className={styles.statNum}>{years}<span className={styles.statPlus}>+</span></h3>
-              <p className={styles.statLabel}>YEARS OF LEGACY</p>
+              <p className={styles.statLabel}>{t('statLegacy')}</p>
             </div>
             <div className={styles.statDivider}></div>
             <div className={styles.statItem}>
               <h3 className={styles.statNum}>{events}<span className={styles.statPlus}>+</span></h3>
-              <p className={styles.statLabel}>GRAND EVENTS</p>
+              <p className={styles.statLabel}>{t('statGrandEvents')}</p>
             </div>
             <div className={styles.statDivider}></div>
             <div className={styles.statItem}>
               <h3 className={styles.statNum}>{(guests / 1000).toFixed(0)}K<span className={styles.statPlus}>+</span></h3>
-              <p className={styles.statLabel}>HAPPY SOULS</p>
+              <p className={styles.statLabel}>{t('statHappySouls')}</p>
             </div>
           </div>
         </div>

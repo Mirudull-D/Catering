@@ -1,37 +1,39 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 import { useBooking } from '../context/BookingContext';
 import styles from './FoodHighlightSection.module.css';
 
 const highlights = [
   {
     emoji: "🍛",
-    title: "South Indian Sadhya",
-    desc: "Traditional banana leaf meals with 20+ authentic accompaniments. A feast for the soul.",
-    tag: "Wedding Special"
+    title: { en: "South Indian Sadhya", ta: "தென்னிந்திய சத்யா விருந்து" },
+    desc: { en: "Traditional banana leaf meals with 20+ authentic accompaniments. A feast for the soul.", ta: "20+ பாரம்பரிய சுவைகளுடன் வாழை இலையில் பரிமாறப்படும் தெய்விக விருந்து." },
+    tag: { en: "Wedding Special", ta: "திருமண சிறப்பு" }
   },
   {
     emoji: "🍲",
-    title: "Live Counter Station",
-    desc: "Interactive live dosa, chaat & dessert counters that become the star of your event.",
-    tag: "Most Popular"
+    title: { en: "Live Counter Station", ta: "நேரடி உணவகம் (Live Counter)" },
+    desc: { en: "Interactive live dosa, chaat & dessert counters that become the star of your event.", ta: "சூடான தோசை, சாட் மற்றும் இனிப்புகள் உடனுக்குடன் தயாரித்து வழங்கப்படும்." },
+    tag: { en: "Most Popular", ta: "மிகவும் விரும்பப்படும்" }
   },
   {
     emoji: "🎂",
-    title: "Grand Dessert Spreads",
-    desc: "Decadent dessert platters crafted fresh — from payasam to fusion sweets.",
-    tag: "Party Favourite"
+    title: { en: "Grand Dessert Spreads", ta: "பிரமாண்ட இனிப்பு வகைகள்" },
+    desc: { en: "Decadent dessert platters crafted fresh — from payasam to fusion sweets.", ta: "இளநீர் பாயாசம் முதல் பலவிதமான சுவையான இனிப்பு வகைகள்." },
+    tag: { en: "Party Favourite", ta: "விழாக்களுக்கு சிறந்தது" }
   },
   {
     emoji: "🥘",
-    title: "Multi-Cuisine Buffet",
-    desc: "Full-service North Indian, Continental & Chinese buffet setups for every taste.",
-    tag: "Corporate Ready"
+    title: { en: "Multi-Cuisine Buffet", ta: "பஃபே விருந்து அமைப்பு" },
+    desc: { en: "Full-service North Indian, South Indian & Continental buffet setups for every taste.", ta: "வட இந்திய, தென்னிந்திய மற்றும் பலவகை உணவுகளுடன் கூடிய பஃபே." },
+    tag: { en: "Corporate Ready", ta: "கார்ப்பரேட் ஸ்பெஷல்" }
   },
 ];
 
 export default function FoodHighlightSection() {
+  const { lang, t } = useLanguage();
   const { openBookingModal } = useBooking();
 
   return (
@@ -41,7 +43,7 @@ export default function FoodHighlightSection() {
         {/* Header */}
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <span className={styles.preTitle}>FOR THE FOOD</span>
+            <span className={styles.preTitle}>{t('forTheFood')}</span>
             <motion.h2
               className={styles.title}
               initial={{ opacity: 0, y: 20 }}
@@ -49,16 +51,15 @@ export default function FoodHighlightSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              Every dish tells<br />a story.
+              {t('dishStoryTitle')}
             </motion.h2>
           </div>
           <div className={styles.headerRight}>
             <p className={styles.subtitle}>
-              From intimate family celebrations to grand weddings — we bring authentic 
-              flavours that your guests will talk about for years.
+              {t('dishStorySub')}
             </p>
             <button className={styles.ctaBtn} onClick={openBookingModal}>
-              Plan Your Menu →
+              {t('planMenuBtn')} →
             </button>
           </div>
         </div>
@@ -76,9 +77,9 @@ export default function FoodHighlightSection() {
             >
               <div className={styles.cardEmoji}>{item.emoji}</div>
               <div className={styles.cardBody}>
-                <span className={styles.cardTag}>{item.tag}</span>
-                <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardDesc}>{item.desc}</p>
+                <span className={styles.cardTag}>{item.tag[lang] || item.tag.en}</span>
+                <h3 className={styles.cardTitle}>{item.title[lang] || item.title.en}</h3>
+                <p className={styles.cardDesc}>{item.desc[lang] || item.desc.en}</p>
               </div>
               <div className={styles.cardArrow}>→</div>
             </motion.div>
@@ -99,11 +100,11 @@ export default function FoodHighlightSection() {
             <img src="/gallery/live_counter_1785684260521.png" alt="Live Counter" />
           </div>
           <div className={styles.bannerText}>
-            <h3>Custom menus crafted just for your event.</h3>
-            <p>Talk to our chef — personalise every dish for your occasion.</p>
+            <h3>{t('customMenusTitle')}</h3>
+            <p>{t('talkChefSub')}</p>
           </div>
           <button className={styles.bannerBtn} onClick={openBookingModal}>
-            Get a Quote
+            {t('getQuoteBtn')}
           </button>
         </motion.div>
 

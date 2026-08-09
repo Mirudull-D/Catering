@@ -1,17 +1,19 @@
 "use client";
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 import styles from './InteractiveDishPoll.module.css';
 
 const INITIAL_DISHES = [
-  { id: 'coffee', name: 'Degree Filter Coffee', votes: 3120, icon: '☕', category: 'Beverage' },
-  { id: 'biryani', name: 'Seeraga Samba Biryani', votes: 2450, icon: '🍚', category: 'Main Feast' },
-  { id: 'dosa', name: 'Live Ghee Podi Dosa', votes: 1980, icon: '🍲', category: 'Live Counter' },
-  { id: 'payasam', name: 'Elaneer Payasam', votes: 1640, icon: '🍯', category: 'Dessert' },
+  { id: 'coffee', name: { en: 'Degree Filter Coffee', ta: 'டிகிரி பில்டர் காபி' }, votes: 3120, icon: '☕', category: { en: 'Beverage', ta: 'பானம்' } },
+  { id: 'biryani', name: { en: 'Seeraga Samba Biryani', ta: 'சீரக சம்பா பிரியாணி' }, votes: 2450, icon: '🍚', category: { en: 'Main Feast', ta: 'பிரதான உணவு' } },
+  { id: 'dosa', name: { en: 'Live Ghee Podi Dosa', ta: 'நெய் பொடி தோசை' }, votes: 1980, icon: '🍲', category: { en: 'Live Counter', ta: 'லைவ் கவுண்டர்' } },
+  { id: 'payasam', name: { en: 'Elaneer Payasam', ta: 'இளநீர் பாயாசம்' }, votes: 1640, icon: '🍯', category: { en: 'Dessert', ta: 'இனிப்பு' } },
 ];
 
 export default function InteractiveDishPoll() {
+  const { lang, t } = useLanguage();
   const [dishes, setDishes] = useState(INITIAL_DISHES);
   const [userVoted, setUserVoted] = useState({});
 
@@ -36,10 +38,10 @@ export default function InteractiveDishPoll() {
 
         {/* Section Header */}
         <div className={styles.header}>
-          <span className={styles.preTitle}>❤️ LIVE GUEST FAVORITES</span>
-          <h2 className={styles.title}>Vote For Your Must-Have Dish</h2>
+          <span className={styles.preTitle}>{t('pollTag')}</span>
+          <h2 className={styles.title}>{t('pollTitle')}</h2>
           <p className={styles.subtitle}>
-            Tap heart to vote for the signature dishes you want featured at your next grand feast!
+            {t('pollSub')}
           </p>
         </div>
 
@@ -57,10 +59,10 @@ export default function InteractiveDishPoll() {
               >
                 <div className={styles.cardTop}>
                   <span className={styles.dishIcon}>{dish.icon}</span>
-                  <span className={styles.dishCategory}>{dish.category}</span>
+                  <span className={styles.dishCategory}>{dish.category[lang] || dish.category.en}</span>
                 </div>
 
-                <h3 className={styles.dishName}>{dish.name}</h3>
+                <h3 className={styles.dishName}>{dish.name[lang] || dish.name.en}</h3>
 
                 {/* Progress Bar */}
                 <div className={styles.progressContainer}>
@@ -83,7 +85,7 @@ export default function InteractiveDishPoll() {
                   className={`${styles.likeBtn} ${isLiked ? styles.likeBtnActive : ''}`}
                   onClick={() => handleVote(dish.id)}
                 >
-                  <span>{isLiked ? '❤️ Voted!' : '🤍 Tap to Vote'}</span>
+                  <span>{isLiked ? `❤️ ${t('voted')}` : `🤍 ${t('tapToVote')}`}</span>
                 </button>
               </motion.div>
             );
