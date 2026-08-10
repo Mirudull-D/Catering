@@ -120,31 +120,48 @@
   line-height: 1.6;
 }
 
+.modalDetails {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
 .modalDetails h3 {
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--color-black);
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .modalDetails ul {
   list-style: none;
-  margin-bottom: 2.5rem;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .modalDetails li {
-  padding-left: 1.5rem;
+  padding-left: 1.75rem;
   position: relative;
-  margin-bottom: 0.5rem;
-  color: var(--color-text-main);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #334155;
+  font-weight: 500;
 }
 
 .modalDetails li::before {
-  content: '✓';
+  content: '✦';
   position: absolute;
-  left: 0;
-  color: var(--color-blue);
+  left: 0.25rem;
+  color: #d97706;
   font-weight: bold;
+  font-size: 0.9rem;
 }
 
 .headerActions {

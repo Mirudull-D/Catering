@@ -45,11 +45,19 @@ const ServiceModal = ({ isOpen, onClose, service, onOpenBooking, t }) => {
             <div className={styles.modalDetails}>
               <h3>What&apos;s Included in {service.title}:</h3>
               <ul>
-                <li>Customized Authentic Menu Planning</li>
-                <li>Traditional & Modern Presentation</li>
-                <li>Professional Uniformed Service Staff</li>
-                <li>Premium Cutlery, Dishes & Hygiene Setup</li>
-                <li>On-site Live Kitchen & Management</li>
+                {Array.isArray(service.included) ? (
+                  service.included.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))
+                ) : (
+                  <>
+                    <li>Customized Authentic Menu Planning</li>
+                    <li>Traditional & Modern Presentation</li>
+                    <li>Professional Uniformed Service Staff</li>
+                    <li>Premium Cutlery, Dishes & Hygiene Setup</li>
+                    <li>On-site Live Kitchen & Management</li>
+                  </>
+                )}
               </ul>
             </div>
             
@@ -152,12 +160,12 @@ export default function ServicesSection() {
   };
 
   const services = [
-    { id: 1, title: t('service1'), desc: t('service1Desc'), image: '/gallery/wedding_catering.png' },
-    { id: 2, title: t('service2'), desc: t('service2Desc'), image: '/gallery/corporate_catering.png' },
-    { id: 3, title: t('service3'), desc: t('service3Desc'), image: '/gallery/dessert_platter_1785684210041.png' },
-    { id: 4, title: t('service4'), desc: t('service4Desc'), image: '/gallery/live_counter_1785684260521.png' },
-    { id: 5, title: t('service5'), desc: t('service5Desc'), image: '/gallery/buffet_setup_1785684198318.png' },
-    { id: 6, title: t('service6'), desc: t('service6Desc'), image: '/gallery/south_indian_meals_1785684185063.png' },
+    { id: 1, title: t('service1'), desc: t('service1Desc'), included: t('service1Included'), image: '/gallery/wedding_catering.png' },
+    { id: 2, title: t('service2'), desc: t('service2Desc'), included: t('service2Included'), image: '/gallery/corporate_catering.png' },
+    { id: 3, title: t('service3'), desc: t('service3Desc'), included: t('service3Included'), image: '/gallery/dessert_platter_1785684210041.png' },
+    { id: 4, title: t('service4'), desc: t('service4Desc'), included: t('service4Included'), image: '/gallery/live_counter_1785684260521.png' },
+    { id: 5, title: t('service5'), desc: t('service5Desc'), included: t('service5Included'), image: '/gallery/buffet_setup_1785684198318.png' },
+    { id: 6, title: t('service6'), desc: t('service6Desc'), included: t('service6Included'), image: '/gallery/south_indian_meals_1785684185063.png' },
   ];
 
   return (
