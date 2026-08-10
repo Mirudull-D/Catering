@@ -80,13 +80,26 @@
 }
 
 @media (max-width: 640px) {
+  .card {
+    width: 100%;
+    height: auto;
+  }
   .cardContent {
-    padding: 1rem;
+    padding: 1.35rem;
   }
   .imageWrapper {
-    height: 180px;
+    height: 200px;
+  }
+  .cardTitle {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .cardShortDesc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
   }
   .viewBtn {
-    font-size: 0.68rem;
+    font-size: 0.75rem;
   }
 }

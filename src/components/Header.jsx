@@ -7,6 +7,17 @@ import { useLanguage } from '../context/LanguageContext';
 import { useBooking } from '../context/BookingContext';
 import styles from './Header.module.css';
 
+const TICKER_ITEMS = [
+  '🍛 South Indian Sadhya',
+  '💍 Wedding Catering',
+  '🏢 Corporate Events',
+  '🎂 Birthday Parties',
+  '🍲 Live Counters',
+  '🌿 Fresh Every Day',
+  '⭐ 4.9 Rated Service',
+  '✅ FSSAI Certified',
+];
+
 export default function Header() {
   const { lang, toggleLanguage, t } = useLanguage();
   const { openBookingModal } = useBooking();
@@ -16,7 +27,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 30) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -33,7 +44,19 @@ export default function Header() {
   };
 
   return (
-    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
+    <>
+      {/* Top Announcement Ticker */}
+      <div className={styles.ticker}>
+        <div className={styles.tickerTrack}>
+          {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
+            <span key={i} className={styles.tickerItem}>
+              {item} <span className={styles.tickerDot}>·</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.logo}>
         <Link href="/" onClick={closeMenu}>
           <span className={lang === 'ta' ? 'tamilTitle' : ''}>{t('title')}</span>
@@ -71,5 +94,6 @@ export default function Header() {
         </div>
       </nav>
     </header>
-  );
+  </>
+);
 }

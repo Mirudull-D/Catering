@@ -24,17 +24,7 @@ function useCounter(target, duration = 2000, start = false) {
   return count;
 }
 
-// Ticker items
-const TICKER_ITEMS = [
-  '🍛 South Indian Sadhya',
-  '💍 Wedding Catering',
-  '🏢 Corporate Events',
-  '🎂 Birthday Parties',
-  '🍲 Live Counters',
-  '🌿 Fresh Every Day',
-  '⭐ 4.9 Rated Service',
-  '✅ FSSAI Certified',
-];
+
 
 export default function HeroSection() {
   const { lang, t } = useLanguage();
@@ -57,17 +47,6 @@ export default function HeroSection() {
 
   return (
     <section className={styles.hero}>
-
-      {/* Scrolling ticker */}
-      <div className={styles.ticker}>
-        <div className={styles.tickerTrack}>
-          {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
-            <span key={i} className={styles.tickerItem}>
-              {item} <span className={styles.tickerDot}>·</span>
-            </span>
-          ))}
-        </div>
-      </div>
 
       <div className={styles.heroContent}>
 
@@ -191,7 +170,7 @@ export default function HeroSection() {
               alt="Divine Blessing" 
               className={styles.deityImage}
               whileHover={{ scale: 1.05, filter: "drop-shadow(0 40px 80px rgba(0,0,0,0.15))" }}
-              transition={{ duration: 0.4 }}
+              transition={{ layout: { duration: 0.85, ease: [0.77, 0, 0.175, 1] }, duration: 0.4 }}
             />
           </motion.div>
         </div>

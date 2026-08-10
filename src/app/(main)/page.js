@@ -19,7 +19,19 @@ export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowSplash(false), 2500);
+    if (typeof window !== 'undefined') {
+      if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'manual';
+      }
+      window.scrollTo(0, 0);
+    }
+
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+      if (typeof window !== 'undefined') {
+        window.scrollTo(0, 0);
+      }
+    }, 2500);
     return () => clearTimeout(timer);
   }, []);
 

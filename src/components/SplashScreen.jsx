@@ -1,11 +1,24 @@
 "use client";
 
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import styles from './SplashScreen.module.css';
 
 export default function SplashScreen() {
   const { lang, t } = useLanguage();
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      document.body.style.overflow = 'hidden';
+      window.scrollTo(0, 0);
+    }
+    return () => {
+      if (typeof window !== 'undefined') {
+        document.body.style.overflow = '';
+      }
+    };
+  }, []);
 
   return (
     <div className={styles.splashWrapper}>
