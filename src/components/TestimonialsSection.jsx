@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { getGalleryImages, getCustomerReviews, saveCustomerReview } from '../lib/supabase';
 import styles from './TestimonialsSection.module.css';
@@ -34,6 +34,7 @@ export default function TestimonialsSection() {
   const { t } = useLanguage();
   const [reviews, setReviews] = useState([]);
   const [videos, setVideos] = useState(defaultVideoTestimonials);
+  const [selectedVideo, setSelectedVideo] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({ name: '', event: '', text: '', rating: 5 });
 
@@ -85,6 +86,7 @@ export default function TestimonialsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.5 }}
+                onClick={() => setSelectedVideo(v)}
               >
                 <div className={styles.reelThumb}>
                   {v.src && (v.src.endsWith('.mp4') || v.src.endsWith('.webm') || v.src.endsWith('.mov') || v.src.startsWith('data:video')) ? (
@@ -193,6 +195,64 @@ export default function TestimonialsSection() {
         </div>
 
       </div>
+
+      {/* ===== Full-Screen Big Screen Video Lightbox ===== */}
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div
+            className={styles.videoModalOverlay}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedVideo(null)}
+          >
+            <button className={styles.closeVideoBtn} onClick={() => setSelectedVideo(null)}>
+              ✕
+            </button>
+
+            <motion.div
+              className={styles.videoModalCard}
+              initial={{ scale: 0.88, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.88, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className={styles.videoContainer}>
+                {selectedVideo.src && (selectedVideo.src.endsWith('.mp4') || selectedVideo.src.endsWith('.webm') || selectedVideo.src.endsWith('.mov') || selectedVideo.src.startsWith('data:video')) ? (
+                  <video 
+                    src={selectedVideo.src} 
+                    controls 
+                    autoPlay 
+                    playsInline
+                    className={styles.fullMedia} 
+                  />
+                ) : (
+                  <img 
+                    src={selectedVideo.thumb || selectedVideo.src} 
+                    alt={selectedVideo.title || 'Video Showcase'} 
+                    className={styles.fullMedia} 
+                  />
+                )}
+              </div>
+
+              <div className={styles.videoMetaBar}>
+                <div>
+                  <span className={styles.videoBadge}>Catering Reel Highlight</span>
+                  <h3 className={styles.videoTitle}>{selectedVideo.title || 'Sri Sankara Catering Event'}</h3>
+                </div>
+                <a 
+                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919840874966'}?text=${encodeURIComponent(`Hi, I saw the video "${selectedVideo.title || 'Catering Highlight'}" on your website and would like to inquire about booking!`)}`}
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className={styles.videoBookBtn}
+                >
+                  Book Similar Event
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

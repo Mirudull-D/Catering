@@ -18,14 +18,14 @@ export const DEFAULT_GALLERY_IMAGES = [
   { id: 2, src: '/gallery/buffet_setup_1785684198318.png', title: 'Grand Buffet Setup', category: 'Buffet' },
   { id: 3, src: '/gallery/dessert_platter_1785684210041.png', title: 'Royal Dessert Spread', category: 'Desserts' },
   { id: 4, src: '/gallery/live_counter_1785684260521.png', title: 'Live Dosa Counter', category: 'Live Station' },
-  { id: 5, src: '/gallery/wedding_catering.png', title: 'Wedding Mandap Feast', category: 'Wedding' },
-  { id: 6, src: '/gallery/corporate_catering.png', title: 'Corporate Conference', category: 'Corporate' },
+  { id: 5, src: '/gallery/wedding_catering.png', title: 'Wedding Mandap Feast', category: 'Sadhya' },
+  { id: 6, src: '/gallery/corporate_catering.png', title: 'Corporate Conference', category: 'Buffet' },
   { id: 7, src: '/gallery/south_indian_meals_1785684185063.png', title: 'Traditional Sadhya', category: 'Sadhya' },
   { id: 8, src: '/gallery/buffet_setup_1785684198318.png', title: 'Luxury Banquet', category: 'Buffet' },
   { id: 9, src: '/gallery/dessert_platter_1785684210041.png', title: 'Sweet Delights Bar', category: 'Desserts' },
   { id: 10, src: '/gallery/live_counter_1785684260521.png', title: 'Chaat & Street Food', category: 'Live Station' },
-  { id: 11, src: '/gallery/wedding_catering.png', title: 'Reception Banquet', category: 'Wedding' },
-  { id: 12, src: '/gallery/corporate_catering.png', title: 'Executive Gala Lunch', category: 'Corporate' },
+  { id: 11, src: '/gallery/wedding_catering.png', title: 'Reception Banquet', category: 'Buffet' },
+  { id: 12, src: '/gallery/corporate_catering.png', title: 'Executive Gala Lunch', category: 'Buffet' },
 ];
 
 const LOCAL_STORAGE_KEY = 'catering_gallery_custom_items';
@@ -65,6 +65,8 @@ export async function uploadFileToSupabase(file, bucketName = 'gallery') {
  * Fetch all gallery images: from Supabase if configured, or from LocalStorage/Defaults.
  */
 export async function getGalleryImages() {
+  let images = DEFAULT_GALLERY_IMAGES;
+
   if (isSupabaseConfigured && supabase) {
     try {
       const { data, error } = await supabase
@@ -73,26 +75,27 @@ export async function getGalleryImages() {
         .order('id', { ascending: false });
 
       if (!error && data && data.length > 0) {
-        return data;
+        images = data;
       }
     } catch (e) {
       console.warn('Supabase fetch failed, falling back to local dataset:', e);
     }
-  }
-
-  // LocalStorage Fallback
-  if (typeof window !== 'undefined') {
+  } else if (typeof window !== 'undefined') {
     const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          images = parsed;
+        }
       } catch (e) {
         console.error('Error parsing stored gallery items:', e);
       }
     }
   }
 
-  return DEFAULT_GALLERY_IMAGES;
+  // Sanitize: Ensure no deity image or non-food hero assets appear in the food gallery grid
+  return images.filter(img => img.src && !img.src.includes('deity') && !img.src.includes('hero'));
 }
 
 /**

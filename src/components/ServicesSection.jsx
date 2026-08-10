@@ -36,7 +36,7 @@ const ServiceModal = ({ isOpen, onClose, service, onOpenBooking, t }) => {
           <div className={styles.printableArea}>
             <div className={styles.printHeader}>
               <h2 className={styles.printTitle}>Sri Sankara Catering Services — Official Brochure</h2>
-              <p>Phone: {PHONE_NUMBER} | Location: Kattankulathur, Tamil Nadu</p>
+              <p>Phone: {PHONE_NUMBER} | Location: Venkatapuram, Ambattur, Chennai - 600 053</p>
             </div>
             
             <h2 className={styles.modalTitle}>{service.title}</h2>
