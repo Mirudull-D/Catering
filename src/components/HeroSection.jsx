@@ -37,7 +37,7 @@ const TICKER_ITEMS = [
 ];
 
 export default function HeroSection() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const { openBookingModal } = useBooking();
   const [statsVisible, setStatsVisible] = useState(false);
   const statsRef = useRef(null);
@@ -89,8 +89,18 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            {t('heroTitle1')} <br />
-            {t('heroTitle2')} <span className={styles.highlight}>{t('heroTitle3')}</span>
+            {lang === 'ta' ? (
+              <>
+                {t('heroTitle1')} <br />
+                {t('heroTitle2')} <br />
+                <span className={styles.highlight}>{t('heroTitle3')}</span>
+              </>
+            ) : (
+              <>
+                {t('heroTitle1')} <br />
+                {t('heroTitle2')} <span className={styles.highlight}>{t('heroTitle3')}</span>
+              </>
+            )}
           </motion.h1>
 
           <motion.p
@@ -151,8 +161,6 @@ export default function HeroSection() {
               className={styles.particle1}
               drag
               dragConstraints={{ left: -120, right: 120, top: -120, bottom: 120 }}
-              animate={{ y: [-20, 20, -20], rotate: [0, 15, -15, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               whileHover={{ scale: 1.5, cursor: "grab" }}
               whileDrag={{ scale: 1.3, cursor: "grabbing" }}
             >
@@ -162,8 +170,6 @@ export default function HeroSection() {
               className={styles.particle2}
               drag
               dragConstraints={{ left: -120, right: 120, top: -120, bottom: 120 }}
-              animate={{ y: [20, -20, 20], rotate: [0, -15, 15, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               whileHover={{ scale: 1.5, cursor: "grab" }}
               whileDrag={{ scale: 1.3, cursor: "grabbing" }}
             >
@@ -173,8 +179,6 @@ export default function HeroSection() {
               className={styles.particle3}
               drag
               dragConstraints={{ left: -120, right: 120, top: -120, bottom: 120 }}
-              animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               whileHover={{ scale: 1.5, cursor: "grab", opacity: 1 }}
               whileDrag={{ scale: 1.3, cursor: "grabbing" }}
             >

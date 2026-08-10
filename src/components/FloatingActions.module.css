@@ -59,17 +59,21 @@
 .tooltip {
   position: absolute;
   right: 70px;
-  background-color: rgba(13, 34, 68, 0.9);
+  background-color: rgba(13, 34, 68, 0.95);
   color: var(--color-white);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.9rem;
   border-radius: 8px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   opacity: 0;
   visibility: hidden;
   transform: translateX(10px);
   transition: all 0.3s ease;
   white-space: nowrap;
+  max-width: max-content !important;
+  width: max-content;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .tooltip::after {

@@ -138,6 +138,8 @@ const translations = {
     readySub: "Talk to our team — custom menus, full-service setup, and a team that cares.",
     bookEventBtn: "Book Your Event",
     whatsappUsBtn: "WhatsApp Us",
+    callUs: "Call Us",
+    chatWhatsapp: "Chat on WhatsApp",
     
     // Philosophy Section
     philTitle: "Our Culinary Philosophy",
@@ -317,6 +319,8 @@ const translations = {
     readySub: "எங்கள் குழுவிடம் பேசுங்கள் — சிறப்பு மெனுக்கள் மற்றும் முழுமையான சேவை.",
     bookEventBtn: "நிகழ்வை முன்பதிவு செய்",
     whatsappUsBtn: "வாட்ஸ்அப்பில் தொடர்புகொள்ள",
+    callUs: "எங்களை அழைக்க",
+    chatWhatsapp: "வாட்ஸ்அப் செய்ய",
     
     // Philosophy Section
     philTitle: "எங்கள் சமையல் தத்துவம்",

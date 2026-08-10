@@ -221,6 +221,26 @@
   transform: translateY(-2px);
 }
 
+.bookNowActionBtn {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bookNowActionBtn:hover {
+  background-color: #0b5ed7;
+  transform: translateY(-2px);
+}
+
 .whatsappBtn {
   background-color: #25d366;
   color: #ffffff;
@@ -272,4 +292,58 @@
     padding-top: 1rem;
     font-size: 0.875rem;
   }
+}
+
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.inputField {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  background-color: #f8fafc;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  color: var(--color-black);
+}
+
+.inputField::placeholder {
+  color: #94a3b8;
+}
+
+.inputField:focus {
+  border-color: var(--color-blue);
+  background-color: var(--color-white);
+  box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
+}
+
+.whatsappSubmitBtn {
+  background-color: #25d366;
+  color: #ffffff;
+  padding: 1.15rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  margin-top: 1rem;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+}
+
+.whatsappSubmitBtn:hover {
+  background-color: #1fad53;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
 }
