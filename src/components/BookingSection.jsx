@@ -2,17 +2,27 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import { ExternalLink, Navigation, Maximize2, MapPin } from 'lucide-react';
 import styles from './BookingSection.module.css';
 
 export default function BookingSection() {
   const { t } = useLanguage();
 
+  const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=No.8%2F14,+Sangam+Street,+Venkatapuram,+Ambattur,+Chennai+-+600053";
+  const whatsappUrl = "https://wa.me/919840874966?text=Hi%2C%20I%20would%20like%20to%20book%20a%20service%2Fconsultation.";
+
   return (
     <section id="contact" className={styles.bookingSection}>
+      {/* Background Decorative Ambient Blue Glow Dots */}
+      <div className={`${styles.ambientDot} ${styles.dotTopLeft}`}></div>
+      <div className={`${styles.ambientDot} ${styles.dotTopRight}`}></div>
+      <div className={`${styles.ambientDot} ${styles.dotBottomRight}`}></div>
+      <div className={`${styles.ambientDot} ${styles.dotBottomLeft}`}></div>
+
       <div className={styles.container}>
-        
         <div className={styles.locationContainer}>
-          {/* Left Dark Card */}
+          
+          {/* Left Dark Info Card */}
           <motion.div 
             className={styles.infoCard}
             initial={{ opacity: 0, x: -30 }}
@@ -21,13 +31,16 @@ export default function BookingSection() {
             transition={{ duration: 0.6 }}
           >
             <span className={styles.preTitle}>{t('visitUs')}</span>
-            <h2 className={styles.title} style={{ whiteSpace: 'pre-line' }}>
-              {t('bookingTitle')}
+            
+            <h2 className={styles.title}>
+              <span className={styles.titleWhite}>{t('bookingTitleLine1')}</span>
+              <br />
+              <span className={styles.titleAccent}>{t('bookingTitleLine2')}</span>
             </h2>
 
             <div className={styles.infoBlock}>
               <h4>{t('address')}</h4>
-              <p style={{ whiteSpace: 'pre-line' }}>{t('bookingAddress')}</p>
+              <p className={styles.addressText}>{t('bookingAddress')}</p>
             </div>
 
             <div className={styles.infoBlock}>
@@ -42,20 +55,30 @@ export default function BookingSection() {
 
             <div className={styles.infoBlock}>
               <h4>{t('bookingInstaLabel')}</h4>
-              <p className={styles.highlightText}>@srisankaracatering</p>
+              <p className={styles.highlightText}>{t('bookingInstaValue') || '@srisankaracatering'}</p>
             </div>
 
             <div className={styles.buttonGroup}>
-              <a href="https://wa.me/919840874966" target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
+              <a 
+                href={whatsappUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.primaryBtn}
+              >
                 {t('waBooking')}
               </a>
-              <a href="https://maps.google.com/?q=Kattankulathur,+Tamil+Nadu" target="_blank" rel="noopener noreferrer" className={styles.secondaryBtn}>
+              <a 
+                href={googleMapsUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.secondaryBtn}
+              >
                 {t('directions')}
               </a>
             </div>
           </motion.div>
 
-          {/* Right Map */}
+          {/* Right Interactive Map Card */}
           <motion.div 
             className={styles.mapCard}
             initial={{ opacity: 0, x: 30 }}
@@ -63,19 +86,90 @@ export default function BookingSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
+            {/* Google Map iframe */}
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.301382583852!2d80.0242207148201!3d12.823793690952044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f76c4fb24e6b%3A0x6b4476686150242!2sKattankulathur%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1682498523000!5m2!1sen!2sin" 
+              src="https://maps.google.com/maps?q=No.8/14,+Sangam+Street,+Venkatapuram,+Ambattur,+Chennai+-+600053&t=&z=14&ie=UTF8&iwloc=&output=embed" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
               allowFullScreen="" 
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
-              title="Location Map"
+              title="Sri Sankara Catering Location Map"
             ></iframe>
-          </motion.div>
-        </div>
 
+            {/* Top Left Floating Header Overlay Card */}
+            <div className={styles.mapOverlayHeader}>
+              <div className={styles.mapOverlayHeaderTop}>
+                <div className={styles.liveLocationBadge}>
+                  <span className={styles.livePulseDot}></span>
+                  <span>{t('liveLocation') || 'LIVE LOCATION'}</span>
+                </div>
+                <div className={styles.headerIconsGroup}>
+                  <a 
+                    href={googleMapsUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className={styles.iconBtnSquare}
+                    title="Open Map Location"
+                  >
+                    <ExternalLink size={13} color="#4b5563" />
+                  </a>
+                  <a 
+                    href={googleMapsUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className={styles.iconBtnBlue}
+                    title="Get Directions"
+                  >
+                    <Navigation size={13} color="#ffffff" />
+                  </a>
+                </div>
+              </div>
+              <div className={styles.mapOverlayAddress}>
+                {t('mapAddressFull')}
+              </div>
+              <div className={styles.mapOverlayReviews}>
+                {t('mapReviews')}
+              </div>
+            </div>
+
+            {/* Top Right Fullscreen / External Map Icon Button */}
+            <a 
+              href={googleMapsUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={styles.fullscreenBtn}
+              title="Expand Map"
+            >
+              <Maximize2 size={15} color="#ffffff" />
+            </a>
+
+            {/* Center Location Pin Marker & Speech Bubble Tooltip */}
+            <div className={styles.centerMarkerWrapper}>
+              <div className={styles.speechBubble}>
+                <span className={styles.pinEmoji}>📍</span>
+                <span>{t('ourShopHere') || 'Our shop is right here!'}</span>
+                <div className={styles.speechBubbleArrow}></div>
+              </div>
+            </div>
+
+            {/* Bottom Glassmorphic Floating Bar */}
+            <a 
+              href={googleMapsUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={styles.bottomGlassBar}
+            >
+              <div className={styles.mapIconCircle}>
+                <MapPin size={18} className={styles.mapIconSvg} />
+              </div>
+              <span>{t('openInGoogleMaps') || 'Open in Google Maps App'}</span>
+            </a>
+
+          </motion.div>
+
+        </div>
       </div>
     </section>
   );

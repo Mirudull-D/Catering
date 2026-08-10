@@ -363,7 +363,8 @@
     gap: 1.5rem;
   }
   .ctaTitle {
-    font-size: 1.75rem;
+    font-size: clamp(1.35rem, 6vw, 1.75rem);
+    line-height: 1.2;
   }
   .ctaDesc {
     font-size: 0.95rem;

@@ -257,11 +257,30 @@
 }
 
 @media (max-width: 480px) {
+  .section {
+    padding: 3.5rem 0.85rem;
+  }
+
   .grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .title {
-    font-size: 2.25rem;
+    font-size: 2.1rem;
+  }
+
+  .card {
+    padding: 1.25rem 1rem;
+  }
+
+  .banner {
+    padding: 1.5rem 1rem;
+    border-radius: 18px;
+  }
+
+  .bannerBtn {
+    width: 100%;
+    text-align: center;
   }
 }

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useLanguage } from '../context/LanguageContext';
 import { useBooking } from '../context/BookingContext';
 import styles from './Header.module.css';
@@ -11,6 +12,7 @@ export default function Header() {
   const { openBookingModal } = useBooking();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +27,10 @@ export default function Header() {
   }, []);
 
   const closeMenu = () => setIsMobileMenuOpen(false);
+
+  const getNavLink = (hash) => {
+    return pathname === '/' ? hash : `/${hash}`;
+  };
 
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
@@ -44,10 +50,10 @@ export default function Header() {
       </button>
 
       <nav className={`${styles.nav} ${isMobileMenuOpen ? styles.mobileOpen : ''}`}>
-        <Link href="#services" className={styles.navLink} onClick={closeMenu}>{t('services')}</Link>
-        <Link href="#gallery" className={styles.navLink} onClick={closeMenu}>{t('gallery')}</Link>
-        <Link href="#testimonials" className={styles.navLink} onClick={closeMenu}>{t('testimonials')}</Link>
-        <Link href="#contact" className={styles.navLink} onClick={closeMenu}>{t('contact')}</Link>
+        <Link href={getNavLink('#services')} className={styles.navLink} onClick={closeMenu}>{t('services')}</Link>
+        <Link href={getNavLink('#gallery')} className={styles.navLink} onClick={closeMenu}>{t('gallery')}</Link>
+        <Link href={getNavLink('#testimonials')} className={styles.navLink} onClick={closeMenu}>{t('testimonials')}</Link>
+        <Link href={getNavLink('#contact')} className={styles.navLink} onClick={closeMenu}>{t('contact')}</Link>
         
         <div className={styles.actions}>
           <button className={styles.langToggle} onClick={toggleLanguage}>

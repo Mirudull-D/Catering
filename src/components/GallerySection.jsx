@@ -98,7 +98,11 @@ export default function GallerySection() {
               exit={{ scale: 0.85 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <img src={selectedImage.src} alt={selectedImage.title || 'Gallery Image'} className={styles.lightboxImage} />
+              {selectedImage.src && (selectedImage.src.endsWith('.mp4') || selectedImage.src.endsWith('.webm') || selectedImage.src.endsWith('.mov') || selectedImage.src.startsWith('data:video')) ? (
+                <video src={selectedImage.src} controls autoPlay playsInline className={styles.lightboxImage} />
+              ) : (
+                <img src={selectedImage.src} alt={selectedImage.title || 'Gallery Image'} className={styles.lightboxImage} />
+              )}
               {selectedImage.title && (
                 <div className={styles.lightboxMeta}>
                   <span className={styles.lightboxTag}>{selectedImage.category || 'Feast'}</span>

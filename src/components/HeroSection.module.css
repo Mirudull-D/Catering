@@ -579,24 +579,94 @@
 }
 
 @media (max-width: 480px) {
-  .heroTitle {
-    font-size: 2.8rem;
+  .heroContent {
+    padding: 6.5rem 0.85rem 2.5rem;
+    gap: 1.75rem;
   }
 
-  .heroStats {
-    gap: 1.25rem;
+  .heroTitle {
+    font-size: clamp(1.8rem, 8.5vw, 2.5rem);
+    line-height: 1.15;
+  }
+
+  :global(html.tamil-mode) .heroTitle {
+    font-size: clamp(1.5rem, 7vw, 2.1rem);
+    line-height: 1.18;
+  }
+
+  .badge {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .heroDescription {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+
+  .deityFrame {
+    max-width: 210px;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .showcaseCard {
+    padding: 0.85rem;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+  }
+
+  .specialtyTabs {
+    gap: 0.25rem;
+  }
+
+  .tabBtn {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.7rem;
   }
 
   .dishPreviewBox {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.65rem;
   }
 
   .dishImageWrap {
     width: 100%;
-    height: 120px;
+    height: 110px;
   }
 
-  /* Hide floating particles on mobile to avoid overflow */
+  .heroStats {
+    gap: 0.85rem;
+    padding-top: 1.5rem;
+  }
+
+  .statNum {
+    font-size: 1.5rem;
+  }
+
+  .statLabel {
+    font-size: 0.6rem;
+  }
+
+  .statDivider {
+    height: 30px;
+  }
+
   .particle1,
   .particle2,
   .particle3 {

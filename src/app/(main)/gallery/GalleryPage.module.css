@@ -2,7 +2,7 @@
   min-height: 100vh;
   background-color: var(--color-white);
   color: var(--color-black);
-  padding-top: 8rem; /* Header + Ticker offset */
+  padding-top: 6rem;
 }
 
 /* Main */
