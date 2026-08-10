@@ -26,13 +26,11 @@ export default function FullGalleryPage() {
   }, []);
 
   const categories = [
-    { id: 'All', label: t('catAll') },
-    { id: 'Sadhya', label: t('catSadhya') },
-    { id: 'Buffet', label: t('catBuffet') },
-    { id: 'Live Station', label: t('catLive') },
-    { id: 'Desserts', label: t('catDesserts') },
-    { id: 'Wedding', label: t('catWedding') },
-    { id: 'Corporate', label: t('catCorporate') }
+    { id: 'All', label: t('catAll') || 'All' },
+    { id: 'Sadhya', label: t('catSadhya') || 'Sadhya' },
+    { id: 'Buffet', label: t('catBuffet') || 'Buffet' },
+    { id: 'Live Station', label: t('catLive') || 'Live Stations' },
+    { id: 'Desserts', label: t('catDesserts') || 'Desserts' }
   ];
 
   const filteredImages = activeFilter === 'All' 
@@ -74,7 +72,10 @@ export default function FullGalleryPage() {
 
         {/* Compact Phone-Sized Cards Grid */}
         {loading ? (
-          <p className={styles.loadingText}>{t('loadingGallery')}</p>
+          <div className={styles.loadingWrap}>
+            <div className={styles.loadingSpinner} />
+            <p className={styles.loadingText}>{t('loadingGallery') || 'Loading divine feast gallery...'}</p>
+          </div>
         ) : (
           <motion.div className={styles.grid} layout>
             <AnimatePresence>
@@ -121,7 +122,11 @@ export default function FullGalleryPage() {
               exit={{ scale: 0.85 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <img src={selectedImage.src} alt={selectedImage.title || 'Gallery Image'} className={styles.lightboxImg} />
+              {selectedImage.src && (selectedImage.src.endsWith('.mp4') || selectedImage.src.endsWith('.webm') || selectedImage.src.endsWith('.mov') || selectedImage.src.startsWith('data:video')) ? (
+                <video src={selectedImage.src} controls autoPlay playsInline className={styles.lightboxImg} />
+              ) : (
+                <img src={selectedImage.src} alt={selectedImage.title || 'Gallery Image'} className={styles.lightboxImg} />
+              )}
               {selectedImage.title && (
                 <div className={styles.lightboxMeta}>
                   <span className={styles.lightboxCat}>{selectedImage.category || 'Feast'}</span>
