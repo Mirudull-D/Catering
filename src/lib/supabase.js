@@ -62,10 +62,10 @@ export async function uploadFileToSupabase(file, bucketName = 'gallery') {
 }
 
 /**
- * Fetch all gallery images: from Supabase if configured, or from LocalStorage/Defaults.
+ * Fetch all gallery images: from Supabase if configured & initialized, or from LocalStorage/Defaults.
  */
 export async function getGalleryImages() {
-  let images = DEFAULT_GALLERY_IMAGES;
+  let images = null;
 
   if (isSupabaseConfigured && supabase) {
     try {
@@ -78,9 +78,12 @@ export async function getGalleryImages() {
         images = data;
       }
     } catch (e) {
-      console.warn('Supabase fetch failed, falling back to local dataset:', e);
+      console.warn('Supabase fetch failed, falling back to local storage:', e);
     }
-  } else if (typeof window !== 'undefined') {
+  }
+
+  // Fallback to LocalStorage if Supabase didn't return data
+  if (!images && typeof window !== 'undefined') {
     const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (saved) {
       try {
@@ -92,6 +95,11 @@ export async function getGalleryImages() {
         console.error('Error parsing stored gallery items:', e);
       }
     }
+  }
+
+  // Final fallback to static defaults if nothing is stored
+  if (!images || images.length === 0) {
+    images = DEFAULT_GALLERY_IMAGES;
   }
 
   // Sanitize: Ensure no deity image or non-food hero assets appear in the food gallery grid
@@ -119,10 +127,19 @@ export async function saveGalleryImage(item) {
     }
   }
 
-  // Update Local Storage
+  // Update Local Storage so uploaded items persist locally
   if (typeof window !== 'undefined') {
-    const current = await getGalleryImages();
-    const updated = [createdItem, ...current];
+    let currentList = [];
+    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (saved) {
+      try {
+        currentList = JSON.parse(saved);
+      } catch (e) {}
+    }
+    if (!Array.isArray(currentList) || currentList.length === 0) {
+      currentList = DEFAULT_GALLERY_IMAGES;
+    }
+    const updated = [createdItem, ...currentList.filter(x => x.id !== createdItem.id)];
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updated));
   }
 
