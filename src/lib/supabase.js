@@ -167,11 +167,13 @@ export async function deleteGalleryImage(id) {
 
 // Initial Default Reviews Dataset
 export const DEFAULT_REVIEWS = [
-  { id: 1, name: 'Ananya S.', event: 'Wedding Sadhya', text: 'The food was absolutely divine! Every guest complimented the traditional sadhya. The service was impeccable.', rating: 5 },
-  { id: 2, name: 'Rahul M.', event: 'Corporate Banquet', text: 'Professional, punctual, and delicious. They handled our 500-person conference with ease. Highly recommended.', rating: 5 },
-  { id: 3, name: 'Kavita R.', event: 'Birthday Party', text: 'The live dosa counter was a huge hit. Great taste and very hygienic setup. Would book again!', rating: 5 },
-  { id: 4, name: 'Vikram K.', event: 'Silver Jubilee', text: 'They made our silver jubilee unforgettable. The dessert platter was completely out of this world!', rating: 5 },
-  { id: 5, name: 'Priya K.', event: 'Engagement', text: 'Excellent coordination, polite staff, and warm, delicious traditional food. Highly recommended!', rating: 5 },
+  { id: 1, name: 'Ananya S.', event: 'Wedding Sadhya', text: 'The food was absolutely divine! Every single guest complimented the authentic traditional banana leaf sadhya. The service team was respectful, hygienic, and prompt.', rating: 5, date: '2 weeks ago', verified: true },
+  { id: 2, name: 'Rahul M.', event: 'Corporate Conference', text: 'Professional, punctual, and extraordinarily delicious. They handled our 500-person executive conference with flawless coordination. Highly recommended!', rating: 5, date: '1 month ago', verified: true },
+  { id: 3, name: 'Kavitha R.', event: 'Grand Birthday Party', text: 'The live dosa and chaat counters were a massive hit! High hygiene standards, fresh ingredients, and polite live chefs.', rating: 5, date: '1 month ago', verified: true },
+  { id: 4, name: 'Vikram K.', event: 'Silver Jubilee', text: 'They made our parents 25th anniversary celebration unforgettable. The dessert spread and Elaneer Payasam were out of this world!', rating: 5, date: '2 months ago', verified: true },
+  { id: 5, name: 'Priya K.', event: 'Engagement Ceremony', text: 'Excellent menu curation, warm hospitality, and pure traditional taste. Everyone was talking about the Pineapple Kesari and Medhu Vadai!', rating: 5, date: '2 months ago', verified: true },
+  { id: 6, name: 'Suresh Sundaram', event: 'Seemantham Feast', text: 'Impeccable quality and pure authentic Brahmin taste. They catered to all our custom requirements seamlessly. Best caterers in Chennai!', rating: 5, date: '3 months ago', verified: true },
+  { id: 7, name: 'Dr. Meenakshi N.', event: 'Housewarming Sadhya', text: 'Warm, piping hot meals served right on time. The Payasam and Vatha Kuzhambu were authentic home-style goodness.', rating: 5, date: '3 months ago', verified: true }
 ];
 
 const LOCAL_REVIEWS_KEY = 'catering_customer_reviews';

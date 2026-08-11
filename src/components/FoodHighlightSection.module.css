@@ -61,7 +61,7 @@
   color: var(--color-white);
   padding: 0.9rem 2rem;
   border-radius: 999px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
@@ -209,7 +209,7 @@
   color: var(--color-white);
   padding: 1rem 2.25rem;
   border-radius: 999px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;

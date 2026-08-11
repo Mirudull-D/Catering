@@ -145,28 +145,6 @@ export default function BookingSection() {
               <Maximize2 size={15} color="#ffffff" />
             </a>
 
-            {/* Center Location Pin Marker & Speech Bubble Tooltip */}
-            <div className={styles.centerMarkerWrapper}>
-              <div className={styles.speechBubble}>
-                <span className={styles.pinEmoji}>📍</span>
-                <span>{t('ourShopHere') || 'Our shop is right here!'}</span>
-                <div className={styles.speechBubbleArrow}></div>
-              </div>
-            </div>
-
-            {/* Bottom Glassmorphic Floating Bar */}
-            <a 
-              href={googleMapsUrl} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className={styles.bottomGlassBar}
-            >
-              <div className={styles.mapIconCircle}>
-                <MapPin size={18} className={styles.mapIconSvg} />
-              </div>
-              <span>{t('openInGoogleMaps') || 'Open in Google Maps App'}</span>
-            </a>
-
           </motion.div>
 
         </div>

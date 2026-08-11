@@ -1,7 +1,7 @@
 .adminWrap {
   min-height: 100vh;
   background-color: #f9fafb;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Login */
@@ -103,12 +103,19 @@
 
 /* Header */
 .adminHeader {
-  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid #e5e7eb;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 .brandGroup {
@@ -132,8 +139,63 @@
   color: #374151;
 }
 
+/* Navbar Navigation Tabs */
+.adminNavTabs {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #f1f5f9;
+  padding: 5px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.navTab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #64748b;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.navTab:hover {
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.activeNavTab {
+  background: #ffffff !important;
+  color: #2563eb !important;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.tabBadge {
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.activeNavTab .tabBadge {
+  background: #2563eb;
+  color: #ffffff;
+}
+
 .navActions {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 

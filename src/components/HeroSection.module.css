@@ -208,7 +208,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--color-text-main);
@@ -349,7 +349,7 @@
   font-weight: 600;
   cursor: pointer;
   border: none;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   transition: all 0.3s ease;
 }
 
