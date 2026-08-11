@@ -43,6 +43,13 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  align-items: stretch;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 /* Modal Base */

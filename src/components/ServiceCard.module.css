@@ -1,25 +1,30 @@
 .card {
   position: relative;
   width: 100%;
+  height: 100%;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background-color: var(--color-white);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.06);
+  cursor: pointer;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(13, 110, 253, 0.12);
+  border-color: rgba(13, 110, 253, 0.25);
 }
 
 .imageWrapper {
   width: 100%;
-  height: 220px;
+  height: 210px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .cardImage {
@@ -30,49 +35,54 @@
 }
 
 .card:hover .cardImage {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .cardContent {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
   flex: 1;
 }
 
 .cardTitle {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  line-height: 1.35;
   color: var(--color-black);
-}
-
-.cardShortDesc {
-  font-size: 0.9rem;
-  color: var(--color-text-light);
-  margin-bottom: 1.5rem;
-  flex: 1;
+  margin: 0;
 }
 
 .viewBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.25rem;
+  border-radius: 12px;
+  background: var(--color-blue);
+  color: var(--color-white);
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-blue);
-  transition: color 0.3s ease;
-  margin-top: auto;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+  width: 100%;
+  border: none;
+  box-shadow: 0 4px 14px rgba(13, 110, 253, 0.25);
+  cursor: pointer;
 }
 
 .card:hover .viewBtn {
-  color: var(--color-black);
+  background: #0a58ca;
+  box-shadow: 0 6px 20px rgba(13, 110, 253, 0.4);
+  transform: translateY(-1px);
 }
 
 .arrow {
   transition: transform 0.3s ease;
+  flex-shrink: 0;
 }
 
 .card:hover .arrow {
@@ -82,24 +92,19 @@
 @media (max-width: 640px) {
   .card {
     width: 100%;
-    height: auto;
   }
   .cardContent {
-    padding: 1.35rem;
+    padding: 1.25rem;
+    gap: 1rem;
   }
   .imageWrapper {
-    height: 200px;
+    height: 190px;
   }
   .cardTitle {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-  }
-  .cardShortDesc {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 1.25rem;
+    font-size: 1.1rem;
   }
   .viewBtn {
-    font-size: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.82rem;
   }
 }

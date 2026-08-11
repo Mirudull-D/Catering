@@ -276,6 +276,7 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <motion.div 
               key={service.id}
+              className={styles.cardWrapper}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

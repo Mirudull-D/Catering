@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { getGalleryImages, getCustomerReviews, saveCustomerReview } from '../lib/supabase';
+import { Star, CheckCircle2, ChevronLeft, ChevronRight, Plus, Play, Quote } from 'lucide-react';
 import styles from './TestimonialsSection.module.css';
 
 const defaultVideoTestimonials = [
@@ -15,16 +16,19 @@ const defaultVideoTestimonials = [
   { id: 'default-6', title: 'Flawless Execution', thumb: '/gallery/buffet_setup_1785684198318.png' },
 ];
 
-function StarRating({ value, onChange }) {
+function StarRating({ value, onChange, readonly = false }) {
   return (
     <div className={styles.starRating}>
-      {[1,2,3,4,5].map(star => (
+      {[1, 2, 3, 4, 5].map((star) => (
         <button
           key={star}
           type="button"
-          className={`${styles.star} ${star <= value ? styles.starActive : ''}`}
-          onClick={() => onChange(star)}
-        >★</button>
+          disabled={readonly}
+          className={`${styles.starBtn} ${star <= value ? styles.starFilled : ''}`}
+          onClick={() => onChange && onChange(star)}
+        >
+          ★
+        </button>
       ))}
     </div>
   );
@@ -37,6 +41,7 @@ export default function TestimonialsSection() {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({ name: '', event: '', text: '', rating: 5 });
+  const scrollContainerRef = useRef(null);
 
   useEffect(() => {
     async function loadData() {
@@ -61,6 +66,13 @@ export default function TestimonialsSection() {
 
   const duplicated = [...reviews, ...reviews];
 
+  const handleManualScroll = (direction) => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = direction === 'left' ? -380 : 380;
+      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.text) return;
@@ -69,21 +81,110 @@ export default function TestimonialsSection() {
     setReviews(prev => [saved, ...prev]);
     setFormData({ name: '', event: '', text: '', rating: 5 });
     setShowForm(false);
-    alert('Thank you! Your review has been published.');
   };
 
   return (
     <section id="testimonials" className={styles.section}>
       <div className={styles.container}>
 
-        {/* ===== Video Testimonials ===== */}
-        <div className={styles.videoSection}>
+        {/* ===== Customer Reviews Section ===== */}
+        <div className={styles.reviewSection}>
+          
+          {/* Header Bar */}
           <div className={styles.sectionHeader}>
-            <div>
-              <span className={styles.preTitle}>{t('realStoriesTag')}</span>
-              <h2 className={styles.sectionTitle}>{t('videoShowcaseTitle')}</h2>
+            <div className={styles.headerLeft}>
+              <div className={styles.ratingBadge}>
+                <span className={styles.badgeStars}>★★★★★</span>
+                <span className={styles.badgeText}>4.9 / 5.0 Rating • 500+ Grand Events</span>
+              </div>
+              <h2 className={styles.sectionTitle}>{t('testimonialsTitle') || 'Loved by Hosts Across Chennai'}</h2>
+              <p className={styles.sectionSub}>
+                Real reviews and heartfelt feedback from clients who trusted Sri Sankara Catering.
+              </p>
+            </div>
+
+            <div className={styles.headerRight}>
+              <div className={styles.navArrowBtns}>
+                <button 
+                  className={styles.arrowBtn} 
+                  onClick={() => handleManualScroll('left')}
+                  title="Previous Review"
+                >
+                  <ChevronLeft size={18} />
+                </button>
+                <button 
+                  className={styles.arrowBtn} 
+                  onClick={() => handleManualScroll('right')}
+                  title="Next Review"
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </div>
+
+              <button className={styles.addReviewBtn} onClick={() => setShowForm(true)}>
+                <Plus size={16} />
+                <span>{t('writeReview') || 'Write a Review'}</span>
+              </button>
             </div>
           </div>
+
+          {/* Scrolling Reviews Track */}
+          <div className={styles.carouselWrapper}>
+            <div className={styles.carouselContainer} ref={scrollContainerRef}>
+              <div className={styles.track}>
+                {duplicated.map((item, index) => (
+                  <motion.div 
+                    key={`${item.id}-${index}`} 
+                    className={styles.testimonialCard}
+                    whileHover={{ y: -4 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className={styles.cardTopRow}>
+                      <div className={styles.cardStars}>
+                        {Array.from({ length: item.rating || 5 }).map((_, i) => (
+                          <span key={i}>★</span>
+                        ))}
+                      </div>
+                      <div className={styles.verifiedBadge}>
+                        <CheckCircle2 size={13} color="#25d366" />
+                        <span>Verified Host</span>
+                      </div>
+                    </div>
+
+                    <p className={styles.testimonialText}>
+                      &ldquo;{item.text}&rdquo;
+                    </p>
+
+                    <div className={styles.authorRow}>
+                      <div className={styles.avatarCircle}>
+                        {(item.name || 'C').charAt(0).toUpperCase()}
+                      </div>
+                      <div className={styles.authorMeta}>
+                        <h4 className={styles.authorName}>{item.name}</h4>
+                        <span className={styles.authorEventTag}>{item.event || 'Catering Client'}</span>
+                      </div>
+                      <Quote className={styles.quoteIcon} size={28} />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* ===== Video Showcase Section ===== */}
+        <div className={styles.videoSection}>
+          <div className={styles.videoHeader}>
+            <div>
+              <span className={styles.preTitle}>{t('realStoriesTag') || 'LIVE CELEBRATIONS'}</span>
+              <h3 className={styles.videoSectionTitle}>{t('videoShowcaseTitle') || 'Event Video Showcase'}</h3>
+            </div>
+            <p className={styles.videoSubText}>
+              Watch live clips of our banana leaf sadhya feasts, buffet arrangements, and live cooking counters.
+            </p>
+          </div>
+
           <div className={styles.videoGrid}>
             {videos.map((v, i) => (
               <motion.div
@@ -92,59 +193,28 @@ export default function TestimonialsSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
+                transition={{ delay: i * 0.06, duration: 0.4 }}
                 onClick={() => setSelectedVideo(v)}
               >
                 <div className={styles.reelThumb}>
                   {v.src && (v.src.endsWith('.mp4') || v.src.endsWith('.webm') || v.src.endsWith('.mov') || v.src.startsWith('data:video')) ? (
                     <video src={v.src} autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   ) : (
-                    <img src={v.thumb || v.src} alt={v.title || 'Video Showcase'} loading="lazy" />
+                    <img src={v.thumb || v.src} alt={v.title || 'Catering Video Highlight'} loading="lazy" />
                   )}
                   <div className={styles.reelOverlay}>
                     <div className={styles.playBtn}>
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                      <Play size={22} fill="white" color="white" />
                     </div>
+                  </div>
+                  <div className={styles.reelMeta}>
+                    <h4 className={styles.reelTitle}>
+                      {(!v.title || /\.(mp4|webm|mov|png|jpg|jpeg|webp)$/i.test(v.title) || /^\d{5,}/.test(v.title)) ? 'Event Highlight' : v.title}
+                    </h4>
                   </div>
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-
-        {/* ===== Customer Reviews ===== */}
-        <div className={styles.reviewSection}>
-          <div className={styles.sectionHeader}>
-            <div>
-              <span className={styles.preTitle}>{t('socialProofTag')}</span>
-              <h2 className={styles.sectionTitle}>{t('testimonialsTitle')}</h2>
-            </div>
-            <button className={styles.addReviewBtn} onClick={() => setShowForm(true)}>
-              + {t('writeReview')}
-            </button>
-          </div>
-
-          {/* Scrolling carousel */}
-          <div className={styles.carouselWrapper}>
-            <div className={styles.carouselContainer}>
-              <div className={styles.track}>
-                {duplicated.map((item, index) => (
-                  <div key={`${item.id}-${index}`} className={styles.testimonialCard}>
-                    <div className={styles.cardStars}>
-                      {Array.from({ length: item.rating }).map((_, i) => <span key={i}>★</span>)}
-                    </div>
-                    <p className={styles.testimonialText}>"{item.text}"</p>
-                    <div className={styles.authorInfo}>
-                      <div className={styles.avatar}>{item.name.charAt(0)}</div>
-                      <div>
-                        <h4 className={styles.authorName}>{item.name}</h4>
-                        <p className={styles.authorEvent}>{item.event}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 
@@ -156,16 +226,20 @@ export default function TestimonialsSection() {
           <div className={styles.modalOverlay} onClick={() => setShowForm(false)}>
             <motion.div 
               className={styles.modalContent}
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.92, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              exit={{ opacity: 0, scale: 0.92, y: 20 }}
               onClick={(e) => e.stopPropagation()}
             >
               <button className={styles.closeBtn} onClick={() => setShowForm(false)}>✕</button>
               
               <div className={styles.modalHeader}>
-                <h2 className={styles.modalTitle}>{t('writeReview')}</h2>
-                <p className={styles.modalDesc}>Share your experience with Sri Sankara Catering Services.</p>
+                <div className={styles.modalBadge}>
+                  <Star size={14} color="#f59e0b" fill="#f59e0b" />
+                  <span>SHARE YOUR FEEDBACK</span>
+                </div>
+                <h3 className={styles.modalTitle}>{t('writeReview') || 'Write a Review'}</h3>
+                <p className={styles.modalDesc}>Share your catering experience with Sri Sankara Catering Services.</p>
               </div>
               
               <form className={styles.reviewModalForm} onSubmit={handleSubmit}>
@@ -173,7 +247,7 @@ export default function TestimonialsSection() {
                   <label>Your Name *</label>
                   <input
                     type="text"
-                    placeholder="e.g. Kavitha R."
+                    placeholder="e.g. Anand V."
                     value={formData.name}
                     onChange={e => setFormData(p => ({ ...p, name: e.target.value }))}
                     required
@@ -185,7 +259,7 @@ export default function TestimonialsSection() {
                   <label>Event Type</label>
                   <input
                     type="text"
-                    placeholder="e.g. Wedding, Birthday"
+                    placeholder="e.g. Wedding Sadhya, Corporate Lunch, Birthday"
                     value={formData.event}
                     onChange={e => setFormData(p => ({ ...p, event: e.target.value }))}
                     className={styles.input}
@@ -195,7 +269,7 @@ export default function TestimonialsSection() {
                 <div className={styles.formGroup}>
                   <label>Your Review *</label>
                   <textarea
-                    placeholder="Share your experience..."
+                    placeholder="Describe the taste, service quality, and overall experience..."
                     rows={4}
                     value={formData.text}
                     onChange={e => setFormData(p => ({ ...p, text: e.target.value }))}
@@ -205,7 +279,7 @@ export default function TestimonialsSection() {
                 </div>
                 
                 <div className={styles.ratingGroup}>
-                  <label>Rating</label>
+                  <label>Overall Rating</label>
                   <StarRating value={formData.rating} onChange={r => setFormData(p => ({ ...p, rating: r }))} />
                 </div>
                 
@@ -218,7 +292,7 @@ export default function TestimonialsSection() {
         )}
       </AnimatePresence>
 
-      {/* ===== Full-Screen Big Screen Video Lightbox ===== */}
+      {/* ===== Fullscreen Video Lightbox ===== */}
       <AnimatePresence>
         {selectedVideo && (
           <motion.div
@@ -234,9 +308,9 @@ export default function TestimonialsSection() {
 
             <motion.div
               className={styles.videoModalCard}
-              initial={{ scale: 0.88, y: 20 }}
+              initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.88, y: 20 }}
+              exit={{ scale: 0.9, y: 20 }}
               onClick={(e) => e.stopPropagation()}
             >
               <div className={styles.videoContainer}>
@@ -261,13 +335,13 @@ export default function TestimonialsSection() {
                 <div>
                   <span className={styles.videoBadge}>Catering Reel Highlight</span>
                   <h3 className={styles.videoTitle}>
-                    {(!selectedVideo.title || /\.(mp4|webm|mov|png|jpg|jpeg|webp)$/i.test(selectedVideo.title) || /^\d{5,}/.test(selectedVideo.title) || /fps/i.test(selectedVideo.title)) 
+                    {(!selectedVideo.title || /\.(mp4|webm|mov|png|jpg|jpeg|webp)$/i.test(selectedVideo.title) || /^\d{5,}/.test(selectedVideo.title)) 
                       ? 'Sri Sankara Catering Event' 
                       : selectedVideo.title}
                   </h3>
                 </div>
                 <a 
-                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919840874966'}?text=${encodeURIComponent(`Hi, I saw the video "${(!selectedVideo.title || /\.(mp4|webm|mov|png|jpg|jpeg|webp)$/i.test(selectedVideo.title) || /^\d{5,}/.test(selectedVideo.title) || /fps/i.test(selectedVideo.title)) ? 'Catering Reel' : selectedVideo.title}" on your website and would like to inquire about booking!`)}`}
+                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919840874966'}?text=${encodeURIComponent(`Hi, I saw your video showcase on the website and would like to inquire about booking!`)}`}
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className={styles.videoBookBtn}

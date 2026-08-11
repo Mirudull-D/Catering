@@ -21,6 +21,7 @@ export default function AdminPage() {
   const [images, setImages] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState('photos'); // 'photos', 'videos', 'reviews', 'all'
 
   // Upload progress state
   const [isUploading, setIsUploading] = useState(false);
@@ -202,12 +203,43 @@ export default function AdminPage() {
             {isSupabaseConfigured ? '🟢 Supabase Active' : '🟡 Local Storage Sync'}
           </span>
         </div>
+
+        {/* Navbar Navigation Tabs */}
+        <nav className={styles.adminNavTabs}>
+          <button 
+            type="button"
+            className={`${styles.navTab} ${activeTab === 'photos' ? styles.activeNavTab : ''}`}
+            onClick={() => setActiveTab('photos')}
+          >
+            <span>Photo Gallery</span>
+            <span className={styles.tabBadge}>{galleryItems.length}</span>
+          </button>
+
+          <button 
+            type="button"
+            className={`${styles.navTab} ${activeTab === 'videos' ? styles.activeNavTab : ''}`}
+            onClick={() => setActiveTab('videos')}
+          >
+            <span>Video Showcase</span>
+            <span className={styles.tabBadge}>{videoItems.length}</span>
+          </button>
+
+          <button 
+            type="button"
+            className={`${styles.navTab} ${activeTab === 'reviews' ? styles.activeNavTab : ''}`}
+            onClick={() => setActiveTab('reviews')}
+          >
+            <span>Reviews</span>
+            <span className={styles.tabBadge}>{reviews.length}</span>
+          </button>
+        </nav>
+
         <div className={styles.navActions}>
           <Link href="/gallery" className={styles.previewBtn} target="_blank">
-            👁️ View Live Gallery
+            View Live Gallery
           </Link>
           <button onClick={handleLogout} className={styles.logoutBtn}>
-            🔒 Logout
+            Logout
           </button>
         </div>
       </header>
@@ -215,157 +247,163 @@ export default function AdminPage() {
       <main className={styles.mainContainer}>
 
         {/* Live Gallery Editor Section */}
-        <div className={styles.managerSection}>
-          <div className={styles.sectionHeaderWrap}>
-            <div className={styles.sectionIconWrap} style={{ backgroundColor: '#fee2e2', color: '#ef4444' }}>
-              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                <polyline points="21 15 16 10 5 21"></polyline>
-              </svg>
+        {activeTab === 'photos' && (
+          <div className={styles.managerSection}>
+            <div className={styles.sectionHeaderWrap}>
+              <div className={styles.sectionIconWrap} style={{ backgroundColor: '#fee2e2', color: '#ef4444' }}>
+                <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h2 className={styles.sectionHeading}>Live Gallery Editor</h2>
+                <p className={styles.sectionSub}>This layout matches the homepage portfolio grid exactly. Upload any photo directly onto a slot to update it in real-time on the live site!</p>
+              </div>
             </div>
-            <div>
-              <h2 className={styles.sectionHeading}>Live Gallery Editor</h2>
-              <p className={styles.sectionSub}>This layout matches the homepage portfolio grid exactly. Upload any photo directly onto a slot to update it in real-time on the live site!</p>
-            </div>
-          </div>
 
-          <div className={styles.slotsCard}>
-            <h3 className={styles.slotsLabel}>GALLERY SLOTS (1 - 20)</h3>
-            <div className={styles.slotsGrid}>
-              {gallerySlots.map((item, index) => (
-                <div key={item?.id || `empty-${index}`} className={styles.slotBox}>
-                  <div className={styles.slotHeader}>
-                    <span className={styles.slotName}>Slot {index + 1}</span>
-                    {item && <span className={styles.slotActive}>ACTIVE</span>}
-                  </div>
-                  
-                  {item ? (
-                    <div className={styles.slotFilled}>
-                      <img src={item.src} alt={item.title} className={styles.slotImg} />
-                      <div className={styles.slotOverlay}>
-                        <button onClick={() => handleDelete(item.id)} className={styles.slotDeleteBtn}>
-                          Remove
-                        </button>
-                      </div>
+            <div className={styles.slotsCard}>
+              <h3 className={styles.slotsLabel}>GALLERY SLOTS (1 - 20)</h3>
+              <div className={styles.slotsGrid}>
+                {gallerySlots.map((item, index) => (
+                  <div key={item?.id || `empty-${index}`} className={styles.slotBox}>
+                    <div className={styles.slotHeader}>
+                      <span className={styles.slotName}>Slot {index + 1}</span>
+                      {item && <span className={styles.slotActive}>ACTIVE</span>}
                     </div>
-                  ) : (
-                    <label className={styles.slotEmpty}>
-                      <input 
-                        type="file" 
-                        accept="image/*" 
-                        className={styles.hiddenFileInput} 
-                        onChange={(e) => handleFileUpload(e, 'Sadhya')}
-                      />
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fca5a5" strokeWidth="2" className={styles.uploadIcon}>
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="17 8 12 3 7 8"></polyline>
-                        <line x1="12" y1="3" x2="12" y2="15"></line>
-                      </svg>
-                      <span className={styles.uploadText}>Drag photo here</span>
-                    </label>
-                  )}
-                </div>
-              ))}
+                    
+                    {item ? (
+                      <div className={styles.slotFilled}>
+                        <img src={item.src} alt={item.title} className={styles.slotImg} />
+                        <div className={styles.slotOverlay}>
+                          <button onClick={() => handleDelete(item.id)} className={styles.slotDeleteBtn}>
+                            Remove
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <label className={styles.slotEmpty}>
+                        <input 
+                          type="file" 
+                          accept="image/*" 
+                          className={styles.hiddenFileInput} 
+                          onChange={(e) => handleFileUpload(e, 'Sadhya')}
+                        />
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fca5a5" strokeWidth="2" className={styles.uploadIcon}>
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                          <polyline points="17 8 12 3 7 8"></polyline>
+                          <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <span className={styles.uploadText}>Drag photo here</span>
+                      </label>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Video Showcase Manager Section */}
-        <div className={styles.managerSection}>
-          <div className={styles.sectionHeaderWrap}>
-            <div className={styles.sectionIconWrap} style={{ backgroundColor: '#f3f4f6', color: '#4b5563' }}>
-              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
-                <line x1="7" y1="2" x2="7" y2="22"></line>
-                <line x1="17" y1="2" x2="17" y2="22"></line>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <line x1="2" y1="7" x2="7" y2="7"></line>
-                <line x1="2" y1="17" x2="7" y2="17"></line>
-                <line x1="17" y1="17" x2="22" y2="17"></line>
-                <line x1="17" y1="7" x2="22" y2="7"></line>
-              </svg>
+        {activeTab === 'videos' && (
+          <div className={styles.managerSection}>
+            <div className={styles.sectionHeaderWrap}>
+              <div className={styles.sectionIconWrap} style={{ backgroundColor: '#f3f4f6', color: '#4b5563' }}>
+                <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                  <line x1="7" y1="2" x2="7" y2="22"></line>
+                  <line x1="17" y1="2" x2="17" y2="22"></line>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <line x1="2" y1="7" x2="7" y2="7"></line>
+                  <line x1="2" y1="17" x2="7" y2="17"></line>
+                  <line x1="17" y1="17" x2="22" y2="17"></line>
+                  <line x1="17" y1="7" x2="22" y2="7"></line>
+                </svg>
+              </div>
+              <div>
+                <h2 className={styles.sectionHeading}>Video Showcase Manager</h2>
+                <p className={styles.sectionSub}>Upload up to 4 videos to be displayed in the horizontal showcase section. Use vertical/portrait (9:16) videos for best results!</p>
+              </div>
             </div>
-            <div>
-              <h2 className={styles.sectionHeading}>Video Showcase Manager</h2>
-              <p className={styles.sectionSub}>Upload up to 4 videos to be displayed in the horizontal showcase section. Use vertical/portrait (9:16) videos for best results!</p>
-            </div>
-          </div>
 
-          <div className={styles.slotsCard}>
-            <div className={styles.videoSlotsGrid}>
-              {videoSlots.map((item, index) => (
-                <div key={item?.id || `empty-vid-${index}`} className={styles.videoSlotBox}>
-                  <div className={styles.slotHeader}>
-                    <span className={styles.slotName}>Video {index + 1}</span>
-                    {item && <span className={styles.slotActive}>ACTIVE</span>}
-                  </div>
-                  
-                  {item ? (
-                    <div className={styles.slotFilled}>
-                      <video src={item.src} className={styles.slotImg} muted loop autoPlay playsInline />
-                      <div className={styles.slotOverlay}>
-                        <button onClick={() => handleDelete(item.id)} className={styles.slotDeleteBtn}>
-                          Remove
-                        </button>
-                      </div>
+            <div className={styles.slotsCard}>
+              <div className={styles.videoSlotsGrid}>
+                {videoSlots.map((item, index) => (
+                  <div key={item?.id || `empty-vid-${index}`} className={styles.videoSlotBox}>
+                    <div className={styles.slotHeader}>
+                      <span className={styles.slotName}>Video {index + 1}</span>
+                      {item && <span className={styles.slotActive}>ACTIVE</span>}
                     </div>
-                  ) : (
-                    <label className={styles.slotEmpty}>
-                      <input 
-                        type="file" 
-                        accept="video/*" 
-                        className={styles.hiddenFileInput} 
-                        onChange={(e) => handleFileUpload(e, 'Video')}
-                      />
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="2" className={styles.uploadIcon}>
-                        <polygon points="23 7 16 12 23 17 23 7"></polygon>
-                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
-                      </svg>
-                      <span className={styles.uploadText} style={{ color: '#9ca3af' }}>Upload Video</span>
-                    </label>
-                  )}
-                </div>
-              ))}
+                    
+                    {item ? (
+                      <div className={styles.slotFilled}>
+                        <video src={item.src} className={styles.slotImg} muted loop autoPlay playsInline />
+                        <div className={styles.slotOverlay}>
+                          <button onClick={() => handleDelete(item.id)} className={styles.slotDeleteBtn}>
+                            Remove
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <label className={styles.slotEmpty}>
+                        <input 
+                          type="file" 
+                          accept="video/*" 
+                          className={styles.hiddenFileInput} 
+                          onChange={(e) => handleFileUpload(e, 'Video')}
+                        />
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="2" className={styles.uploadIcon}>
+                          <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                          <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                        </svg>
+                        <span className={styles.uploadText} style={{ color: '#9ca3af' }}>Upload Video</span>
+                      </label>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Customer Reviews Moderation Section */}
-        <div className={styles.managerSection}>
-          <div className={styles.sectionHeaderWrap}>
-            <div className={styles.sectionIconWrap} style={{ backgroundColor: '#fef3c7', color: '#d97706' }}>
-              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-              </svg>
+        {activeTab === 'reviews' && (
+          <div className={styles.managerSection}>
+            <div className={styles.sectionHeaderWrap}>
+              <div className={styles.sectionIconWrap} style={{ backgroundColor: '#fef3c7', color: '#d97706' }}>
+                <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h2 className={styles.sectionHeading}>Customer Reviews Moderation</h2>
+                <p className={styles.sectionSub}>View and moderate live reviews submitted by customers on the website.</p>
+              </div>
             </div>
-            <div>
-              <h2 className={styles.sectionHeading}>Customer Reviews Moderation</h2>
-              <p className={styles.sectionSub}>View and moderate live reviews submitted by customers on the website.</p>
-            </div>
-          </div>
 
-          <div className={styles.slotsCard}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem' }}>
-              {reviews.map((rev) => (
-                <div key={rev.id} style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '1.25rem', position: 'relative' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                    <span style={{ fontWeight: '700', color: '#1e293b' }}>{rev.name}</span>
-                    <span style={{ color: '#f59e0b', fontSize: '0.85rem' }}>{'★'.repeat(rev.rating || 5)}</span>
+            <div className={styles.slotsCard}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem' }}>
+                {reviews.map((rev) => (
+                  <div key={rev.id} style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '1.25rem', position: 'relative' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+                      <span style={{ fontWeight: '700', color: '#1e293b' }}>{rev.name}</span>
+                      <span style={{ color: '#f59e0b', fontSize: '0.85rem' }}>{'★'.repeat(rev.rating || 5)}</span>
+                    </div>
+                    <div style={{ fontSize: '0.8rem', color: '#64748b', marginBottom: '0.75rem', fontWeight: '600' }}>{rev.event || 'Special Event'}</div>
+                    <p style={{ fontSize: '0.875rem', color: '#334155', lineHeight: '1.5', marginBottom: '1rem' }}>"{rev.text}"</p>
+                    <button 
+                      onClick={() => handleDeleteReview(rev.id)} 
+                      style={{ background: '#fee2e2', color: '#dc2626', border: 'none', padding: '0.4rem 0.85rem', borderRadius: '6px', fontSize: '0.75rem', fontWeight: '700', cursor: 'pointer' }}
+                    >
+                      Delete Review
+                    </button>
                   </div>
-                  <div style={{ fontSize: '0.8rem', color: '#64748b', marginBottom: '0.75rem', fontWeight: '600' }}>{rev.event || 'Special Event'}</div>
-                  <p style={{ fontSize: '0.875rem', color: '#334155', lineHeight: '1.5', marginBottom: '1rem' }}>"{rev.text}"</p>
-                  <button 
-                    onClick={() => handleDeleteReview(rev.id)} 
-                    style={{ background: '#fee2e2', color: '#dc2626', border: 'none', padding: '0.4rem 0.85rem', borderRadius: '6px', fontSize: '0.75rem', fontWeight: '700', cursor: 'pointer' }}
-                  >
-                    Delete Review
-                  </button>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Uploading Progress Spinner Modal */}
         {isUploading && (

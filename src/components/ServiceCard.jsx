@@ -16,12 +16,21 @@ export default function ServiceCard({ service, onOpenDetails, t }) {
       
       <div className={styles.cardContent}>
         <h3 className={styles.cardTitle}>{service.title}</h3>
-        <p className={styles.cardShortDesc}>{service.desc.substring(0, 60)}...</p>
         
-        <div className={styles.viewBtn}>
-          <span>VIEW DETAILS</span>
-          <span className={styles.arrow}>→</span>
-        </div>
+        <button 
+          type="button" 
+          className={styles.viewBtn} 
+          onClick={(e) => { 
+            e.stopPropagation(); 
+            onOpenDetails(); 
+          }}
+        >
+          <span>Explore Catering Menu</span>
+          <svg className={styles.arrow} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
       </div>
     </div>
   );
