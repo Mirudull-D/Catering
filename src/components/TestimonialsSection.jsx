@@ -112,63 +112,10 @@ export default function TestimonialsSection() {
               <span className={styles.preTitle}>{t('socialProofTag')}</span>
               <h2 className={styles.sectionTitle}>{t('testimonialsTitle')}</h2>
             </div>
-            <button className={styles.addReviewBtn} onClick={() => setShowForm(!showForm)}>
-              {showForm ? 'Cancel' : `+ ${t('writeReview')}`}
+            <button className={styles.addReviewBtn} onClick={() => setShowForm(true)}>
+              + {t('writeReview')}
             </button>
           </div>
-
-          {/* Add Review Form */}
-          {showForm && (
-            <motion.form
-              className={styles.reviewForm}
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              onSubmit={handleSubmit}
-            >
-              <div className={styles.formRow}>
-                <div className={styles.formGroup}>
-                  <label>Your Name *</label>
-                  <input
-                    type="text"
-                    placeholder="e.g. Kavitha R."
-                    value={formData.name}
-                    onChange={e => setFormData(p => ({ ...p, name: e.target.value }))}
-                    required
-                    className={styles.input}
-                  />
-                </div>
-                <div className={styles.formGroup}>
-                  <label>Event Type</label>
-                  <input
-                    type="text"
-                    placeholder="e.g. Wedding, Birthday"
-                    value={formData.event}
-                    onChange={e => setFormData(p => ({ ...p, event: e.target.value }))}
-                    className={styles.input}
-                  />
-                </div>
-              </div>
-              <div className={styles.formGroup}>
-                <label>Your Review *</label>
-                <textarea
-                  placeholder="Share your experience..."
-                  rows={3}
-                  value={formData.text}
-                  onChange={e => setFormData(p => ({ ...p, text: e.target.value }))}
-                  required
-                  className={styles.textarea}
-                />
-              </div>
-              <div className={styles.formBottom}>
-                <div className={styles.ratingGroup}>
-                  <label>Rating</label>
-                  <StarRating value={formData.rating} onChange={r => setFormData(p => ({ ...p, rating: r }))} />
-                </div>
-                <button type="submit" className={styles.submitBtn}>Submit Review</button>
-              </div>
-            </motion.form>
-          )}
 
           {/* Scrolling carousel */}
           <div className={styles.carouselWrapper}>
@@ -195,6 +142,74 @@ export default function TestimonialsSection() {
         </div>
 
       </div>
+
+      {/* ===== Write Review Modal ===== */}
+      <AnimatePresence>
+        {showForm && (
+          <div className={styles.modalOverlay} onClick={() => setShowForm(false)}>
+            <motion.div 
+              className={styles.modalContent}
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button className={styles.closeBtn} onClick={() => setShowForm(false)}>✕</button>
+              
+              <div className={styles.modalHeader}>
+                <h2 className={styles.modalTitle}>{t('writeReview')}</h2>
+                <p className={styles.modalDesc}>Share your experience with Sri Sankara Catering Services.</p>
+              </div>
+              
+              <form className={styles.reviewModalForm} onSubmit={handleSubmit}>
+                <div className={styles.formGroup}>
+                  <label>Your Name *</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Kavitha R."
+                    value={formData.name}
+                    onChange={e => setFormData(p => ({ ...p, name: e.target.value }))}
+                    required
+                    className={styles.input}
+                  />
+                </div>
+                
+                <div className={styles.formGroup}>
+                  <label>Event Type</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Wedding, Birthday"
+                    value={formData.event}
+                    onChange={e => setFormData(p => ({ ...p, event: e.target.value }))}
+                    className={styles.input}
+                  />
+                </div>
+                
+                <div className={styles.formGroup}>
+                  <label>Your Review *</label>
+                  <textarea
+                    placeholder="Share your experience..."
+                    rows={4}
+                    value={formData.text}
+                    onChange={e => setFormData(p => ({ ...p, text: e.target.value }))}
+                    required
+                    className={styles.textarea}
+                  />
+                </div>
+                
+                <div className={styles.ratingGroup}>
+                  <label>Rating</label>
+                  <StarRating value={formData.rating} onChange={r => setFormData(p => ({ ...p, rating: r }))} />
+                </div>
+                
+                <button type="submit" className={styles.submitBtn}>
+                  Submit Review
+                </button>
+              </form>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* ===== Full-Screen Big Screen Video Lightbox ===== */}
       <AnimatePresence>

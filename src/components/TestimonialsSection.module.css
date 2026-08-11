@@ -17,7 +17,8 @@
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 3rem;
-  gap: 2rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .preTitle {
@@ -143,18 +144,87 @@
   background: var(--color-blue);
 }
 
-/* Review form */
-.reviewForm {
-  background: var(--color-white);
-  border-radius: 20px;
-  padding: 2rem;
-  margin-bottom: 2.5rem;
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+/* Review modal */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background-color: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.modalContent {
+  background-color: var(--color-white);
+  border-radius: 24px;
+  padding: 2.25rem 2rem;
+  width: 100%;
+  max-width: 500px;
+  max-height: 88vh;
+  max-height: 88dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #f1f5f9;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  background-color: #fee2e2;
+  color: #ef4444;
+  transform: rotate(90deg);
+}
+
+.modalHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.modalTitle {
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+  font-weight: 800;
+  color: var(--color-black);
+  margin-bottom: 0.35rem;
+}
+
+.modalDesc {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.reviewModalForm {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  overflow: hidden;
+  gap: 1.15rem;
 }
 
 .formRow {
@@ -355,18 +425,50 @@
     grid-template-columns: repeat(3, 1fr);
   }
   .sectionHeader {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     gap: 1rem;
   }
   .sectionTitle {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
   .formRow {
     grid-template-columns: 1fr;
   }
   .testimonialCard {
     width: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .addReviewBtn {
+    padding: 0.7rem 1.35rem;
+    font-size: 0.85rem;
+  }
+  .modalOverlay {
+    padding: 0.75rem;
+  }
+  .modalContent {
+    border-radius: 20px;
+    padding: 1.5rem 1.15rem;
+    max-height: 86dvh;
+  }
+  .modalHeader {
+    text-align: left;
+    margin-bottom: 1.25rem;
+  }
+  .modalTitle {
+    font-size: 1.35rem;
+  }
+  .submitBtn {
+    width: 100%;
+    text-align: center;
   }
 }
 
