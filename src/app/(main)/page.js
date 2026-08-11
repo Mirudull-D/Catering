@@ -48,11 +48,11 @@ export default function Home() {
           transition={{ duration: 0.8, ease: "easeInOut" }}
         >
           <HeroSection />
+          <ServicesSection />
           <InteractiveMenuExplorer />
           <ProcessSection />
           <FoodHighlightSection />
           <InteractiveDishPoll />
-          <ServicesSection />
           <GallerySection />
           <TestimonialsSection />
           <BookingSection />

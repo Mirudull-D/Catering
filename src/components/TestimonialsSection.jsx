@@ -41,7 +41,14 @@ export default function TestimonialsSection() {
   useEffect(() => {
     async function loadData() {
       const allData = await getGalleryImages();
-      const customVideos = (allData || []).filter(item => item.category === 'Video');
+      const customVideos = (allData || []).filter(item => {
+        if (!item || !item.src) return false;
+        return item.category === 'Video' || 
+          item.src.endsWith('.mp4') || 
+          item.src.endsWith('.webm') || 
+          item.src.endsWith('.mov') || 
+          item.src.startsWith('data:video');
+      });
       if (customVideos.length > 0) {
         setVideos(customVideos);
       }
@@ -253,10 +260,14 @@ export default function TestimonialsSection() {
               <div className={styles.videoMetaBar}>
                 <div>
                   <span className={styles.videoBadge}>Catering Reel Highlight</span>
-                  <h3 className={styles.videoTitle}>{selectedVideo.title || 'Sri Sankara Catering Event'}</h3>
+                  <h3 className={styles.videoTitle}>
+                    {(!selectedVideo.title || /\.(mp4|webm|mov|png|jpg|jpeg|webp)$/i.test(selectedVideo.title) || /^\d{5,}/.test(selectedVideo.title) || /fps/i.test(selectedVideo.title)) 
+                      ? 'Sri Sankara Catering Event' 
+                      : selectedVideo.title}
+                  </h3>
                 </div>
                 <a 
-                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919840874966'}?text=${encodeURIComponent(`Hi, I saw the video "${selectedVideo.title || 'Catering Highlight'}" on your website and would like to inquire about booking!`)}`}
+                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919840874966'}?text=${encodeURIComponent(`Hi, I saw the video "${(!selectedVideo.title || /\.(mp4|webm|mov|png|jpg|jpeg|webp)$/i.test(selectedVideo.title) || /^\d{5,}/.test(selectedVideo.title) || /fps/i.test(selectedVideo.title)) ? 'Catering Reel' : selectedVideo.title}" on your website and would like to inquire about booking!`)}`}
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className={styles.videoBookBtn}

@@ -26,55 +26,112 @@ const ServiceModal = ({ isOpen, onClose, service, onOpenBooking, t }) => {
       <div className={styles.modalOverlay} onClick={onClose}>
         <motion.div 
           className={styles.modalContent}
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
+          initial={{ opacity: 0, scale: 0.95, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.9, y: 20 }}
+          exit={{ opacity: 0, scale: 0.95, y: 15 }}
           onClick={(e) => e.stopPropagation()}
         >
-          <button className={styles.closeBtn} onClick={onClose}>✕</button>
+          <button className={styles.closeBtn} onClick={onClose} aria-label="Close modal">✕</button>
           
-          <div className={styles.printableArea}>
-            <div className={styles.printHeader}>
-              <h2 className={styles.printTitle}>Sri Sankara Catering Services — Official Brochure</h2>
-              <p>Phone: {PHONE_NUMBER} | Location: Venkatapuram, Ambattur, Chennai - 600 053</p>
+          <div className={styles.modalGrid}>
+            {/* LEFT COLUMN: Title, Desc, Capacity Box, 4 Feature Pills */}
+            <div className={styles.modalLeftPane}>
+              <div className={styles.modalHeaderInfo}>
+                <span className={styles.categoryTag}>SRI SANKARA CATERING</span>
+                <h2 className={styles.modalTitle}>{service.title}</h2>
+                <p className={styles.modalDesc}>{service.desc}</p>
+              </div>
+
+              {/* Quality & Capacity Banner Box */}
+              <div className={styles.modalHighlightBox}>
+                <div className={styles.highlightItem}>
+                  <span className={styles.highlightLabel}>QUALITY & TASTE</span>
+                  <span className={styles.highlightVal}>100% Premium</span>
+                </div>
+                <div className={styles.highlightDivider}></div>
+                <div className={styles.highlightItem}>
+                  <span className={styles.highlightLabel}>EVENT CAPACITY</span>
+                  <span className={styles.highlightVal}>50 to 5000+ Guests</span>
+                </div>
+              </div>
+
+              {/* 4 Feature Pills */}
+              <div className={styles.modalFeaturesGrid}>
+                <div className={styles.featurePill}>
+                  <span className={styles.featureIcon}>🌿</span>
+                  <div>
+                    <strong>100% Pure Veg</strong>
+                    <small>Fresh & Handcrafted</small>
+                  </div>
+                </div>
+                <div className={styles.featurePill}>
+                  <span className={styles.featureIcon}>✨</span>
+                  <div>
+                    <strong>Authentic Spices</strong>
+                    <small>Traditional Recipes</small>
+                  </div>
+                </div>
+                <div className={styles.featurePill}>
+                  <span className={styles.featureIcon}>👨‍🍳</span>
+                  <div>
+                    <strong>Master Chefs</strong>
+                    <small>Unmatched Taste</small>
+                  </div>
+                </div>
+                <div className={styles.featurePill}>
+                  <span className={styles.featureIcon}>🏆</span>
+                  <div>
+                    <strong>Complete Setup</strong>
+                    <small>Staff & Cutlery</small>
+                  </div>
+                </div>
+              </div>
             </div>
-            
-            <h2 className={styles.modalTitle}>{service.title}</h2>
-            <p className={styles.modalDesc}>{service.desc}</p>
-            
-            <div className={styles.modalDetails}>
-              <h3>What&apos;s Included in {service.title}:</h3>
-              <ul>
-                {Array.isArray(service.included) ? (
-                  service.included.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))
-                ) : (
-                  <>
-                    <li>Customized Authentic Menu Planning</li>
-                    <li>Traditional & Modern Presentation</li>
-                    <li>Professional Uniformed Service Staff</li>
-                    <li>Premium Cutlery, Dishes & Hygiene Setup</li>
-                    <li>On-site Live Kitchen & Management</li>
-                  </>
-                )}
-              </ul>
+
+            {/* RIGHT COLUMN: Inclusions & Actions */}
+            <div className={styles.modalRightPane}>
+              <div className={styles.modalDetails}>
+                <h3 className={styles.inclusionsTitle}>
+                  Menu Highlights & Inclusions
+                </h3>
+                <ul className={styles.inclusionsList}>
+                  {Array.isArray(service.included) ? (
+                    service.included.map((item, idx) => (
+                      <li key={idx} className={styles.inclusionItem}>
+                        <span className={styles.checkIcon}>✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))
+                  ) : (
+                    <>
+                      <li className={styles.inclusionItem}><span className={styles.checkIcon}>✓</span><span>Customized Authentic Menu Planning</span></li>
+                      <li className={styles.inclusionItem}><span className={styles.checkIcon}>✓</span><span>Traditional & Modern Presentation</span></li>
+                      <li className={styles.inclusionItem}><span className={styles.checkIcon}>✓</span><span>Professional Uniformed Service Staff</span></li>
+                      <li className={styles.inclusionItem}><span className={styles.checkIcon}>✓</span><span>Premium Cutlery, Dishes & Hygiene Setup</span></li>
+                      <li className={styles.inclusionItem}><span className={styles.checkIcon}>✓</span><span>On-site Live Kitchen & Management</span></li>
+                    </>
+                  )}
+                </ul>
+              </div>
+
+              {/* Action Buttons */}
+              <div className={styles.modalActions}>
+                <button className={styles.bookNowActionBtn} onClick={handleBookNow}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.78 0-3.522-.477-5.048-1.38l-.362-.215-3.75.983.999-3.656-.236-.375C2.686 15.602 2.14 13.67 2.14 11.642c0-5.32 4.328-9.648 9.648-9.648 5.32 0 9.648 4.328 9.648 9.648 0 5.32-4.328 9.648-9.648 9.648m0-21.055C5.452.788.077 6.163.077 12.788c0 2.114.552 4.179 1.603 5.999L0 24.876l6.262-1.642c1.756.957 3.742 1.463 5.79 1.463 6.625 0 12-5.375 12-12s-5.375-12-12-12"/></svg>
+                  Book Menu
+                </button>
+                <a 
+                  href={service.pdfUrl || '/brochures/Sankara Catering  Menu.pdf'} 
+                  download 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.downloadBtn}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  Download Brochure
+                </a>
+              </div>
             </div>
-            
-            <div className={styles.printFooter}>
-              <p>For Instant Booking & Inquiries: {PHONE_NUMBER} | WhatsApp: +{WHATSAPP_NUMBER}</p>
-            </div>
-          </div>
-          
-          <div className={styles.modalActions}>
-            <button className={styles.bookNowActionBtn} onClick={handleBookNow}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              Book Now
-            </button>
-            <button className={styles.downloadBtn} onClick={handlePrint}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-              Download Brochure PDF
-            </button>
           </div>
         </motion.div>
       </div>
@@ -155,17 +212,47 @@ export default function ServicesSection() {
   const [selectedService, setSelectedService] = useState(null);
   const [selectedBookService, setSelectedBookService] = useState(null);
 
-  const handleGlobalBrochurePrint = () => {
-    window.print();
-  };
-
   const services = [
-    { id: 1, title: t('service1'), desc: t('service1Desc'), included: t('service1Included'), image: '/gallery/wedding_catering.png' },
-    { id: 2, title: t('service2'), desc: t('service2Desc'), included: t('service2Included'), image: '/gallery/corporate_catering.png' },
-    { id: 3, title: t('service3'), desc: t('service3Desc'), included: t('service3Included'), image: '/gallery/dessert_platter_1785684210041.png' },
-    { id: 4, title: t('service4'), desc: t('service4Desc'), included: t('service4Included'), image: '/gallery/live_counter_1785684260521.png' },
-    { id: 5, title: t('service5'), desc: t('service5Desc'), included: t('service5Included'), image: '/gallery/buffet_setup_1785684198318.png' },
-    { id: 6, title: t('service6'), desc: t('service6Desc'), included: t('service6Included'), image: '/gallery/south_indian_meals_1785684185063.png' },
+    { 
+      id: 1, 
+      title: t('service1'), 
+      desc: t('service1Desc'), 
+      included: t('service1Included'), 
+      image: '/gallery/wedding_catering.png',
+      pdfUrl: '/brochures/Sankara Catering Brahmin A5 Catering Booklet  2024.pdf'
+    },
+    { 
+      id: 2, 
+      title: t('service2'), 
+      desc: t('service2Desc'), 
+      included: t('service2Included'), 
+      image: '/gallery/corporate_catering.png',
+      pdfUrl: '/brochures/Sankara Catering  Menu.pdf'
+    },
+    { 
+      id: 3, 
+      title: t('service3'), 
+      desc: t('service3Desc'), 
+      included: t('service3Included'), 
+      image: '/gallery/dessert_platter_1785684210041.png',
+      pdfUrl: '/brochures/Sankaraa Catering Sky Blue Four folding Menu List.pdf'
+    },
+    { 
+      id: 4, 
+      title: t('service4'), 
+      desc: t('service4Desc'), 
+      included: t('service4Included'), 
+      image: '/gallery/live_counter_1785684260521.png',
+      pdfUrl: '/brochures/Brahmin Menu Tiffin & Lunch.pdf'
+    },
+    { 
+      id: 5, 
+      title: t('service6'), 
+      desc: t('service6Desc'), 
+      included: t('service6Included'), 
+      image: '/gallery/south_indian_meals_1785684185063.png',
+      pdfUrl: '/brochures/Sankaraa Catering Sky Blue sheet Menu Card.pdf'
+    },
   ];
 
   return (
@@ -198,7 +285,6 @@ export default function ServicesSection() {
                 service={service}
                 onOpenDetails={() => setSelectedService(service)}
                 onOpenBooking={() => setSelectedBookService(service)}
-                onDownload={handleGlobalBrochurePrint}
                 t={t}
               />
             </motion.div>
@@ -209,10 +295,11 @@ export default function ServicesSection() {
       <ServiceModal 
         isOpen={!!selectedService} 
         onClose={() => setSelectedService(null)} 
-        service={selectedService} 
-        onOpenBooking={(s) => setSelectedBookService(s)}
+        service={selectedService}
+        onOpenBooking={(svc) => setSelectedBookService(svc)}
         t={t}
       />
+
       <BookModal 
         isOpen={!!selectedBookService} 
         onClose={() => setSelectedBookService(null)} 

@@ -16,7 +16,16 @@ export default function GallerySection() {
   useEffect(() => {
     async function loadData() {
       const data = await getGalleryImages();
-      setImages(data);
+      const photosOnly = (data || []).filter(item => {
+        if (!item || !item.src) return false;
+        const isVid = item.category === 'Video' || 
+          item.src.endsWith('.mp4') || 
+          item.src.endsWith('.webm') || 
+          item.src.endsWith('.mov') || 
+          item.src.startsWith('data:video');
+        return !isVid;
+      });
+      setImages(photosOnly);
       setLoading(false);
     }
     loadData();
@@ -103,7 +112,7 @@ export default function GallerySection() {
               ) : (
                 <img src={selectedImage.src} alt={selectedImage.title || 'Gallery Image'} className={styles.lightboxImage} />
               )}
-              {selectedImage.title && (
+              {selectedImage.title && !(/\.(mp4|webm|mov|png|jpg|jpeg|webp)$/i.test(selectedImage.title) || /^\d{5,}/.test(selectedImage.title) || /fps/i.test(selectedImage.title)) && (
                 <div className={styles.lightboxMeta}>
                   <span className={styles.lightboxTag}>{selectedImage.category || 'Feast'}</span>
                   <h3 className={styles.lightboxTitle}>{selectedImage.title}</h3>

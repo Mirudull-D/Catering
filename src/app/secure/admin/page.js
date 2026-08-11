@@ -22,6 +22,10 @@ export default function AdminPage() {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Upload progress state
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadMsg, setUploadMsg] = useState('');
+
   // Check existing session
   useEffect(() => {
     const sessionAuth = sessionStorage.getItem('admin_authenticated');
@@ -94,6 +98,9 @@ export default function AdminPage() {
       return;
     }
 
+    setIsUploading(true);
+    setUploadMsg(`Uploading ${isVideo ? 'Video Reel' : 'Image'} (${(file.size / (1024 * 1024)).toFixed(1)} MB)... Please wait.`);
+
     try {
       let fileUrl = '';
 
@@ -115,12 +122,24 @@ export default function AdminPage() {
         });
       }
 
-      const newImg = { title: file.name, category, src: fileUrl };
+      const finalCategory = isVideo ? 'Video' : category;
+
+      // Format clean title and remove raw camera/code filenames
+      let cleanTitle = file.name.replace(/\.(mp4|webm|mov|png|jpg|jpeg|gif|webp)$/i, '');
+      if (/^\d{5,}/.test(cleanTitle) || /fps/i.test(cleanTitle) || /^[\d_a-z-]+$/i.test(cleanTitle)) {
+        cleanTitle = isVideo ? 'Catering Reel Highlight' : 'Sri Sankara Event';
+      }
+
+      const newImg = { title: cleanTitle, category: finalCategory, src: fileUrl };
       await saveGalleryImage(newImg);
-      loadImages();
+      await loadImages();
     } catch (err) {
       console.error('File upload failed:', err);
       alert(`Upload failed: ${err.message || 'Check bucket permissions in Supabase dashboard'}`);
+    } finally {
+      setIsUploading(false);
+      setUploadMsg('');
+      e.target.value = '';
     }
   };
 
@@ -347,6 +366,17 @@ export default function AdminPage() {
             </div>
           </div>
         </div>
+
+        {/* Uploading Progress Spinner Modal */}
+        {isUploading && (
+          <div className={styles.uploadOverlay}>
+            <div className={styles.uploadCard}>
+              <div className={styles.spinner} />
+              <h3 className={styles.uploadTitle}>Uploading File...</h3>
+              <p className={styles.uploadSub}>{uploadMsg}</p>
+            </div>
+          </div>
+        )}
 
       </main>
     </div>
