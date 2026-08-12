@@ -196,7 +196,7 @@
   display: flex;
   gap: 1.5rem;
   width: max-content;
-  animation: scrollLeft 45s linear infinite;
+  animation: scrollLeft 20s linear infinite;
   padding: 0.5rem 0;
 }
 
@@ -349,13 +349,17 @@
 }
 
 .videoGrid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.15rem;
 }
 
 .reelCard {
   cursor: pointer;
+  flex: 1 1 150px;
+  max-width: 185px;
+  min-width: 135px;
 }
 
 .reelThumb {

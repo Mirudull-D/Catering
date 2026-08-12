@@ -66,6 +66,39 @@
   font-size: 1rem;
 }
 
+.passwordWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.passwordWrapper .input {
+  padding-right: 2.8rem;
+}
+
+.eyeToggleBtn {
+  position: absolute;
+  right: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.eyeToggleBtn:hover {
+  color: #111827;
+  background-color: #f3f4f6;
+}
+
 .loginBtn {
   width: 100%;
   padding: 0.875rem;
@@ -287,8 +320,9 @@
 
 /* Slots Grid - Video (vertical portrait) */
 .videoSlotsGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
 }
 

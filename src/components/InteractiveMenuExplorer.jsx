@@ -9,73 +9,72 @@ import styles from './InteractiveMenuExplorer.module.css';
 const SERVING_STEPS = [
   {
     id: 1,
-    title: { en: 'Morning Breakfast Feast', ta: 'காலை டிபன் சிற்றுண்டி' },
-    subtitle: { en: 'Filter Coffee, Fluffy Idlis, Crispy Vada & Variety Rice', ta: 'டிகிரி காபி, இட்லி, பொங்கல், வடை & சித்ரான்னங்கள்' },
+    title: { en: 'Morning Tiffin & Breakfast', ta: 'காலை உணவு & டிபன்' },
+    subtitle: { en: 'Authentic Tiffin with Kasi Halwa, Medhu Vadai & Degree Coffee', ta: 'காசி அல்வா, மெது வடை, இட்லி, பொங்கல் & பில்டர் காபி' },
     icon: '☕',
     dishes: [
-      { name: { en: 'Filter Coffee & Juice', ta: 'பில்டர் காபி & ஜூஸ்' }, icon: '☕', desc: { en: 'Freshly brewed Kumbakonam Degree Coffee or fresh Fruit Juice.', ta: 'கும்பகோணம் டிகிரி காபி மற்றும் புதிய பழச்சாறு.' } },
-      { name: { en: 'Badusha & Kesari', ta: 'பாதுஷா & கேசரி' }, icon: '🧈', desc: { en: 'Authentic Badusha sweet & aromatic Pineapple Kesari.', ta: 'சுவையான பாதுஷா மற்றும் அன்னாசி கேசரி.' } },
-      { name: { en: 'Idli, Pongal & Vada', ta: 'இட்லி, பொங்கல் & வடை' }, icon: '🥞', desc: { en: 'Soft Mallipoo Idli, Ghee Ven Pongal & Crispy Medu Vada.', ta: 'மல்லிகைப் பூ இட்லி, நெய் வெண் பொங்கல் மற்றும் மெதுவடை.' } },
-      { name: { en: 'Brinji & Mango Rice', ta: 'வெஜ் பிரிஞ்சி & மாங்காய் சாதம்' }, icon: '🍚', desc: { en: 'Vegetable Brinji & spicy Tangy Mango Rice.', ta: 'காய்கறி பிரிஞ்சி மற்றும் மாங்காய் சாதம்.' } },
-      { name: { en: 'Coconut & Puli Rice', ta: 'தேங்காய் & புளி சாதம்' }, icon: '🥥', desc: { en: 'Coconut Rice & authentic Kovil Puliogare.', ta: 'தேங்காய் சாதம் மற்றும் கோவில் புளியோதரை.' } },
-      { name: { en: 'Poriyal, Avial & Thuvaiyal', ta: 'பொரியல், அவியல் & துவையல்' }, icon: '🥗', desc: { en: 'Potato Poriyal, Vegetable Avial & Mint Thuvaiyal.', ta: 'உருளை பொரியல், அவியல் மற்றும் புதினா துவையல்.' } }
+      { name: { en: 'Kasi Halwa / Wheat Halwa', ta: 'காசி அல்வா / கோதுமை அல்வா' }, icon: '🧈', desc: { en: 'Melt-in-the-mouth Halwa made with pure ghee & cashews.', ta: 'நெய் மணக்கும் சுவையான கோதுமை / காசி அல்வா.' } },
+      { name: { en: 'Medhu Vadai', ta: 'மெது வடை' }, icon: '🧆', desc: { en: 'Crispy golden fried lentil Medhu Vadai.', ta: 'மொறுமொறுப்பான உளுந்து மெதுவடை.' } },
+      { name: { en: 'Idly & Ven Pongal', ta: 'இட்லி & வெண் பொங்கல்' }, icon: '🥞', desc: { en: 'Soft Mallipoo Idly & aromatic Ghee Ven Pongal.', ta: 'மல்லிகைப் பூ இட்லி மற்றும் நெய் வெண் பொங்கல்.' } },
+      { name: { en: 'Coconut Chutney & Tomato Thokku', ta: 'தேங்காய் சட்னி & தக்காளி தொக்கு' }, icon: '🥥', desc: { en: 'Freshly ground coconut chutney & spicy tomato thokku.', ta: 'தேங்காய் சட்னி மற்றும் தக்காளி தொக்கு.' } },
+      { name: { en: 'Kosthu', ta: 'கொஸ்து' }, icon: '🍲', desc: { en: 'Traditional spiced brinjal & lentil Kosthu.', ta: 'பாரம்பரிய சுவையான கொஸ்து.' } },
+      { name: { en: 'Filter Coffee', ta: 'ஃபில்டர் காபி' }, icon: '☕', desc: { en: 'Freshly brewed Kumbakonam brass dabba Filter Coffee.', ta: 'பித்தளை டம்ளரில் பரிமாறப்படும் பில்டர் காபி.' } }
     ],
     heritageTip: {
-      en: 'Our breakfast menu starts with traditional sweets & hot filter coffee before serving piping hot idlis and flavorful variety rices.',
-      ta: 'எங்கள் காலை உணவு பாரம்பரிய இனிப்பு மற்றும் சுடச்சுட பில்டர் காபியுடன் தொடங்கி சுவையான உணவுகளுடன் நிறைவடைகிறது.'
+      en: 'Morning breakfast begins with a traditional hot halwa and filter coffee followed by soft idlis, ghee pongal, and crispy medhu vada.',
+      ta: 'காலை உணவு பாரம்பரிய இனிப்பு மற்றும் சுடச்சுட காபியுடன் தொடங்கி சுவையான இட்லி, பொங்கலுடன் நிறைவடைகிறது.'
     }
   },
   {
     id: 2,
-    title: { en: 'Grand Banana Leaf Feast (Sadhya)', ta: 'மதியம் பிரமாண்ட வாழையிலை விருந்து' },
-    subtitle: { en: 'Authentic 20+ Item South Indian Leaf Sadhya', ta: '20+ சுவைகளுடன் கூடிய பாரம்பரிய தென்னிந்திய சத்யா விருந்து' },
+    title: { en: 'Leaf Sadhya: Starters & Sweets', ta: 'வாழையிலை விருந்து: ஸ்வீட்ஸ் & அப்பளம்' },
+    subtitle: { en: 'Top Leaf Placement: Sweets, Vadai, Payasam & Accompaniments', ta: 'வாழை இலையின் மேல் பகுதியில் பரிமாறப்படும் இனிப்பு மற்றும் தொடுகறிகள்' },
     icon: '🍃',
     dishes: [
-      { name: { en: 'Dal, Ghee & Sambar', ta: 'பருப்பு, நெய் & சாம்பார்' }, icon: '🧈', desc: { en: 'First Course: Creamy Moong dal topped with cow ghee & roasted spice Sambar.', ta: 'முதல் பந்தி: நெய் மணக்கும் பருப்பு சாதம் மற்றும் சுவையான சாம்பார்.' } },
-      { name: { en: 'Vatha Kuzhambu & Rasam', ta: 'வத்தக்குழம்பு & ரசம்' }, icon: '🍲', desc: { en: 'Second Course: Tangy Vatha Kuzhambu & digestion-boosting Pepper Garlic Rasam.', ta: 'இரண்டாம் பந்தி: மணமணக்கும் வத்தக்குழம்பு மற்றும் மிளகு ரசம்.' } },
-      { name: { en: 'Peas Poriyal & Avial', ta: 'பட்டாணி பொரியல் & அவியல்' }, icon: '🥦', desc: { en: 'Potato Peas Poriyal & Kerala style mixed vegetable Avial.', ta: 'உருளை பட்டாணி பொரியல் மற்றும் பாரம்பரிய அவியல்.' } },
-      { name: { en: 'Veg Brinji & Raitha', ta: 'பிரிஞ்சி & தயிர் பச்சடி' }, icon: '🥘', desc: { en: 'Special Flavored Rice served with chilled Onion Raitha.', ta: 'சிறப்பு காய்கறி பிரிஞ்சி மற்றும் வெங்காய பச்சடி.' } },
-      { name: { en: 'Semiya Milk Payasam', ta: 'சேமியா பால் பாயாசம்' }, icon: '🍯', desc: { en: 'Rich cardamom milk payasam garnished with ghee cashews & raisins.', ta: 'முந்திரி திராட்சை தூவிய சுவையான சேமியா பால் பாயாசம்.' } },
-      { name: { en: 'Leaf, Pappadam & Pickle', ta: 'வாழை இலை & அப்பளம்' }, icon: '🍘', desc: { en: 'Served on fresh green banana leaf with Guruvayur Pappadam & Mango pickle.', ta: 'பச்சை வாழை இலையில் பரிமாறப்படும் அப்பளம் மற்றும் மாங்காய் ஊறுகாய்.' } }
+      { name: { en: 'Jangri / Badusha', ta: 'ஜாங்கிரி / பாதுஷா' }, icon: '🍯', desc: { en: 'Freshly made juicy Jangri or melt-in-the-mouth Badusha.', ta: 'பாரம்பரிய ஜாங்கிரி அல்லது சுவையான பாதுஷா.' } },
+      { name: { en: 'Aama Vadai / Curd Vadai', ta: 'ஆமை வடை / தயிர் வடை' }, icon: '🧆', desc: { en: 'Crispy Aama Vadai or cool spiced Curd Vadai.', ta: 'பாரம்பரிய ஆமை வடை அல்லது குளிர்ந்த தயிர் வடை.' } },
+      { name: { en: 'Milk Payasam / Paruppu Payasam', ta: 'பால் பாயாசம் / பருப்பு பாயாசம்' }, icon: '🥣', desc: { en: 'Rich cardamom Paal Payasam or Paruppu Payasam.', ta: 'முந்திரி திராட்சை தூவிய பால் / பருப்பு பாயாசம்.' } },
+      { name: { en: 'Pineapple Sweet Pachadi', ta: 'அன்னாசி ஸ்வீட் பச்சடி' }, icon: '🍍', desc: { en: 'Sweet & tangy Pineapple fruit pachadi.', ta: 'சுவையான அன்னாசி ஸ்வீட் பச்சடி.' } },
+      { name: { en: 'Appalam & Orugai (Pickle)', ta: 'அப்பளம் & ஊறுகாய்' }, icon: '🍘', desc: { en: 'Crispy Appalam & authentic spicy Mango/Citron Pickle.', ta: 'மொறுமொறு அப்பளம் மற்றும் மாங்காய் ஊறுகாய்.' } }
     ],
     heritageTip: {
-      en: 'In South Indian Sadhya tradition, meals are served sequentially starting with sweet & ghee dal, moving to Sambar and Rasam, and ending with Moru.',
-      ta: 'தென்னிந்திய சாத்யா முறையில், இனிப்பு மற்றும் நெய் பருப்பில் தொடங்கி, சாம்பார், ரசம் வழியாக மோரில் நிறைவடைகிறது.'
+      en: 'In banana leaf dining etiquette, sweets and vadai are placed on the top right corner of the leaf, signaling the start of the grand feast.',
+      ta: 'வாழையிலை விருந்தில் இனிப்பு மற்றும் வடை இலையின் வலது மேல் மூலையில் முதன்முதலாக பரிமாறப்படுகிறது.'
     }
   },
   {
     id: 3,
-    title: { en: 'Evening Tiffin & Snacks', ta: 'மாலை டிபன் & சிற்றுண்டி' },
-    subtitle: { en: 'Fresh Halwa, Crispy Bondas & Hot Beverages', ta: 'சூடான அல்வா, போண்டா மற்றும் காபி' },
-    icon: '🫖',
+    title: { en: 'Leaf Sadhya: Mains & Gravies', ta: 'வாழையிலை விருந்து: சாதம் & சாம்பார்' },
+    subtitle: { en: 'Steamed Rice, Paruppu Ghee, Sambar, Mor Kuzhambu & Usili', ta: 'சூடான சாதம், பருப்பு நெய், சாம்பார், மோர்குழம்பு & உசிலி' },
+    icon: '🍚',
     dishes: [
-      { name: { en: 'Carrot Halwa', ta: 'கேரட் அல்வா' }, icon: '🥕', desc: { en: 'Hot melt-in-the-mouth Carrot Halwa made with pure cow ghee.', ta: 'பசு நெய்யில் செய்த மணமான கேரட் அல்வா.' } },
-      { name: { en: 'Mysore Bonda', ta: 'மைசூர் போண்டா' }, icon: '🧆', desc: { en: 'Crispy golden Mysore Bonda served with spicy coconut chutney.', ta: 'தேங்காய் சட்னியுடன் கூடிய மொறுமொறு மைசூர் போண்டா.' } },
-      { name: { en: 'Rava Kichadi & Sambar', ta: 'ரவா கிச்சடி & சாம்பார்' }, icon: '🍲', desc: { en: 'Ghee Rava Kichadi served with hot Tiffin Sambar.', ta: 'டிபன் சாம்பாருடன் கூடிய மணமணக்கும் ரவா கிச்சடி.' } },
-      { name: { en: '2 Chutney Varieties', ta: 'சட்னி 2 வகைகள்' }, icon: '🥥', desc: { en: 'Fresh Coconut Chutney & spicy Kara Chutney.', ta: 'தேங்காய் சட்னி மற்றும் கார சட்னி.' } },
-      { name: { en: 'Degree Filter Coffee', ta: 'டிகிரி பில்டர் காபி' }, icon: '☕', desc: { en: 'Freshly pressed brass dabba filter coffee.', ta: 'பித்தளை டம்ளரில் பரிமாறப்படும் மணமான பில்டர் காபி.' } }
+      { name: { en: 'Steamed Rice & Paruppu Ghee', ta: 'சாதம் & பருப்பு நெய்' }, icon: '🍚', desc: { en: 'Piping hot steamed rice served with pure ghee and cooked dal.', ta: 'சூடான சாதம், பருப்பு மற்றும் சுத்தமான பசு நெய்.' } },
+      { name: { en: 'Vendaikkai Sambar', ta: 'வெண்டக்காய் சாம்பார்' }, icon: '🍲', desc: { en: 'Traditional Okra Sambar cooked with freshly ground spices.', ta: 'மணமணக்கும் வெண்டக்காய் சாம்பார்.' } },
+      { name: { en: 'Poosani Mor Kuzhambu', ta: 'பூசணி மோர்குழம்பு' }, icon: '🥣', desc: { en: 'Spiced yogurt gravy cooked with ash gourd / white pumpkin.', ta: 'பூசணிக்காய் சேர்த்த சுவையான மோர்குழம்பு.' } },
+      { name: { en: 'Avial & Potato Kara Kari', ta: 'அவியல் & உருளை காரக்கறி' }, icon: '🥦', desc: { en: 'Mixed vegetable coconut Avial & spicy roasted Potato Kari.', ta: 'பாரம்பரிய அவியல் மற்றும் உருளை காரக்கறி.' } },
+      { name: { en: 'Peas Usili', ta: 'பட்டாணி உசிலி' }, icon: '🫛', desc: { en: 'Lentil crumbled vegetable Peas Usili.', ta: 'சுவையான பட்டாணி உசிலி.' } },
+      { name: { en: 'Puliogare', ta: 'புளியோதரை' }, icon: '🥘', desc: { en: 'Authentic temple-style tangy tamarind rice.', ta: 'கோவில் பாணி சுவையான புளியோதரை.' } }
     ],
     heritageTip: {
-      en: 'Evening tiffin brings warmth to your guests with freshly fried bondas and hot filter coffee.',
-      ta: 'மாலை வேளையில் சூடான போண்டா மற்றும் பில்டர் காபி விருந்தினர்களை மகிழ்ச்சியடைய வைக்கும்.'
+      en: 'The main course is served sequentially: Paruppu & Ghee first, followed by Vendaikkai Sambar, then Poosani Mor Kuzhambu, accompanied by Avial and Usili.',
+      ta: 'முதலில் பருப்பு நெய், தொடர்ந்து சாம்பார், பின்னர் மோர்குழம்பு என வரிசையாக பரிமாறப்படுகிறது.'
     }
   },
   {
     id: 4,
-    title: { en: 'Grand Dinner Buffet & Live Stalls', ta: 'இரவு டின்னர் & பஃபே (Live Stalls)' },
-    subtitle: { en: 'Multi-Cuisine Buffet, Starters & Fun Stalls', ta: 'பலவகை பஃபே உணவுகள் மற்றும் நேரடி உணவகங்கள்' },
-    icon: '🎪',
+    title: { en: 'Finishers & Return Gift Seethanam', ta: 'ரசம், மோர் & சீதனப் பொருட்கள்' },
+    subtitle: { en: 'Rasam, Katti Mor, Paruppu Gopuram, Murukku & Thamboola Bag', ta: 'தக்காளி ரசம், கட்டி மோர், பருப்பு கோபுரம், சுத்து முறுக்கு & தாம்பூலம்' },
+    icon: '🎁',
     dishes: [
-      { name: { en: 'Paneer Tikka & Gobi 65', ta: 'பன்னீர் டிக்கா & கோபி 65' }, icon: '🍢', desc: { en: 'Tandoori Paneer Tikka, Gobi 65 & Corn Samosa.', ta: 'தந்தூரி பன்னீர் டிக்கா மற்றும் கோபி 65.' } },
-      { name: { en: 'Coin Parotta & Idiyappam', ta: 'காயின் பரோட்டா & இடியாப்பம்' }, icon: '🫓', desc: { en: 'Coin Parotta & Idiyappam served with White Vegetable Kurma.', ta: 'வெள்ளை காய்கறி குர்மாவுடன் கூடிய பரோட்டா & இடியாப்பம்.' } },
-      { name: { en: 'Noodles & Mushroom Biryani', ta: 'நூடுல்ஸ் & காளான் பிரியாணி' }, icon: '🍜', desc: { en: 'Schezwan Noodles & aromatic Mushroom Biryani with Raitha.', ta: 'சுவையான நூடுல்ஸ் மற்றும் காளான் பிரியாணி.' } },
-      { name: { en: 'Elaneer Payasam & Ada Pradhaman', ta: 'இளநீர் பாயாசம் & அடை பிரதமன்' }, icon: '🥥', desc: { en: 'Tender Coconut Payasam & Kerala style Ada Pradhaman.', ta: 'குளிர்ந்த இளநீர் பாயாசம் மற்றும் அடை பிரதமன்.' } },
-      { name: { en: 'Live Chaat Station', ta: 'பானி பூரி கவுண்டர்' }, icon: '🌮', desc: { en: 'Live Pani Puri, Sev Puri & Bhel Puri counter.', ta: 'நேரடி பானி பூரி மற்றும் சேவ் பூரி ஸ்டால்.' } },
-      { name: { en: 'Cotton Candy, Popcorn & Beeda', ta: 'பஞ்சு மிட்டாய் & பீடா' }, icon: '🍿', desc: { en: 'Live Cotton Candy, Popcorn stall & Sweet Beeda.', ta: 'குழந்தைகளுக்கு பஞ்சு மிட்டாய் மற்றும் ஸ்வீட் பீடா.' } }
+      { name: { en: 'Tomato Rasam', ta: 'தக்காளி ரசம்' }, icon: '🍲', desc: { en: 'Pepper garlic digestion-boosting Tomato Rasam.', ta: 'செரிமானத்திற்கு உகந்த தக்காளி ரசம்.' } },
+      { name: { en: 'Katti Mor', ta: 'கட்டி மோர்' }, icon: '🥛', desc: { en: 'Thick chilled spiced curd/buttermilk to finish the meal.', ta: 'விருந்து நிறைவடையும் கட்டி மோர்.' } },
+      { name: { en: 'Paruppu Gopuram', ta: 'பருப்பு கோபுரம்' }, icon: '🏺', desc: { en: 'Auspicious traditional Paruppu Gopuram setup for marriages.', ta: 'திருமணத்திற்கான பாரம்பரிய பருப்பு கோபுரம்.' } },
+      { name: { en: 'Suthu Murukku & Laddu', ta: 'சுத்து முறுக்கு & லட்டு' }, icon: '🥠', desc: { en: 'Crispy handcrafted Suthu Murukku & sweet Laddu.', ta: 'சுத்து முறுக்கு மற்றும் சுவையான லட்டு.' } },
+      { name: { en: 'Thamboola Bag', ta: 'தாம்பூல பை' }, icon: '🛍️', desc: { en: 'Return gift Thamboola Bag for all event guests.', ta: 'விருந்தினர்களுக்கான பாரம்பரிய தாம்பூல பை.' } }
     ],
     heritageTip: {
-      en: 'Our grand dinner buffet combines traditional delicacies with live interactive stalls for unforgettable celebrations.',
-      ta: 'இரவு நேரத்தில் பலவகை பாரம்பரிய உணவுகளுடன் கூடிய பிரமாண்ட பஃபே விருந்து.'
+      en: 'The banana leaf meal finishes with digestives like Rasam and Katti Mor, followed by presenting guests with Suthu Murukku, Laddu, and Thamboola Bag.',
+      ta: 'விருந்தின் இறுதியில் ரசம், கட்டி மோர் பரிமாறப்பட்டு, விருந்தினர்களுக்கு தாம்பூல பை மற்றும் முறுக்கு வழங்கி உபசரிக்கப்படுகிறது.'
     }
   }
 ];
@@ -153,12 +152,14 @@ export default function InteractiveMenuExplorer() {
               ))}
             </div>
 
-            {/* Heritage Lore Box */}
-            <div className={styles.loreBox}>
-              <span className={styles.loreIcon}>📜</span>
+            {/* Heritage Lore Tip Box */}
+            <div className={styles.heritageTipBox}>
+              <span className={styles.tipIcon}>💡</span>
               <div>
-                <span className={styles.loreTitle}>ANCIENT HERITAGE WISDOM</span>
-                <p className={styles.loreText}>{getText(activeStep.heritageTip)}</p>
+                <h4 className={styles.tipTitle}>
+                  {lang === 'ta' ? 'பாரம்பரிய பரிமாறும் முறை' : 'Ancient Banana Leaf Serving Tradition'}
+                </h4>
+                <p className={styles.tipText}>{getText(activeStep.heritageTip)}</p>
               </div>
             </div>
 

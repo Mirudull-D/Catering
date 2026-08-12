@@ -14,6 +14,7 @@ const defaultVideoTestimonials = [
   { id: 'default-4', title: 'Live Counter Magic', thumb: '/gallery/live_counter_1785684260521.png' },
   { id: 'default-5', title: 'Traditional Sadhya', thumb: '/gallery/south_indian_meals_1785684185063.png' },
   { id: 'default-6', title: 'Flawless Execution', thumb: '/gallery/buffet_setup_1785684198318.png' },
+  { id: 'default-7', title: 'Grand Reception Feast', thumb: '/gallery/corporate_catering_catering_1785761363942.png' },
 ];
 
 function StarRating({ value, onChange, readonly = false }) {

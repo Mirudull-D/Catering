@@ -16,6 +16,7 @@ import styles from './Admin.module.css';
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [passwordInput, setPasswordInput] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [loginError, setLoginError] = useState('');
 
   const [images, setImages] = useState([]);
@@ -158,14 +159,35 @@ export default function AdminPage() {
           <form onSubmit={handleLogin} className={styles.loginForm}>
             <div className={styles.inputGroup}>
               <label className={styles.label}>Enter Admin Password</label>
-              <input
-                type="password"
-                className={styles.input}
-                placeholder="Password (default: admin123)"
-                value={passwordInput}
-                onChange={(e) => setPasswordInput(e.target.value)}
-                required
-              />
+              <div className={styles.passwordWrapper}>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  className={styles.input}
+                  placeholder="Password (default: admin123)"
+                  value={passwordInput}
+                  onChange={(e) => setPasswordInput(e.target.value)}
+                  required
+                />
+                <button
+                  type="button"
+                  className={styles.eyeToggleBtn}
+                  onClick={() => setShowPassword(!showPassword)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  title={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                      <line x1="1" y1="1" x2="23" y2="23"></line>
+                    </svg>
+                  ) : (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  )}
+                </button>
+              </div>
             </div>
 
             {loginError && <p className={styles.errorText}>{loginError}</p>}
@@ -190,8 +212,8 @@ export default function AdminPage() {
   // Fill up to 20 slots for gallery
   const gallerySlots = Array.from({ length: 20 }, (_, i) => galleryItems[i] || null);
   
-  // Fill up to 4 slots for video
-  const videoSlots = Array.from({ length: 4 }, (_, i) => videoItems[i] || null);
+  // Fill up to 7 slots for video
+  const videoSlots = Array.from({ length: 7 }, (_, i) => videoItems[i] || null);
 
   return (
     <div className={styles.adminWrap}>
@@ -323,7 +345,7 @@ export default function AdminPage() {
               </div>
               <div>
                 <h2 className={styles.sectionHeading}>Video Showcase Manager</h2>
-                <p className={styles.sectionSub}>Upload up to 4 videos to be displayed in the horizontal showcase section. Use vertical/portrait (9:16) videos for best results!</p>
+                <p className={styles.sectionSub}>Upload up to 7 videos to be displayed in the horizontal showcase section. Use vertical/portrait (9:16) videos for best results!</p>
               </div>
             </div>
 

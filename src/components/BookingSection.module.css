@@ -1,16 +1,15 @@
 .bookingSection {
-  padding: 5.5rem 2rem;
+  padding: 5rem 2rem;
   background: var(--color-off-white, #f8fafc);
   background-image:
-    radial-gradient(circle at 85% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at 15% 85%, rgba(37, 99, 235, 0.06) 0%, transparent 40%);
+    radial-gradient(circle at 85% 20%, rgba(37, 99, 235, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 15% 85%, rgba(37, 99, 235, 0.05) 0%, transparent 40%);
   position: relative;
   overflow: hidden;
   display: flex;
   justify-content: center;
 }
 
-/* Floating Ambient Blue Glow Dots */
 .ambientDot {
   position: absolute;
   border-radius: 50%;
@@ -21,41 +20,23 @@
 .dotTopLeft {
   top: -40px;
   left: -40px;
-  width: 260px;
-  height: 260px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, rgba(37, 99, 235, 0) 70%);
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, rgba(37, 99, 235, 0) 70%);
   filter: blur(35px);
 }
 
-.dotTopRight {
-  top: 15px;
-  right: 40px;
-  width: 160px;
-  height: 160px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(59, 130, 246, 0) 70%);
-  filter: blur(25px);
-}
-
 .dotBottomRight {
-  bottom: -30px;
-  right: -20px;
-  width: 240px;
-  height: 240px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.22) 0%, rgba(37, 99, 235, 0) 70%);
+  bottom: -40px;
+  right: -40px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0) 70%);
   filter: blur(40px);
 }
 
-.dotBottomLeft {
-  bottom: 20px;
-  left: 50px;
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle, rgba(13, 110, 253, 0.2) 0%, rgba(13, 110, 253, 0) 70%);
-  filter: blur(30px);
-}
-
 .container {
-  max-width: 1240px;
+  max-width: 1200px;
   width: 100%;
   position: relative;
   z-index: 2;
@@ -71,32 +52,33 @@
 
 /* Left Dark Info Card */
 .infoCard {
-  background: linear-gradient(155deg, #0f172a 0%, #090d16 100%);
+  background: #0f172a;
+  background: linear-gradient(160deg, #0f172a 0%, #090d16 100%);
   color: #ffffff;
-  padding: 3.5rem 3rem;
-  flex: 0 0 460px;
+  padding: 2.6rem 2.2rem;
+  flex: 0 0 420px;
   display: flex;
   flex-direction: column;
-  border-radius: 32px;
+  border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.4), 0 0 30px rgba(37, 99, 235, 0.12);
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.35);
   position: relative;
 }
 
 .preTitle {
-  font-family: 'Alex Brush', 'Dancing Script', cursive;
-  font-size: 2.4rem;
+  font-family: 'Dancing Script', 'Alex Brush', cursive;
+  font-size: 2.2rem;
   color: #60a5fa;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
   line-height: 1;
   display: block;
   font-weight: 500;
+  font-style: italic;
 }
 
 .title {
   font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 3rem;
+  font-size: 2.6rem;
   font-weight: 700;
   line-height: 1.15;
   margin-bottom: 2.5rem;
@@ -107,7 +89,7 @@
 }
 
 .titleAccent {
-  color: #60a5fa;
+  color: #3b82f6;
 }
 
 .infoBlock {
@@ -115,17 +97,17 @@
 }
 
 .infoBlock h4 {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.4);
   margin-bottom: 0.4rem;
   text-transform: uppercase;
   font-family: 'Poppins', sans-serif;
 }
 
 .infoBlock p {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.45;
   color: #ffffff;
   font-weight: 500;
@@ -153,14 +135,14 @@
   background: #ffffff;
   color: #0f172a;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  padding: 0.95rem 1.5rem;
+  padding: 0.9rem 1.4rem;
   border-radius: 9999px;
   text-align: center;
   transition: all 0.3s ease;
   flex: 1;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.12);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -169,9 +151,9 @@
 
 .primaryBtn:hover {
   background: #eff6ff;
-  color: #1d4ed8;
+  color: #2563eb;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
 
 .secondaryBtn {
@@ -179,9 +161,9 @@
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.25);
   font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  padding: 0.95rem 1.5rem;
+  padding: 0.9rem 1.4rem;
   border-radius: 9999px;
   text-align: center;
   transition: all 0.3s ease;
@@ -201,11 +183,11 @@
 /* Right Map Card */
 .mapCard {
   flex: 1;
-  min-height: 540px;
+  min-height: 440px;
   position: relative;
-  border-radius: 32px;
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.18);
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
   border: 1px solid rgba(0, 0, 0, 0.08);
   background: #e2e8f0;
 }
@@ -217,12 +199,12 @@
   width: 100%;
   height: 100%;
   border: 0;
-  border-radius: 32px;
+  border-radius: 24px;
   filter: contrast(1.02) saturate(1.05);
   pointer-events: none;
 }
 
-/* Overlay Top-Left Header Badge */
+/* Overlay Top-Left Header Badge Box */
 .mapOverlayHeader {
   position: absolute;
   top: 16px;
@@ -230,10 +212,11 @@
   z-index: 10;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: 16px;
   padding: 12px 14px;
   max-width: 270px;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.9);
 }
 
@@ -247,7 +230,7 @@
 .liveLocationBadge {
   background: #1e293b;
   color: #ffffff;
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 700;
   padding: 4px 10px;
   border-radius: 9999px;
@@ -337,6 +320,42 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* Center Pin Callout Badge (matching screenshot popup) */
+.mapPinCallout {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -120%);
+  z-index: 10;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.35), 0 0 15px rgba(37, 99, 235, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+  font-family: 'Poppins', sans-serif;
+  animation: floatCallout 3s infinite ease-in-out;
+}
+
+@keyframes floatCallout {
+  0%, 100% {
+    transform: translate(-50%, -120%);
+  }
+  50% {
+    transform: translate(-50%, -128%);
+  }
+}
+
+.pinIconDot {
+  font-size: 0.9rem;
+}
+
 /* Fullscreen Button Top Right */
 .fullscreenBtn {
   position: absolute;
@@ -348,6 +367,7 @@
   border-radius: 50%;
   background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -360,111 +380,45 @@
   transform: scale(1.08);
 }
 
-/* Center Pin & Speech Tooltip Overlay - Floating right above Google Maps Pin */
-.centerMarkerWrapper {
-  position: absolute;
-  top: 46%;
-  left: 50%;
-  transform: translate(-50%, -100%);
-  z-index: 10;
-  pointer-events: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: bounceJump 2.2s infinite ease-in-out;
-}
-
-@keyframes bounceJump {
-  0%, 100% {
-    transform: translate(-50%, -100%);
-  }
-  50% {
-    transform: translate(-50%, -122%);
-  }
-}
-
-.speechBubble {
-  background: #0f172a;
-  color: #ffffff;
-  padding: 8px 16px;
-  border-radius: 9999px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.35);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  border: 1px solid rgba(96, 165, 250, 0.3);
-  white-space: nowrap;
-  font-family: 'Poppins', sans-serif;
-}
-
-.pinEmoji {
-  font-size: 0.95rem;
-}
-
-.speechBubbleArrow {
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 7px solid #0f172a;
-  margin-top: -1px;
-}
-
-.redMapPin {
-  margin-top: 2px;
-  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.3));
-}
-
-/* Bottom High-Contrast Floating Action Bar */
-.bottomGlassBar {
+/* Bottom Centered Floating App Bar (matching screenshot pill) */
+.bottomBarContainer {
   position: absolute;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 15;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  border: 1.5px solid rgba(96, 165, 250, 0.4);
-  padding: 12px 26px;
+  z-index: 10;
+  width: auto;
+  max-width: 90%;
+}
+
+.bottomMapAppBtn {
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 10px 22px;
   border-radius: 9999px;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.55), 0 0 20px rgba(37, 99, 235, 0.25);
-  color: #ffffff;
+  font-size: 0.875rem;
   font-weight: 700;
-  font-size: 0.92rem;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 0.02em;
-}
-
-.bottomGlassBar:hover {
-  transform: translateX(-50%) translateY(-3px) scale(1.03);
-  background: linear-gradient(135deg, #1e293b 0%, #2563eb 100%);
-  border-color: #60a5fa;
-  box-shadow: 0 18px 45px rgba(37, 99, 235, 0.45);
-  color: #ffffff;
-}
-
-.mapIconCircle {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: #2563eb;
   display: flex;
   align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
+  gap: 10px;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.3);
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  white-space: nowrap;
 }
 
-.mapIconSvg {
-  color: #ffffff;
+.bottomMapAppBtn:hover {
+  background: #0f172a;
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 35px rgba(37, 99, 235, 0.35);
 }
 
-/* Responsive Layout */
+/* Mobile Responsiveness */
 @media (max-width: 992px) {
   .locationContainer {
     flex-direction: column;
@@ -473,99 +427,40 @@
   .infoCard {
     flex: none;
     width: 100%;
+    padding: 2.5rem 2rem;
   }
-  
+
   .mapCard {
-    min-height: 440px;
     width: 100%;
+    min-height: 450px;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 640px) {
   .bookingSection {
-    padding: 3rem 0.85rem;
+    padding: 3.5rem 1rem;
   }
 
   .infoCard {
-    padding: 2rem 1.25rem;
+    padding: 2rem 1.5rem;
     border-radius: 24px;
   }
 
   .title {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
-  .preTitle {
-    font-size: 1.6rem;
-  }
-  
   .buttonGroup {
     flex-direction: column;
   }
 
   .mapCard {
-    min-height: 380px;
-    height: 380px;
     border-radius: 24px;
-  }
-
-  .mapCard iframe {
-    pointer-events: none;
-    border-radius: 24px;
+    min-height: 400px;
   }
 
   .mapOverlayHeader {
-    display: flex;
-    flex-direction: column;
-    top: 12px;
-    left: 12px;
-    padding: 6px 10px;
-    max-width: fit-content;
-    border-radius: 12px;
-  }
-
-  .mapOverlayAddress {
-    display: none;
-  }
-
-  .mapOverlayReviews {
-    display: none;
-  }
-
-  .liveLocationBadge {
-    font-size: 0.6rem;
-    padding: 3px 8px;
-  }
-
-  .centerMarkerWrapper {
-    display: flex;
-    left: 50%;
-    top: 44%;
-  }
-
-  .speechBubble {
-    font-size: 0.72rem;
-    padding: 5px 11px;
-  }
-
-  .redMapPin svg {
-    width: 26px;
-    height: 34px;
-  }
-
-  .fullscreenBtn {
-    top: 12px;
-    right: 12px;
-    width: 32px;
-    height: 32px;
-  }
-
-  .bottomGlassBar {
-    width: 88%;
-    max-width: 270px;
-    justify-content: center;
-    font-size: 0.8rem;
-    padding: 9px 14px;
-    bottom: 14px;
+    max-width: 220px;
+    padding: 10px;
   }
 }

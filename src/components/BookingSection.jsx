@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
-import { ExternalLink, Navigation, Maximize2, MapPin } from 'lucide-react';
+import { ExternalLink, Navigation, Maximize2, Map } from 'lucide-react';
 import styles from './BookingSection.module.css';
 
 export default function BookingSection() {
@@ -13,16 +13,14 @@ export default function BookingSection() {
 
   return (
     <section id="contact" className={styles.bookingSection}>
-      {/* Background Decorative Ambient Blue Glow Dots */}
+      {/* Background Subtle Ambient Blue Glows */}
       <div className={`${styles.ambientDot} ${styles.dotTopLeft}`}></div>
-      <div className={`${styles.ambientDot} ${styles.dotTopRight}`}></div>
       <div className={`${styles.ambientDot} ${styles.dotBottomRight}`}></div>
-      <div className={`${styles.ambientDot} ${styles.dotBottomLeft}`}></div>
 
       <div className={styles.container}>
         <div className={styles.locationContainer}>
           
-          {/* Left Dark Info Card */}
+          {/* Left Side: Dark Info Card */}
           <motion.div 
             className={styles.infoCard}
             initial={{ opacity: 0, x: -30 }}
@@ -30,31 +28,33 @@ export default function BookingSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className={styles.preTitle}>{t('visitUs')}</span>
+            <span className={styles.preTitle}>{t('visitUs') || 'visit us'}</span>
             
             <h2 className={styles.title}>
-              <span className={styles.titleWhite}>{t('bookingTitleLine1')}</span>
+              <span className={styles.titleWhite}>{t('bookingTitleLine1') || 'Experience Divine'}</span>
               <br />
-              <span className={styles.titleAccent}>{t('bookingTitleLine2')}</span>
+              <span className={styles.titleAccent}>{t('bookingTitleLine2') || 'Flavours.'}</span>
             </h2>
 
             <div className={styles.infoBlock}>
-              <h4>{t('address')}</h4>
-              <p className={styles.addressText}>{t('bookingAddress')}</p>
+              <h4>{t('address') || 'ADDRESS'}</h4>
+              <p className={styles.addressText}>
+                {t('bookingAddress') || 'No.8/14, Sangam Street, Venkatapuram,\nAmbattur, Chennai - 600 053'}
+              </p>
             </div>
 
             <div className={styles.infoBlock}>
-              <h4>{t('hours')}</h4>
-              <p>{t('bookingHours')}</p>
+              <h4>{t('hours') || 'HOURS'}</h4>
+              <p>{t('bookingHours') || 'Mon — Sun · 8:00 AM — 10:00 PM'}</p>
             </div>
 
             <div className={styles.infoBlock}>
-              <h4>{t('bookingPhoneLabel')}</h4>
+              <h4>{t('bookingPhoneLabel') || 'PHONE / WHATSAPP'}</h4>
               <p className={styles.highlightText}>+91 98408 74966</p>
             </div>
 
             <div className={styles.infoBlock}>
-              <h4>{t('bookingInstaLabel')}</h4>
+              <h4>{t('bookingInstaLabel') || 'INSTAGRAM'}</h4>
               <p className={styles.highlightText}>{t('bookingInstaValue') || '@srisankaracatering'}</p>
             </div>
 
@@ -65,7 +65,7 @@ export default function BookingSection() {
                 rel="noopener noreferrer" 
                 className={styles.primaryBtn}
               >
-                {t('waBooking')}
+                {t('waBooking') || 'WhatsApp Booking'}
               </a>
               <a 
                 href={googleMapsUrl} 
@@ -73,12 +73,12 @@ export default function BookingSection() {
                 rel="noopener noreferrer" 
                 className={styles.secondaryBtn}
               >
-                {t('directions')}
+                {t('directions') || 'Directions'}
               </a>
             </div>
           </motion.div>
 
-          {/* Right Interactive Map Card */}
+          {/* Right Side: Interactive Map Card */}
           <motion.div 
             className={styles.mapCard}
             initial={{ opacity: 0, x: 30 }}
@@ -86,9 +86,9 @@ export default function BookingSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {/* Google Map iframe */}
+            {/* Embedded Google Maps */}
             <iframe 
-              src="https://maps.google.com/maps?q=No.8/14,+Sangam+Street,+Venkatapuram,+Ambattur,+Chennai+-+600053&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+              src="https://maps.google.com/maps?q=No.8/14,+Sangam+Street,+Venkatapuram,+Ambattur,+Chennai+-+600053&t=&z=15&ie=UTF8&iwloc=&output=embed" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
@@ -98,7 +98,7 @@ export default function BookingSection() {
               title="Sri Sankara Catering Location Map"
             ></iframe>
 
-            {/* Top Left Floating Header Overlay Card */}
+            {/* Top-Left Floating Header Badge Box */}
             <div className={styles.mapOverlayHeader}>
               <div className={styles.mapOverlayHeaderTop}>
                 <div className={styles.liveLocationBadge}>
@@ -127,14 +127,14 @@ export default function BookingSection() {
                 </div>
               </div>
               <div className={styles.mapOverlayAddress}>
-                {t('mapAddressFull')}
+                {t('mapAddressFull') || 'Sri Sankara Catering, Sangam St, Ambattur, Chennai'}
               </div>
               <div className={styles.mapOverlayReviews}>
-                {t('mapReviews')}
+                {t('mapReviews') || '4.9 ★ (500+ Reviews)'}
               </div>
             </div>
 
-            {/* Top Right Fullscreen / External Map Icon Button */}
+            {/* Top-Right Circular Expand Icon */}
             <a 
               href={googleMapsUrl} 
               target="_blank" 
@@ -144,6 +144,19 @@ export default function BookingSection() {
             >
               <Maximize2 size={15} color="#ffffff" />
             </a>
+
+            {/* Bottom Centered Floating App Bar */}
+            <div className={styles.bottomBarContainer}>
+              <a 
+                href={googleMapsUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.bottomMapAppBtn}
+              >
+                <Map size={16} color="#60a5fa" />
+                <span>{t('openInGoogleMaps') || 'Open in Google Maps App'}</span>
+              </a>
+            </div>
 
           </motion.div>
 
