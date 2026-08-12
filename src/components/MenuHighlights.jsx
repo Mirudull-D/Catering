@@ -6,37 +6,37 @@ import { useLanguage } from '../context/LanguageContext';
 import styles from './MenuHighlights.module.css';
 
 const menuData = {
-  veg: [
-    { id: 'v1', icon: '🍲', name: 'Paneer Butter Masala', desc: 'Rich and creamy curry made with paneer, spices, onions, tomatoes, and butter.' },
-    { id: 'v2', icon: '🍚', name: 'Vegetable Biryani', desc: 'Aromatic basmati rice cooked with mixed vegetables and traditional spices.' },
-    { id: 'v3', icon: '🥘', name: 'Malai Kofta', desc: 'Fried dumpling balls in a creamy, sweet and mildly spiced curry.' },
+  tiffin: [
+    { id: 't1', icon: '🍲', name: 'Ghee Pongal & Medhu Vadai', desc: 'Classic South Indian breakfast staple, served with fresh coconut chutney and sambar.' },
+    { id: 't2', icon: '🥘', name: 'Kasi Halwa / Asoka Halwa', desc: 'A rich and traditional sweet, roasted in pure ghee and cashews.' },
+    { id: 't3', icon: '☕', name: 'Degree Filter Coffee', desc: 'Authentic filter coffee to kickstart your morning celebrations.' },
   ],
-  nonveg: [
-    { id: 'nv1', icon: '🍗', name: 'Chettinad Chicken', desc: 'Classic South Indian chicken curry made with fresh ground spices.' },
-    { id: 'nv2', icon: '🥩', name: 'Mutton Rogan Josh', desc: 'Aromatic lamb dish of Persian origin, which is one of the signature recipes of Kashmiri cuisine.' },
-    { id: 'nv3', icon: '🐟', name: 'Fish Curry', desc: 'Tangy and spicy fish curry made in traditional style with tamarind and coconut.' },
+  lunch: [
+    { id: 'l1', icon: '🍛', name: 'Traditional Sadhya', desc: 'A grand banana leaf meal including Sambar, Mor Kuzhambu, Avial, and Kootu.' },
+    { id: 'l2', icon: '🥣', name: 'Paal / Paruppu Payasam', desc: 'Divine traditional dessert to begin the grand wedding feast on a sweet note.' },
+    { id: 'l3', icon: '🥗', name: 'Potato Kaara Kari & Beans Usili', desc: 'Signature Brahmin-style vegetable accompaniments cooked with aromatic spices.' },
   ],
-  desserts: [
-    { id: 'd1', icon: '🧆', name: 'Gulab Jamun', desc: 'Fried dough balls soaked in a sweet, sticky sugar syrup.' },
-    { id: 'd2', icon: '🥣', name: 'Rasmalai', desc: 'Flattened balls of chhena soaked in malai flavored with cardamom.' },
-    { id: 'd3', icon: '🥥', name: 'Elaneer Payasam', desc: 'Refreshing South Indian dessert made with tender coconut.' },
+  dinner: [
+    { id: 'd1', icon: '🍲', name: 'Paneer Masala & Breads', desc: 'Rich and creamy delicacy served with soft Chappathi, Naan or Parotta.' },
+    { id: 'd2', icon: '🍚', name: 'Veg Pulao / Briyani', desc: 'Flavorful and aromatic rice dishes cooked with premium spices and vegetables.' },
+    { id: 'd3', icon: '🥟', name: 'Malai Sandwich & Sweets', desc: 'Exquisite Bengali and traditional sweets like Rasamalai for a grand reception.' },
   ],
-  live: [
-    { id: 'l1', icon: '🥞', name: 'Live Dosa Counter', desc: 'Fresh dosas made to order: Masala, Onion, Paneer, and more.' },
-    { id: 'l2', icon: '🌮', name: 'Chaat Station', desc: 'Pani Puri, Bhel Puri, and Aloo Tikki prepared fresh.' },
-    { id: 'l3', icon: '🥣', name: 'Appam & Stew', desc: 'Soft appams served with warm vegetable or meat stew.' },
+  chaat: [
+    { id: 'c1', icon: '🌮', name: 'Live Chaat Station', desc: 'Pani Puri, Bhel Puri, and Pav Bhaji prepared fresh and served hot.' },
+    { id: 'c2', icon: '🥞', name: 'Live Dosa Counters', desc: 'Hot, crispy dosas (Ghee Roast, Podi, Paneer) served straight from our live counters.' },
+    { id: 'c3', icon: '🍧', name: 'Premium Desserts & Ice Creams', desc: 'Fruit salads, Ice creams, and hot Jalebis or Cotton Candy for a perfect finish.' },
   ]
 };
 
 export default function MenuHighlights() {
   const { t } = useLanguage();
-  const [activeTab, setActiveTab] = useState('veg');
+  const [activeTab, setActiveTab] = useState('tiffin');
 
   const tabs = [
-    { id: 'veg', label: t('tabVeg') },
-    { id: 'nonveg', label: t('tabNonVeg') },
-    { id: 'desserts', label: t('tabDesserts') },
-    { id: 'live', label: t('tabLive') },
+    { id: 'tiffin', label: t('tabTiffin') },
+    { id: 'lunch', label: t('tabLunch') },
+    { id: 'dinner', label: t('tabDinner') },
+    { id: 'chaat', label: t('tabChaat') },
   ];
 
   return (

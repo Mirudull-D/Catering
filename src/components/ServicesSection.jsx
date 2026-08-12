@@ -218,23 +218,23 @@ export default function ServicesSection() {
       title: t('service1'), 
       desc: t('service1Desc'), 
       included: t('service1Included'), 
-      image: '/gallery/wedding_catering.png',
-      pdfUrl: '/brochures/Sankara Catering Brahmin A5 Catering Booklet  2024.pdf'
+      image: '/gallery/south_indian_meals_1785684185063.png',
+      pdfUrl: '/brochures/Brahmin Menu Tiffin & Lunch.pdf'
     },
     { 
       id: 2, 
       title: t('service2'), 
       desc: t('service2Desc'), 
       included: t('service2Included'), 
-      image: '/gallery/corporate_catering.png',
-      pdfUrl: '/brochures/Sankara Catering  Menu.pdf'
+      image: '/gallery/wedding_catering.png',
+      pdfUrl: '/brochures/Sankara Catering Brahmin A5 Catering Booklet  2024.pdf'
     },
     { 
       id: 3, 
       title: t('service3'), 
       desc: t('service3Desc'), 
       included: t('service3Included'), 
-      image: '/gallery/dessert_platter_1785684210041.png',
+      image: '/gallery/live_counter_1785684260521.png',
       pdfUrl: '/brochures/Sankaraa Catering Sky Blue Four folding Menu List.pdf'
     },
     { 
@@ -242,15 +242,23 @@ export default function ServicesSection() {
       title: t('service4'), 
       desc: t('service4Desc'), 
       included: t('service4Included'), 
-      image: '/gallery/live_counter_1785684260521.png',
-      pdfUrl: '/brochures/Brahmin Menu Tiffin & Lunch.pdf'
+      image: '/gallery/corporate_catering.png',
+      pdfUrl: '/brochures/Sankara Catering A5 Catering Booklet.pdf'
     },
     { 
       id: 5, 
+      title: t('service5'), 
+      desc: t('service5Desc'), 
+      included: t('service5Included'), 
+      image: '/gallery/dessert_platter_1785684210041.png',
+      pdfUrl: '/brochures/Sankara Catering  Menu.pdf'
+    },
+    { 
+      id: 6, 
       title: t('service6'), 
       desc: t('service6Desc'), 
       included: t('service6Included'), 
-      image: '/gallery/south_indian_meals_1785684185063.png',
+      image: '/gallery/wedding_catering.png',
       pdfUrl: '/brochures/Sankaraa Catering Sky Blue sheet Menu Card.pdf'
     },
   ];

@@ -74,59 +74,59 @@ const translations = {
     // Services Section
     servicesTitle: "Our Catering Packages & Menus",
     servicesSub: "Choose the perfect catering package for your special occasion. View menu inclusions, download brochure PDF, or book directly.",
-    service1: "Wedding Catering (Kalyana Virundhu)",
-    service1Desc: "Grand 20+ item traditional banana leaf Sadhya & evening reception feast.",
+    service1: "Brahmin Menu (Tiffin & Lunch)",
+    service1Desc: "Traditional Brahmin-style morning tiffin and grand lunch feast.",
     service1Included: [
-      "Welcome Drinks: Elaneer Payasam, Badam Milk & Nannari Sarbath",
-      "Authentic Sweets: Paal Payasam, Ashok Halwa, Paal Boli & Mysurpa",
-      "Sadhya Delicacies: Steamed Rice, Pure Ghee, Paruppu, Drumstick Sambar & Mor Kuzhambu",
-      "Accompaniments: Mysore Rasam, Avial, Beans-Carrot Poriyal, Chow-Chow Kootu & Appalam",
-      "Tiffin & Evening: Ghee Ven Pongal, Poori Masala, Mini Dosa & Degree Filter Coffee"
+      "Morning Tiffin: Kasi Halwa, Medhu Vadai, Pongal, Idly, Coffee",
+      "Sweets & Snacks: Paruppu Gopuram, Suthu Murukku, Laddu",
+      "Lunch Sweets: Jangri / Badusha, Milk Payasam",
+      "Lunch Mains: Aama Vadai, Beans Usili, Potato Kaara Kari, Aviyal",
+      "Accompaniments: Sambar, Mor Kuzhambu, Rasam, Appalam, Paruppu Ghee"
     ],
-    service2: "Corporate Events & Executive Buffet",
-    service2Desc: "Professional South & North Indian fusion buffet setup for corporate events.",
+    service2: "Premium A5 Catering Booklet (2024)",
+    service2Desc: "Comprehensive wedding contract covering all rituals, seer, and multi-day feasts.",
     service2Included: [
-      "Soups & Starters: Sweet Corn Veg Soup, Paneer Tikka & Cauliflower 65",
-      "Main Course: Veg Pulao / Jeera Rice, Soft Phulka & Paneer Butter Masala",
-      "South Indian Mains: Authentic Sambar Rice, Rasam Rice & Creamy Curd Rice",
-      "Desserts: Hot Gulab Jamun with Rabri & Fruit Salad with Ice Cream",
-      "Full Setup: Premium Chafing Dishes, Uniformed Staff & Water Counter"
+      "Seer Bakshanam: 7 Suthu Murukku, Athirasam, Mysorepak",
+      "Muhurtham Breakfast: Asoka Halwa, Idly, Ghee Pongal, Vadai, Dosa",
+      "Muhurtham Lunch: Kalyana Payasam, Cabbage Carrot Poriyal, Kadamba Sambar",
+      "Reception Dinner: Veg Pulao, Paneer Masala, Chappathi, Ice Cream",
+      "Kattu Sadam: Puliyodarai, Curd Rice, Idly with Milagai Podi"
     ],
-    service3: "Grand Dessert Spreads & Sweets",
-    service3Desc: "Decadent traditional sweets, Bengali delicacies, and fusion dessert counters.",
+    service3: "Sky Blue Four-Folding Menu",
+    service3Desc: "Extensive multi-day catering covering Reception, Muhurtham, and Seer items.",
     service3Included: [
-      "Traditional Sweets: Elaneer Payasam, Akkaravadisal, Dry Fruit Halwa & Coconut Poli",
-      "Bengali Delicacies: Rasgulla, Gulab Jamun, Basundi & Rasamalai",
-      "Snack Bites: Mini Samosa, Corn Cheese Balls & Hara Bhara Kebab",
-      "Live Dessert Counters: Hot Jalebi with Rabri & Ice Cream Sundaes",
-      "Paan Station: Traditional Beeda & Mouth Refreshers"
+      "Dinner Menu 1: Malai Sandwich, Cutlet, Veg Pulao, Paneer Masala",
+      "Dinner Menu 2: Rasamalai, Paneer Roll, Dum Briyani, Veg Oothappam",
+      "Morning Tiffin: Dryfruit Halwa, Ilaneer Idly, Kuli Paniyaram",
+      "Muhurtham Lunch: Paruppu Payasam, Potato Peas Poriyal, Aviyal",
+      "Malabar Menu: Adai Prathaman, Olan, Kurukkiya Kaalan, Malabar Aviyal"
     ],
-    service4: "Live Counter Stations",
-    service4Desc: "Dynamic live cooking stations served fresh & hot to your guests.",
+    service4: "Standard A5 Catering Booklet",
+    service4Desc: "Classic South Indian tiffin and lunch combos.",
     service4Included: [
-      "Live Dosa Station: Ghee Roast, Podi, Cheese & Paneer Dosa with 3 Chutneys",
-      "Live Appam Station: Fluffy Hot Appams with Sweet Coconut Milk & Veg Stew",
-      "Live Chaat Station: Pani Puri, Bhel Puri, Sev Puri & Hot Aloo Tikki",
-      "Live Desserts: Hot Jalebi, Live Kuzhi Paniyaaram & Filter Coffee",
-      "Interactive Setup: Uniformed Live Chefs & Hygienic Live Counters"
+      "Tiffin: Pineapple Kesari, Idly, Pongal, Medhu Vadai",
+      "Special Tiffin: Idiyappam / Kuruma, Poori / Masal",
+      "Lunch Sweets: Dry Globejamun / Badusha, Semiya Payasam",
+      "Lunch Mains: Potato Peas Porial, Aviyal, Sambar, Vatha Kuzhambu",
+      "Special Rice: Veg Brinji & Thayir Pachadi"
     ],
-    service5: "Multi-Cuisine Buffet Setup",
-    service5Desc: "Luxurious multi-course buffet with elegant presentation and decor.",
+    service5: "Sankara Catering Classic Menu",
+    service5Desc: "Our signature extensive menu spanning grand buffets and traditional saapadu.",
     service5Included: [
-      "Salad & Starters: Fresh Garden Salad, Kosambari & Gobi Manchurian",
-      "Main Course: Bisibelebath, Kashmiri Pulao, Paneer Gravy & Malai Kofta",
-      "Breads & Rice: Hot Pooris, Naan, Lemon Rice & Curd Rice",
-      "Accompaniments: Fried Potato Chips, Veg Raita, Mango Pickle & Appalam",
-      "Desserts: Shahi Tukda, Fruit Salad with Ice Cream & Filter Coffee"
+      "Buffet Menu: Welcome Soup, Paneer Tikka, Mushroom Briyani, White Kuruma",
+      "Evening Tiffin: Carrot Halwa, Mysore Bonda, Kichadi, Sambar",
+      "Seemantham Menu: Semiya Payasam, 5 Variety Rice (Coconut, Mango, Puli)",
+      "Dinner Specials: Malai Sandwich, Veg Lollipop, Mushroom Pepper Gravy",
+      "Desserts & Live: Jalebi, Rasamalai, Live Dosa & Chaat Stations"
     ],
-    service6: "South Indian Sadhya (Banana Leaf Meal)",
-    service6Desc: "Authentic 25+ item banana leaf meal crafted with ancestral Brahmin recipes.",
+    service6: "Sky Blue Sheet Menu Card",
+    service6Desc: "Premium complete catering package for grand events and weddings.",
     service6Included: [
-      "Initial Serving: Salt, Mango/Citron Pickle, Thogayal & Paal Payasam",
-      "Side Dishes: Kosambari, Poriyal (Beans-Carrot), Kootu & Avial",
-      "Main Courses: Steamed Rice, Pure Ghee, Paruppu, Sambar & Mor Kuzhambu",
-      "Finishers: Mysore Rasam, Fresh Curd, Appalam, Vadam & Banana",
-      "Traditional Touch: Served on Fresh Green Banana Leaf with Filter Coffee"
+      "Grand Buffet: Sweet Corn Soup, Paneer Tikka, Veg Dum Briyani",
+      "Lunch Feast: Jangiri, Paruppu Payasam, Cabbage Poriyal, Vathakulambu",
+      "Dinner Specials: Pista Roll, Veg Kabab, Aloo Parotta, Malai Kofta",
+      "Chaat & Extras: Pani Puri, Bhel Puri, Cotton Candy, Popcorn",
+      "Desserts: Carrot Halwa, Ilaneer Payasam, Ice Cream & Beeda"
     ],
     viewDetails: "View Details",
     downloadBrochure: "Download Brochure PDF",
@@ -155,10 +155,10 @@ const translations = {
     // Menu Section
     menuTitle: "Menu Highlights",
     menuDesc: "A glimpse into our diverse culinary offerings.",
-    tabVeg: "Vegetarian",
-    tabNonVeg: "Non-Vegetarian",
-    tabDesserts: "Desserts",
-    tabLive: "Live Counters",
+    tabTiffin: "Morning Tiffin",
+    tabLunch: "Sadhya / Lunch",
+    tabDinner: "Dinner & Reception",
+    tabChaat: "Live & Chaat",
 
     // Booking / Contact Section
     contactTitle: "Plan Your Event With Us",
@@ -315,59 +315,59 @@ const translations = {
     // Services Section
     servicesTitle: "எங்கள் கேட்டரிங் மெனுக்கள்",
     servicesSub: "உங்கள் சிறப்பு நிகழ்விற்கான பிரத்யேக கேட்டரிங் மெனுவைத் தேர்ந்தெடுத்து முழு விவரங்களையும் காண்க.",
-    service1: "திருமண விருந்து (கல்யாண விருந்து)",
-    service1Desc: "20+ உணவுகள் அடங்கிய பாரம்பரிய வாழையிலை சாத்யா மற்றும் வரவேற்பு பஃபே.",
+    service1: "பிராமின் மெனு (டிபன் & மதிய உணவு)",
+    service1Desc: "பாரம்பரிய பிராமண முறைப்படி காலை சிற்றுண்டி மற்றும் மதிய உணவு விருந்து.",
     service1Included: [
-      "வரவேற்பு பானங்கள்: இளநீர் பாயாசம், பாதாம் பால், நன்னாரி சர்ஃபாத்",
-      "பாரம்பரிய இனிப்புகள்: பால் பாயாசம், அசோக் அல்வா, பால் போளி, மைசூர்பா",
-      "சாத்யா உணவுகள்: சூடான சாதம், சுத்தமான நெய், பருப்பு, முருங்கைக்காய் சாம்பார், மோர் குழம்பு",
-      "கூட்டு & பொரியல்: மைசூர் ரசம், அவியல், பீன்ஸ்-கேரட் பொரியல், சௌ-சௌ கூட்டு, அப்பளம்",
-      "டிஃபன் வகை: நெய் வெண் பொங்கல், பூரி மசாலா, மினி தோசை, டிகிரி ஃபில்டர் காபி"
+      "காலை சிற்றுண்டி: காசி அல்வா, மெது வடை, பொங்கல், இட்லி, காபி",
+      "இனிப்புகள் & தின்பண்டங்கள்: பருப்பு கோபுரம், சுத்து முறுக்கு, லட்டு",
+      "மதிய இனிப்புகள்: ஜாங்கிரி / பாதுஷா, பால் பாயாசம்",
+      "மதிய முதன்மை உணவுகள்: ஆமை வடை, பீன்ஸ் உசிலி, உருளை கார கறி, அவியல்",
+      "தொட்டுக்கொள்ள: சாம்பார், மோர் குழம்பு, ரசம், அப்பளம், பருப்பு நெய்"
     ],
-    service2: "கார்ப்பரேட் நிகழ்வுகள் & எக்ஸிகியூட்டிவ் பஃபே",
-    service2Desc: "தென்னிந்திய மற்றும் வடஇந்திய சுவைகள் இணைந்த உயர்தர உணவு அமைப்பு.",
+    service2: "பிரீமியம் A5 கேட்டரிங் கையேடு (2024)",
+    service2Desc: "சடங்குகள், சீர் மற்றும் பல நாள் விருந்துகளை உள்ளடக்கிய விரிவான திருமண ஒப்பந்தம்.",
     service2Included: [
-      "சூப் & ஸ்டார்டர்கள்: ஸ்வீட் கார்ன் வெஜ் சூப், பன்னீர் டிக்கா, காலிஃபிளவர் 65",
-      "முதன்மை உணவுகள்: வெஜ் புலாவு / சீரக சாதம், மென்மையான புல்கா, பன்னீர் பட்டர் மசாலா",
-      "தென்னிந்திய உணவுகள்: சாம்பார் சாதம், ரச சாதம், சுவையான தயிர் சாதம்",
-      "இனிப்புகள்: சூடான குலாப் ஜாமுன், ரப்ரி, பழக் கலவை & ஐஸ்கிரீம்",
-      "முழு அமைப்பு: உயர்தர பாத்திரங்கள், சீருடை அணிந்த பணியாளர்கள்"
+      "சீர் பட்சணம்: 7 சுத்து முறுக்கு, அதிரசம், மைசூர்பாகு",
+      "முகூர்த்த காலை சிற்றுண்டி: அசோகா அல்வா, இட்லி, நெய் பொங்கல், வடை, தோசை",
+      "முகூர்த்த மதிய உணவு: கல்யாண பாயாசம், முட்டைக்கோஸ் கேரட் பொரியல், கதம்ப சாம்பார்",
+      "வரவேற்பு இரவு உணவு: வெஜ் புலாவு, பன்னீர் மசாலா, சப்பாத்தி, ஐஸ்கிரீம்",
+      "கட்டு சாதம்: புளியோதரை, தயிர் சாதம், மிளகாய் பொடியுடன் இட்லி"
     ],
-    service3: "சிறப்பு இனிப்பு & ஸ்நாக்ஸ் வகைகள்",
-    service3Desc: "பாரம்பரிய இனிப்புகள், பெங்காலி இனிப்புகள் மற்றும் லைவ் டெசர்ட் ஸ்டேஷன்கள்.",
+    service3: "ஸ்கை ப்ளூ ஃபோர் ஃபோல்டிங் மெனு",
+    service3Desc: "வரவேற்பு, முகூர்த்தம் மற்றும் சீர் வகைகளை உள்ளடக்கிய பிரம்மாண்ட கேட்டரிங்.",
     service3Included: [
-      "பாரம்பரிய இனிப்புகள்: இளநீர் பாயாசம், அக்கரைவடிசல், உலர் பழ அல்வா, தேங்காய் போளி",
-      "பெங்காலி இனிப்புகள்: ரஸ்குல்லா, குலாப் ஜாமுன், பாசுந்தி, ரசமலை",
-      "கார வகைகள்: மினி சமோசா, கார்ன் சீஸ் பால்ஸ், ஹரா பரா கபாப்",
-      "லைவ் இனிப்புகள்: சூடான ஜிலேபி, ரப்ரி, ஐஸ்கிரீம் சுண்டே",
-      "தாம்பூலம்: பாரம்பரிய பீடா மற்றும் பாக்கு ஸ்டேஷன்"
+      "இரவு உணவு 1: மலாய் சாண்ட்விச், கட்லெட், வெஜ் புலாவு, பன்னீர் மசாலா",
+      "இரவு உணவு 2: ரசமலை, பன்னீர் ரோல், தம் பிரியாணி, வெஜ் ஊத்தப்பம்",
+      "காலை சிற்றுண்டி: ட்ரை ஃப்ரூட் அல்வா, இளநீர் இட்லி, குழி பணியாரம்",
+      "முகூர்த்த மதிய உணவு: பருப்பு பாயாசம், உருளை பட்டாணி பொரியல், அவியல்",
+      "மலபார் மெனு: அடை பிரதமன், ஓலன், குறுக்கிய காளான், மலபார் அவியல்"
     ],
-    service4: "நேரடி உணவகங்கள் (Live Counters)",
-    service4Desc: "விருந்தினர்களுக்கு சூடாகவும் புதியதாகவும் உடனுக்குடன் வழங்கப்படும் நேரடி சமையல் ஸ்டேஷன்.",
+    service4: "ஸ்டாண்டர்ட் A5 கேட்டரிங் கையேடு",
+    service4Desc: "உன்னதமான தென்னிந்திய சிற்றுண்டி மற்றும் மதிய உணவு வகைகள்.",
     service4Included: [
-      "லைவ் தோசை ஸ்டேஷன்: நெய் ரோஸ்ட், பொடி தோசை, சீஸ் & பன்னீர் தோசை 3 சட்னிகளுடன்",
-      "லைவ் ஆப்பம் ஸ்டேஷன்: மென்மையான ஆப்பம், இனிப்பு தேங்காய்ப்பால் & காய்கறி ஸ்டூ",
-      "லைவ் சாட் ஸ்டேஷன்: பானி பூரி, பெல் பூரி, செவ் பூரி, சூடான ஆலு டிக்கி",
-      "லைவ் இனிப்புகள்: சூடான ஜிலேபி, குழிப் பணியாரம், கும்பகோணம் டிகிரி ஃபில்டர் காபி",
-      "நேரடி சேவை: சீருடை அணிந்த நிபுணத்துவ சமையல்காரர்கள்"
+      "சிற்றுண்டி: அன்னாசி கேசரி, இட்லி, பொங்கல், மெது வடை",
+      "சிறப்பு சிற்றுண்டி: இடியாப்பம் / குருமா, பூரி / மசால்",
+      "மதிய இனிப்புகள்: ட்ரை குலோப் ஜாமூன் / பாதுஷா, சேமியா பாயாசம்",
+      "மதிய உணவுகள்: உருளை பட்டாணி பொரியல், அவியல், சாம்பார், வத்த குழம்பு",
+      "சிறப்பு சாதம்: வெஜ் பிரிஞ்சி & தயிர் பச்சடி"
     ],
-    service5: "மல்டி-குசின் பஃபே (Multi-Cuisine Buffet)",
-    service5Desc: "பல்வேறு வகையான உணவுகளுடன் கூடிய பிரம்மாண்டமான பஃபே அமைப்பு.",
+    service5: "சங்கரா கேட்டரிங் கிளாசிக் மெனு",
+    service5Desc: "பிரம்மாண்ட பஃபே மற்றும் பாரம்பரிய சாப்பாடு அடங்கிய எங்களின் சிறப்பு மெனு.",
     service5Included: [
-      "சாலட் & ஸ்டார்டர்கள்: புதிய காய்கறி சாலட், கோசம்பரி, கோபி மஞ்சூரியன்",
-      "முதன்மை உணவுகள்: பிசிபெளேபாத், காஷ்மீரி புலாவு, பன்னீர் கிராவி, மலை கோஃப்தா",
-      "ரொட்டி & சாதம்: சூடான பூரி, நான், எலுமிச்சை சாதம், தயிர் சாதம்",
-      "தொட்டுக்கொள்ள: பொரித்த உருளைக்கிழங்கு சிப்ஸ், வெஜ் ரைத்தா, மாங்காய் ஊறுகாய், அப்பளம்",
-      "இனிப்புகள்: ஷாஹி துக்டா, ஐஸ்கிரீமுடன் பழக் கலவை, ஃபில்டர் காபி"
+      "பஃபே மெனு: வெல்கம் சூப், பன்னீர் டிக்கா, மஷ்ரூம் பிரியாணி, வெள்ளை குருமா",
+      "மாலை சிற்றுண்டி: கேரட் அல்வா, மைசூர் போண்டா, கிச்சடி, சாம்பார்",
+      "சீமந்தம் மெனு: சேமியா பாயாசம், 5 வகை சாதம் (தேங்காய், மாங்காய், புளி)",
+      "இரவு சிறப்பு உணவுகள்: மலாய் சாண்ட்விச், வெஜ் லாலிபாப், மஷ்ரூம் பெப்பர் கிரேவி",
+      "இனிப்புகள் & லைவ்: ஜிலேபி, ரசமலை, லைவ் தோசை & சாட் கவுண்டர்கள்"
     ],
-    service6: "பாரம்பரிய வாழையிலை விருந்து (South Indian Sadhya)",
-    service6Desc: "பாரம்பரிய பிராமண முறைப்படி 25+ உணவுகளுடன் தயாரிக்கப்படும் வாழையிலை விருந்து.",
+    service6: "ஸ்கை ப்ளூ ஷீட் மெனு கார்டு",
+    service6Desc: "பிரம்மாண்ட நிகழ்வுகள் மற்றும் திருமணங்களுக்கான முழுமையான கேட்டரிங் பேக்கேஜ்.",
     service6Included: [
-      "ஆரம்ப பரிமாறல்: உப்பு, மாங்காய்/கிச்சிலி ஊறுகாய், தொகையல், பால் பாயாசம்",
-      "கூட்டு பொரியல்: கோசம்பரி, பீன்ஸ்-கேரட் பொரியல், கூட்டு, அவியல், பச்சடி",
-      "முதன்மை உணவுகள்: சூடான சாதம், சுத்தமான நெய், பருப்பு, சாம்பார், மோர் குழம்பு",
-      "முடிப்பு உணவுகள்: மைசூர் ரசம், கெட்டித் தயிர், அப்பளம், வடம், வாழைப்பழம்",
-      "பாரம்பரிய தொடுதல்: பசுமையான வாழையிலையில் பரிமாறப்பட்டு ஃபில்டர் காபியுடன் நிறைவு"
+      "கிராண்ட் பஃபே: ஸ்வீட் கார்ன் சூப், பன்னீர் டிக்கா, வெஜ் தம் பிரியாணி",
+      "மதிய விருந்து: ஜாங்கிரி, பருப்பு பாயாசம், முட்டைக்கோஸ் பொரியல், வத்தக்குழம்பு",
+      "இரவு சிறப்பு உணவுகள்: பிஸ்தா ரோல், வெஜ் கபாப், ஆலு பரோட்டா, மலாய் கோஃப்தா",
+      "சாட் & கூடுதல்: பானி பூரி, பேல் பூரி, பஞ்சு மிட்டாய், பாப்கார்ன்",
+      "இனிப்புகள்: கேரட் அல்வா, இளநீர் பாயாசம், ஐஸ்கிரீம் & பீடா"
     ],
     viewDetails: "மேலும் அறிய",
     downloadBrochure: "விவரங்களை பதிவிறக்க (PDF)",
@@ -396,10 +396,10 @@ const translations = {
     // Menu Section
     menuTitle: "மெனு சிறப்பம்சங்கள்",
     menuDesc: "எங்கள் பல்வேறு சமையல் சலுகைகளின் ஒரு பார்வை.",
-    tabVeg: "சைவம்",
-    tabNonVeg: "அசைவம்",
-    tabDesserts: "இனிப்புகள்",
-    tabLive: "நேரடி உணவகங்கள்",
+    tabTiffin: "காலை சிற்றுண்டி",
+    tabLunch: "மதிய உணவு",
+    tabDinner: "இரவு உணவு",
+    tabChaat: "லைவ் & சாட்",
 
     // Booking / Contact Section
     contactTitle: "தொடர்பு கொள்ள",
