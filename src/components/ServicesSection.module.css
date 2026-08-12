@@ -352,6 +352,19 @@
   margin-top: 1.25rem;
 }
 
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.inputLabel {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #334155;
+  margin-left: 0.2rem;
+}
+
 .inputField {
   padding: 0.85rem 1rem;
   border: 1.5px solid #cbd5e1;

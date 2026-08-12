@@ -105,8 +105,7 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-royal-blue);
-  font-family: 'Playfair Display', serif;
-  white-space: nowrap;
+white-space: nowrap;
 }
 
 .itemLine {
@@ -166,3 +165,4 @@
     white-space: normal; /* allow wrapping on narrow screens */
   }
 }
+

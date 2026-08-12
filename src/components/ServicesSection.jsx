@@ -90,6 +90,24 @@ const ServiceModal = ({ isOpen, onClose, service, onOpenBooking, t }) => {
 
             {/* RIGHT COLUMN: Inclusions & Actions */}
             <div className={styles.modalRightPane}>
+              {/* Action Buttons */}
+              <div className={styles.modalActions}>
+                <button className={styles.bookNowActionBtn} onClick={handleBookNow}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.78 0-3.522-.477-5.048-1.38l-.362-.215-3.75.983.999-3.656-.236-.375C2.686 15.602 2.14 13.67 2.14 11.642c0-5.32 4.328-9.648 9.648-9.648 5.32 0 9.648 4.328 9.648 9.648 0 5.32-4.328 9.648-9.648 9.648m0-21.055C5.452.788.077 6.163.077 12.788c0 2.114.552 4.179 1.603 5.999L0 24.876l6.262-1.642c1.756.957 3.742 1.463 5.79 1.463 6.625 0 12-5.375 12-12s-5.375-12-12-12"/></svg>
+                  Book Menu
+                </button>
+                <a 
+                  href={service.pdfUrl || '/brochures/Sankara Catering  Menu.pdf'} 
+                  download 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.downloadBtn}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  Download Brochure
+                </a>
+              </div>
+              
               <div className={styles.modalDetails}>
                 <h3 className={styles.inclusionsTitle}>
                   Menu Highlights & Inclusions
@@ -112,24 +130,6 @@ const ServiceModal = ({ isOpen, onClose, service, onOpenBooking, t }) => {
                     </>
                   )}
                 </ul>
-              </div>
-
-              {/* Action Buttons */}
-              <div className={styles.modalActions}>
-                <button className={styles.bookNowActionBtn} onClick={handleBookNow}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.78 0-3.522-.477-5.048-1.38l-.362-.215-3.75.983.999-3.656-.236-.375C2.686 15.602 2.14 13.67 2.14 11.642c0-5.32 4.328-9.648 9.648-9.648 5.32 0 9.648 4.328 9.648 9.648 0 5.32-4.328 9.648-9.648 9.648m0-21.055C5.452.788.077 6.163.077 12.788c0 2.114.552 4.179 1.603 5.999L0 24.876l6.262-1.642c1.756.957 3.742 1.463 5.79 1.463 6.625 0 12-5.375 12-12s-5.375-12-12-12"/></svg>
-                  Book Menu
-                </button>
-                <a 
-                  href={service.pdfUrl || '/brochures/Sankara Catering  Menu.pdf'} 
-                  download 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadBtn}
-                >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                  Download Brochure
-                </a>
               </div>
             </div>
           </div>
@@ -166,36 +166,51 @@ const BookModal = ({ isOpen, onClose, service }) => {
           <p className={styles.modalDesc}>Please fill in your details and we will connect with you on WhatsApp to confirm your booking.</p>
           
           <form className={styles.bookingForm} onSubmit={handleSubmit}>
-            <input 
-              type="text" 
-              placeholder="Your Name" 
-              required 
-              value={formData.name} 
-              onChange={e => setFormData({...formData, name: e.target.value})} 
-              className={styles.inputField} 
-            />
-            <input 
-              type="tel" 
-              placeholder="Contact Number" 
-              required 
-              value={formData.phone} 
-              onChange={e => setFormData({...formData, phone: e.target.value})} 
-              className={styles.inputField} 
-            />
-            <input 
-              type="date" 
-              required 
-              value={formData.date} 
-              onChange={e => setFormData({...formData, date: e.target.value})} 
-              className={styles.inputField} 
-            />
-            <textarea 
-              placeholder="Any remarks or special requests?" 
-              rows="3" 
-              value={formData.remarks} 
-              onChange={e => setFormData({...formData, remarks: e.target.value})} 
-              className={styles.inputField} 
-            />
+            <div className={styles.inputGroup}>
+              <label className={styles.inputLabel}>Name</label>
+              <input 
+                type="text" 
+                placeholder="e.g. John Doe" 
+                required 
+                value={formData.name} 
+                onChange={e => setFormData({...formData, name: e.target.value})} 
+                className={styles.inputField} 
+              />
+            </div>
+            
+            <div className={styles.inputGroup}>
+              <label className={styles.inputLabel}>Contact Number</label>
+              <input 
+                type="tel" 
+                placeholder="+91 98765 43210" 
+                required 
+                value={formData.phone} 
+                onChange={e => setFormData({...formData, phone: e.target.value})} 
+                className={styles.inputField} 
+              />
+            </div>
+
+            <div className={styles.inputGroup}>
+              <label className={styles.inputLabel}>Event Date</label>
+              <input 
+                type="date" 
+                required 
+                value={formData.date} 
+                onChange={e => setFormData({...formData, date: e.target.value})} 
+                className={styles.inputField} 
+              />
+            </div>
+
+            <div className={styles.inputGroup}>
+              <label className={styles.inputLabel}>Tell us your requirements</label>
+              <textarea 
+                placeholder="Any specific requests, guest count, or venue details?" 
+                rows="3" 
+                value={formData.remarks} 
+                onChange={e => setFormData({...formData, remarks: e.target.value})} 
+                className={styles.inputField} 
+              />
+            </div>
             <button type="submit" className={styles.whatsappSubmitBtn}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.78 0-3.522-.477-5.048-1.38l-.362-.215-3.75.983.999-3.656-.236-.375C2.686 15.602 2.14 13.67 2.14 11.642c0-5.32 4.328-9.648 9.648-9.648 5.32 0 9.648 4.328 9.648 9.648 0 5.32-4.328 9.648-9.648 9.648m0-21.055C5.452.788.077 6.163.077 12.788c0 2.114.552 4.179 1.603 5.999L0 24.876l6.262-1.642c1.756.957 3.742 1.463 5.79 1.463 6.625 0 12-5.375 12-12s-5.375-12-12-12"/></svg>
               Send on WhatsApp

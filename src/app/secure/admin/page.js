@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Footer from '../../../components/Footer';
 import { 
   getGalleryImages, 
   saveGalleryImage, 
@@ -153,7 +154,7 @@ export default function AdminPage() {
           <div className={styles.lockHeader}>
             <span className={styles.lockIcon}>🔐</span>
             <h1 className={styles.loginTitle}>Admin Portal</h1>
-            <p className={styles.loginSubtitle}>Sri Sankara Catering Management</p>
+            <p className={styles.loginSubtitle}>Sri Sankara Catering Services Management</p>
           </div>
 
           <form onSubmit={handleLogin} className={styles.loginForm}>
@@ -220,7 +221,7 @@ export default function AdminPage() {
       {/* Header Bar */}
       <header className={styles.adminHeader}>
         <div className={styles.brandGroup}>
-          <h1 className={styles.brandTitle}>Sri Sankara Admin</h1>
+          <h1 className={styles.brandTitle}>Sri Sankara Catering Services Admin</h1>
           <span className={styles.badge}>
             {isSupabaseConfigured ? '🟢 Supabase Active' : '🟡 Local Storage Sync'}
           </span>
@@ -439,6 +440,7 @@ export default function AdminPage() {
         )}
 
       </main>
+      <Footer isAdmin={true} />
     </div>
   );
 }

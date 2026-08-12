@@ -106,7 +106,7 @@ export default function SplashScreen() {
         >
           {lang === 'ta'
             ? 'தெய்வீக விருந்து, உங்கள் நினைவுகளுக்காக'
-            : 'Divine Feasts, Crafted for Your Memories'}
+            : 'Divine Feasts Crafted for Your Memories'}
         </motion.p>
 
         {/* Progress Bar Container */}

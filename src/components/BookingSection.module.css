@@ -48,6 +48,7 @@
   gap: 2rem;
   width: 100%;
   align-items: stretch;
+  justify-content: center;
 }
 
 /* Left Dark Info Card */
@@ -56,7 +57,7 @@
   background: linear-gradient(160deg, #0f172a 0%, #090d16 100%);
   color: #ffffff;
   padding: 2.6rem 2.2rem;
-  flex: 0 0 420px;
+  flex: 0 0 450px;
   display: flex;
   flex-direction: column;
   border-radius: 24px;
@@ -66,8 +67,7 @@
 }
 
 .preTitle {
-  font-family: 'Dancing Script', 'Alex Brush', cursive;
-  font-size: 2.2rem;
+font-size: 2.2rem;
   color: #60a5fa;
   margin-bottom: 0.2rem;
   line-height: 1;
@@ -77,8 +77,7 @@
 }
 
 .title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.6rem;
+font-size: 2.6rem;
   font-weight: 700;
   line-height: 1.15;
   margin-bottom: 2.5rem;
@@ -183,7 +182,8 @@
 /* Right Map Card */
 .mapCard {
   flex: 1;
-  min-height: 440px;
+  max-width: 850px;
+  min-height: 100%;
   position: relative;
   border-radius: 24px;
   overflow: hidden;
@@ -387,28 +387,39 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  width: auto;
-  max-width: 90%;
+  width: 90%;
+  max-width: 600px;
 }
 
 .bottomMapAppBtn {
-  background: rgba(15, 23, 42, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(80, 80, 80, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 10px 22px;
-  border-radius: 9999px;
-  font-size: 0.875rem;
+  padding: 12px 24px;
+  border-radius: 16px;
+  font-size: 1.05rem;
   font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 16px;
   text-decoration: none;
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.3);
   transition: all 0.3s ease;
   font-family: 'Poppins', sans-serif;
   white-space: nowrap;
+}
+
+.mapBtnIconCircle {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bottomMapAppBtn:hover {

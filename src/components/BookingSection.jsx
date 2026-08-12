@@ -9,7 +9,7 @@ export default function BookingSection() {
   const { t } = useLanguage();
 
   const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=No.8%2F14,+Sangam+Street,+Venkatapuram,+Ambattur,+Chennai+-+600053";
-  const whatsappUrl = "https://wa.me/919840874966?text=Hi%2C%20I%20would%20like%20to%20book%20a%20service%2Fconsultation.";
+  const whatsappUrl = "https://wa.me/919962548644?text=Hi%2C%20I%20would%20like%20to%20book%20a%20service%2Fconsultation.";
 
   return (
     <section id="contact" className={styles.bookingSection}>
@@ -50,8 +50,9 @@ export default function BookingSection() {
 
             <div className={styles.infoBlock}>
               <h4>{t('bookingPhoneLabel') || 'PHONE / WHATSAPP'}</h4>
-              <p className={styles.highlightText}>+91 98408 74966</p>
+              <p className={styles.highlightText}>+91 99625 48644 / +91 94441 48644</p>
             </div>
+
 
             <div className={styles.infoBlock}>
               <h4>{t('bookingInstaLabel') || 'INSTAGRAM'}</h4>
@@ -153,7 +154,9 @@ export default function BookingSection() {
                 rel="noopener noreferrer" 
                 className={styles.bottomMapAppBtn}
               >
-                <Map size={16} color="#60a5fa" />
+                <div className={styles.mapBtnIconCircle}>
+                  <Map size={20} color="#ffffff" />
+                </div>
                 <span>{t('openInGoogleMaps') || 'Open in Google Maps App'}</span>
               </a>
             </div>

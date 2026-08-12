@@ -34,17 +34,7 @@ export default function FullGalleryPage() {
     loadData();
   }, []);
 
-  const categories = [
-    { id: 'All', label: t('catAll') || 'All' },
-    { id: 'Sadhya', label: t('catSadhya') || 'Sadhya' },
-    { id: 'Buffet', label: t('catBuffet') || 'Buffet' },
-    { id: 'Live Station', label: t('catLive') || 'Live Stations' },
-    { id: 'Desserts', label: t('catDesserts') || 'Desserts' }
-  ];
-
-  const filteredImages = activeFilter === 'All' 
-    ? images 
-    : images.filter(img => (img.category || 'General') === activeFilter);
+  const filteredImages = images;
 
   return (
     <div className={styles.pageWrap}>
@@ -66,18 +56,7 @@ export default function FullGalleryPage() {
           <p className={styles.subHeading}>{t('exploreGallery')}</p>
         </div>
 
-        {/* Category Filters */}
-        <div className={styles.filterBar}>
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              className={`${styles.filterBtn} ${activeFilter === cat.id ? styles.filterBtnActive : ''}`}
-              onClick={() => setActiveFilter(cat.id)}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
+
 
         {/* Compact Phone-Sized Cards Grid */}
         {loading ? (

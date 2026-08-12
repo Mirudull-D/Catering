@@ -5,12 +5,12 @@ import { useLanguage } from '../context/LanguageContext';
 import { useBooking } from '../context/BookingContext';
 import styles from './Footer.module.css';
 
-export default function Footer() {
+export default function Footer({ isAdmin = false }) {
   const { lang, t } = useLanguage();
   const { openBookingModal } = useBooking();
 
-  const PHONE_NUMBER = process.env.NEXT_PUBLIC_PHONE_NUMBER || '+91 98408 74966';
-  const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919840874966';
+  const PHONE_NUMBER = process.env.NEXT_PUBLIC_PHONE_NUMBER || '+91 99625 48644';
+  const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '9962548644';
   const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=No.8%2F14,+Sangam+Street,+Venkatapuram,+Ambattur,+Chennai+-+600053";
 
   const handleNavClick = (e, href) => {
@@ -27,8 +27,24 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      {/* Main Footer Section */}
-      <div className={styles.mainFooter}>
+      {isAdmin ? (
+        <div className={styles.mainFooter} style={{ padding: '1rem 0' }}>
+          <div className={styles.container}>
+            <div className={styles.bottomBar}>
+              <div className={styles.leftCopyright}>
+                © 2026 Sri Sankara Catering Services. All Rights Reserved
+              </div>
+              <div className={styles.centerPowered}>
+                Powered by <a href="https://www.cenexasystems.com" target="_blank" rel="noopener noreferrer" className={styles.cenexaLink}><strong>Cenexa Systems</strong></a> © 2026
+              </div>
+              <div className={styles.rightTagline}>
+                AUTHENTIC • TRADITIONAL • PREMIUM
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className={styles.mainFooter}>
         <div className={styles.container}>
           <div className={styles.footerGrid}>
             {/* Brand Column */}
@@ -106,6 +122,7 @@ export default function Footer() {
                     Call: {PHONE_NUMBER}
                   </a>
                 </div>
+
                 <div className={styles.contactItem}>
                   <span className={styles.contactText}>Working Hours: Mon–Sun, 10AM–8PM</span>
                 </div>
@@ -128,7 +145,8 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      )}
     </footer>
   );
 }

@@ -124,8 +124,7 @@
 
 /* ── Title ── */
 .splashTitle {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
+font-style: italic;
   font-size: 3.8rem;
   font-weight: 700;
   color: #0f172a;
@@ -239,3 +238,4 @@
   .cornerTL, .cornerTR, .cornerBL, .cornerBR { width: 45px; height: 45px; }
   .splashImage { width: 210px; }
 }
+
