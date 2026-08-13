@@ -124,6 +124,27 @@ export default function Footer({ isAdmin = false }) {
                 </div>
 
                 <div className={styles.contactItem}>
+                  <a 
+                    href="https://www.instagram.com/srisankaraacateringservices" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className={styles.contactLink}
+                  >
+                    Instagram: @srisankaraacateringservices
+                  </a>
+                </div>
+                <div className={styles.contactItem}>
+                  <a 
+                    href="https://www.instagram.com/srisankaraabrahmincatering" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className={styles.contactLink}
+                  >
+                    Instagram: @srisankaraabrahmincatering
+                  </a>
+                </div>
+
+                <div className={styles.contactItem}>
                   <span className={styles.contactText}>Working Hours: Mon — Sun · 10:00 AM — 9:00 PM</span>
                 </div>
               </div>

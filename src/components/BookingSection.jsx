@@ -56,7 +56,26 @@ export default function BookingSection() {
 
             <div className={styles.infoBlock}>
               <h4>{t('bookingInstaLabel') || 'INSTAGRAM'}</h4>
-              <p className={styles.highlightText}>{t('bookingInstaValue') || '@srisankaraacatering'}</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                <a 
+                  href={t('bookingInstaUrl') || "https://www.instagram.com/srisankaraacateringservices"} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className={styles.highlightText}
+                  style={{ textDecoration: 'none' }}
+                >
+                  {t('bookingInstaValue') || '@srisankaraacateringservices'}
+                </a>
+                <a 
+                  href={t('bookingInstaUrl2') || "https://www.instagram.com/srisankaraabrahmincatering"} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className={styles.highlightText}
+                  style={{ textDecoration: 'none' }}
+                >
+                  {t('bookingInstaValue2') || '@srisankaraabrahmincatering'}
+                </a>
+              </div>
             </div>
 
             <div className={styles.buttonGroup}>
