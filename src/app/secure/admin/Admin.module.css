@@ -320,10 +320,9 @@
 
 /* Slots Grid - Video (vertical portrait) */
 .videoSlotsGrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
 }
 
 .slotBox, .videoSlotBox {
