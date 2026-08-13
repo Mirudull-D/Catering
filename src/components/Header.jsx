@@ -44,7 +44,7 @@ export default function Header() {
   };
 
   return (
-    <>
+    <div className={`${styles.headerWrapper} ${isScrolled ? styles.scrolled : ''}`}>
       {/* Top Announcement Ticker */}
       <div className={styles.ticker}>
         <div className={styles.tickerTrack}>
@@ -56,44 +56,44 @@ export default function Header() {
         </div>
       </div>
 
-      <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
-      <div className={styles.logo}>
-        <Link href="/" onClick={closeMenu}>
-          <span className={lang === 'ta' ? 'tamilTitle' : ''}>{t('title')}</span>
-          <span className={styles.logoDot}>.</span>
-        </Link>
-      </div>
-      
-      <button 
-        className={styles.menuButton} 
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        aria-label="Toggle menu"
-      >
-        {isMobileMenuOpen ? '✕' : '☰'}
-      </button>
-
-      <nav className={`${styles.nav} ${isMobileMenuOpen ? styles.mobileOpen : ''}`}>
-        <Link href={getNavLink('#services')} className={styles.navLink} onClick={closeMenu}>{t('services')}</Link>
-        <Link href={getNavLink('#gallery')} className={styles.navLink} onClick={closeMenu}>{t('gallery')}</Link>
-        <Link href={getNavLink('#testimonials')} className={styles.navLink} onClick={closeMenu}>{t('testimonials')}</Link>
-        <Link href={getNavLink('#contact')} className={styles.navLink} onClick={closeMenu}>{t('contact')}</Link>
-        
-        <div className={styles.actions}>
-          <button className={styles.langToggle} onClick={toggleLanguage}>
-            {lang === 'en' ? 'தமிழ்' : 'English'}
-          </button>
-          <button 
-            className={styles.ctaButton} 
-            onClick={() => {
-              closeMenu();
-              openBookingModal();
-            }}
-          >
-            {t('bookNow')}
-          </button>
+      <header className={styles.header}>
+        <div className={styles.logo}>
+          <Link href="/" onClick={closeMenu}>
+            <span className={lang === 'ta' ? 'tamilTitle' : ''}>{t('title')}</span>
+            <span className={styles.logoDot}>.</span>
+          </Link>
         </div>
-      </nav>
-    </header>
-  </>
-);
+        
+        <button 
+          className={styles.menuButton} 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? '✕' : '☰'}
+        </button>
+
+        <nav className={`${styles.nav} ${isMobileMenuOpen ? styles.mobileOpen : ''}`}>
+          <Link href={getNavLink('#services')} className={styles.navLink} onClick={closeMenu}>{t('services')}</Link>
+          <Link href={getNavLink('#gallery')} className={styles.navLink} onClick={closeMenu}>{t('gallery')}</Link>
+          <Link href={getNavLink('#testimonials')} className={styles.navLink} onClick={closeMenu}>{t('testimonials')}</Link>
+          <Link href={getNavLink('#contact')} className={styles.navLink} onClick={closeMenu}>{t('contact')}</Link>
+          
+          <div className={styles.actions}>
+            <button className={styles.langToggle} onClick={toggleLanguage}>
+              {lang === 'en' ? 'தமிழ்' : 'English'}
+            </button>
+            <button 
+              className={styles.ctaButton} 
+              onClick={() => {
+                closeMenu();
+                openBookingModal();
+              }}
+            >
+              {t('bookNow')}
+            </button>
+          </div>
+        </nav>
+      </header>
+    </div>
+  );
 }
