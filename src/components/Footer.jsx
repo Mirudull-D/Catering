@@ -67,7 +67,7 @@ export default function Footer({ isAdmin = false }) {
                   {t('bookNow') || 'Book a Consultation'}
                 </button>
                 <a 
-                  href={`https://wa.me/${WHATSAPP_NUMBER}`} 
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hello Sri Sankaraa Catering Services! 👋\n\nI would like to inquire about catering services for an upcoming function. Here are our event details:\n\n👤 Name: \n📅 Event Date: \n📍 Venue / Area in Chennai: \n👥 Expected Guests: \n🎉 Occasion (Wedding / Housewarming / Seemantham / Corporate / Birthday): \n\nCould you please share your menu packages and pricing? Looking forward to connecting with you! 🙏`)}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className={styles.actionBtnSecondary}

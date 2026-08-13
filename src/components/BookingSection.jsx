@@ -8,8 +8,8 @@ import styles from './BookingSection.module.css';
 export default function BookingSection() {
   const { t } = useLanguage();
 
-  const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=No.8%2F14,+Sangam+Street,+Venkatapuram,+Ambattur,+Chennai+-+600053";
-  const whatsappUrl = "https://wa.me/9962548644?text=Hi%2C%20I%20would%20like%20to%20book%20a%20service%2Fconsultation.";
+  const defaultMsg = `Hello Sri Sankaraa Catering Services! 👋\n\nI would like to inquire about catering services for an upcoming function. Here are our event details:\n\n👤 Name: \n📅 Event Date: \n📍 Venue / Area in Chennai: \n👥 Expected Guests: \n🎉 Occasion (Wedding / Housewarming / Seemantham / Corporate / Birthday): \n\nCould you please share your menu packages and pricing? Looking forward to connecting with you! 🙏`;
+  const whatsappUrl = `https://wa.me/9962548644?text=${encodeURIComponent(defaultMsg)}`;
 
   return (
     <section id="contact" className={styles.bookingSection}>
