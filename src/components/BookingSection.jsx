@@ -9,7 +9,7 @@ export default function BookingSection() {
   const { t } = useLanguage();
 
   const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=No.8%2F14,+Sangam+Street,+Venkatapuram,+Ambattur,+Chennai+-+600053";
-  const whatsappUrl = "https://wa.me/919962548644?text=Hi%2C%20I%20would%20like%20to%20book%20a%20service%2Fconsultation.";
+  const whatsappUrl = "https://wa.me/9962548644?text=Hi%2C%20I%20would%20like%20to%20book%20a%20service%2Fconsultation.";
 
   return (
     <section id="contact" className={styles.bookingSection}>
@@ -45,18 +45,18 @@ export default function BookingSection() {
 
             <div className={styles.infoBlock}>
               <h4>{t('hours') || 'HOURS'}</h4>
-              <p>{t('bookingHours') || 'Mon — Sun · 8:00 AM — 10:00 PM'}</p>
+              <p>{t('bookingHours') || 'Mon — Sun · 10:00 AM — 9:00 PM'}</p>
             </div>
 
             <div className={styles.infoBlock}>
               <h4>{t('bookingPhoneLabel') || 'PHONE / WHATSAPP'}</h4>
-              <p className={styles.highlightText}>+91 99625 48644 / +91 94441 48644</p>
+              <p className={styles.highlightText}>99625 48644</p>
             </div>
 
 
             <div className={styles.infoBlock}>
               <h4>{t('bookingInstaLabel') || 'INSTAGRAM'}</h4>
-              <p className={styles.highlightText}>{t('bookingInstaValue') || '@srisankaracatering'}</p>
+              <p className={styles.highlightText}>{t('bookingInstaValue') || '@srisankaraacatering'}</p>
             </div>
 
             <div className={styles.buttonGroup}>
@@ -96,8 +96,14 @@ export default function BookingSection() {
               allowFullScreen="" 
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
-              title="Sri Sankara Catering Location Map"
+              title="Sri Sankaraa Catering Location Map"
             ></iframe>
+
+            {/* Center Floating Pin Callout */}
+            <div className={styles.mapPinCallout}>
+              <span className={styles.livePulseDot}></span>
+              <span>{t('ourShopHere') || 'Our kitchen is right here!'}</span>
+            </div>
 
             {/* Top-Left Floating Header Badge Box */}
             <div className={styles.mapOverlayHeader}>
@@ -128,7 +134,7 @@ export default function BookingSection() {
                 </div>
               </div>
               <div className={styles.mapOverlayAddress}>
-                {t('mapAddressFull') || 'Sri Sankara Catering, Sangam St, Ambattur, Chennai'}
+                {t('mapAddressFull') || 'Sri Sankaraa Catering, Sangam St, Ambattur, Chennai'}
               </div>
               <div className={styles.mapOverlayReviews}>
                 {t('mapReviews') || '4.9 ★ (500+ Reviews)'}

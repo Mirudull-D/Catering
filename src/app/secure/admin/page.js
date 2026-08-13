@@ -130,7 +130,7 @@ export default function AdminPage() {
       // Format clean title and remove raw camera/code filenames
       let cleanTitle = file.name.replace(/\.(mp4|webm|mov|png|jpg|jpeg|gif|webp)$/i, '');
       if (/^\d{5,}/.test(cleanTitle) || /fps/i.test(cleanTitle) || /^[\d_a-z-]+$/i.test(cleanTitle)) {
-        cleanTitle = isVideo ? 'Catering Reel Highlight' : 'Sri Sankara Event';
+        cleanTitle = isVideo ? 'Catering Reel Highlight' : 'Sri Sankaraa Event';
       }
 
       const newImg = { title: cleanTitle, category: finalCategory, src: fileUrl };
@@ -154,7 +154,7 @@ export default function AdminPage() {
           <div className={styles.lockHeader}>
             <span className={styles.lockIcon}>🔐</span>
             <h1 className={styles.loginTitle}>Admin Portal</h1>
-            <p className={styles.loginSubtitle}>Sri Sankara Catering Services Management</p>
+            <p className={styles.loginSubtitle}>Sri Sankaraa Catering Services Management</p>
           </div>
 
           <form onSubmit={handleLogin} className={styles.loginForm}>
@@ -221,7 +221,7 @@ export default function AdminPage() {
       {/* Header Bar */}
       <header className={styles.adminHeader}>
         <div className={styles.brandGroup}>
-          <h1 className={styles.brandTitle}>Sri Sankara Catering Services Admin</h1>
+          <h1 className={styles.brandTitle}>Sri Sankaraa Catering Services Admin</h1>
           <span className={styles.badge}>
             {isSupabaseConfigured ? '🟢 Supabase Active' : '🟡 Local Storage Sync'}
           </span>

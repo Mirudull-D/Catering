@@ -5,7 +5,7 @@ import React, { createContext, useState, useContext } from 'react';
 const translations = {
   en: {
     // Header & Global
-    title: "Sri Sankara Catering Services",
+    title: "Sri Sankaraa Catering Services",
     services: "Services",
     menu: "Menu",
     gallery: "Gallery",
@@ -69,7 +69,7 @@ const translations = {
     statEvents: "Events Catered",
     statCities: "Cities Served",
     statClients: "Happy Clients",
-    aboutStory: "With over 15 years of experience in the culinary arts, Sri Sankara Catering is dedicated to providing extraordinary food and service. Our chefs craft dishes using the freshest ingredients to ensure an unforgettable dining experience, keeping traditions alive with a modern touch.",
+    aboutStory: "With over 15 years of experience in the culinary arts, Sri Sankaraa Catering is dedicated to providing extraordinary food and service. Our chefs craft dishes using the freshest ingredients to ensure an unforgettable dining experience, keeping traditions alive with a modern touch.",
 
     // Services Section
     servicesTitle: "Our Catering Packages & Menus",
@@ -110,7 +110,7 @@ const translations = {
       "Lunch Mains: Potato Peas Porial, Aviyal, Sambar, Vatha Kuzhambu",
       "Special Rice: Veg Brinji & Thayir Pachadi"
     ],
-    service5: "Sankara Catering Classic Menu",
+    service5: "Sankaraa Catering Classic Menu",
     service5Desc: "Our signature extensive menu spanning grand buffets and traditional saapadu.",
     service5Included: [
       "Buffet Menu: Welcome Soup, Paneer Tikka, Mushroom Briyani, White Kuruma",
@@ -185,13 +185,13 @@ const translations = {
     bookingHours: "Mon — Sun · 10:00 AM — 9:00 PM",
     bookingPhoneLabel: "PHONE / WHATSAPP",
     bookingInstaLabel: "INSTAGRAM",
-    bookingInstaValue: "@srisankaracatering",
+    bookingInstaValue: "@srisankaraacatering",
     waBooking: "WhatsApp Booking",
     directions: "Directions",
     ourShopHere: "Our kitchen is right here!",
     openInGoogleMaps: "Open in Google Maps App",
     liveLocation: "LIVE LOCATION",
-    mapAddressFull: "Sri Sankara Catering Services, No.8/14, Sangam Street, Venkatapuram, Ambattur, Chennai - 600 053, India",
+    mapAddressFull: "Sri Sankaraa Catering Services, No.8/14, Sangam Street, Venkatapuram, Ambattur, Chennai - 600 053, India",
     mapReviews: "4.9 ★ (500+ Reviews)",
     startPlanningTag: "START PLANNING",
     readyTitle: "Ready to make your event unforgettable?",
@@ -204,7 +204,7 @@ const translations = {
     // Philosophy Section
     philTitle: "Our Culinary Philosophy",
     philSub: "Keeping traditions alive with modern sophistication",
-    philDesc1: "At Sri Sankara Catering, we believe that food is not just sustenance—it is a celebration of culture, taste, and togetherness. Our culinary philosophy centers on sourcing the finest ingredients, preserving time-honored traditional recipes, and presenting them with contemporary refinement.",
+    philDesc1: "At Sri Sankaraa Catering, we believe that food is not just sustenance—it is a celebration of culture, taste, and togetherness. Our culinary philosophy centers on sourcing the finest ingredients, preserving time-honored traditional recipes, and presenting them with contemporary refinement.",
     philDesc2: "Whether serving a classic South Indian wedding sadhya or a modern corporate buffet, our chefs ensure that every dish is a masterpiece of authentic flavors and flawless preparation.",
     philPoint1: "100% Vegetarian & Pure Ingredients",
     philPoint2: "Time-Honored Traditional Recipes",
@@ -242,11 +242,11 @@ const translations = {
     // Footer
     quickLinks: "Quick Links",
     followUs: "Follow Us",
-    footerText: "© 2026 Sri Sankara Catering Services. All rights reserved."
+    footerText: "© 2026 Sri Sankaraa Catering Services. All rights reserved."
   },
   ta: {
     // Header & Global
-    title: "ஸ்ரீ சங்கரா கேட்டரிங் சர்வீஸ்",
+    title: "ஸ்ரீ சங்கராஆ கேட்டரிங் சர்வீஸ்",
     services: "சேவைகள்",
     menu: "மெனு",
     gallery: "புகைப்படங்கள்",
@@ -310,7 +310,7 @@ const translations = {
     statEvents: "நிகழ்வுகள்",
     statCities: "நகரங்களில்",
     statClients: "மகிழ்ச்சியான வாடிக்கையாளர்கள்",
-    aboutStory: "15 ஆண்டுகளுக்கும் மேலான சமையல் அனுபவத்துடன், ஸ்ரீ சங்கரா கேட்டரிங் சிறந்த உணவு மற்றும் சேவையை வழங்க அர்ப்பணித்துள்ளது. எங்கள் சமையல்காரர்கள் புதிய பொருட்களைப் பயன்படுத்தி உணவுகளை தயார் செய்கிறார்கள்.",
+    aboutStory: "15 ஆண்டுகளுக்கும் மேலான சமையல் அனுபவத்துடன், ஸ்ரீ சங்கராஆ கேட்டரிங் சிறந்த உணவு மற்றும் சேவையை வழங்க அர்ப்பணித்துள்ளது. எங்கள் சமையல்காரர்கள் புதிய பொருட்களைப் பயன்படுத்தி உணவுகளை தயார் செய்கிறார்கள்.",
 
     // Services Section
     servicesTitle: "எங்கள் கேட்டரிங் மெனுக்கள்",
@@ -351,7 +351,7 @@ const translations = {
       "மதிய உணவுகள்: உருளை பட்டாணி பொரியல், அவியல், சாம்பார், வத்த குழம்பு",
       "சிறப்பு சாதம்: வெஜ் பிரிஞ்சி & தயிர் பச்சடி"
     ],
-    service5: "சங்கரா கேட்டரிங் கிளாசிக் மெனு",
+    service5: "சங்கராஆ கேட்டரிங் கிளாசிக் மெனு",
     service5Desc: "பிரம்மாண்ட பஃபே மற்றும் பாரம்பரிய சாப்பாடு அடங்கிய எங்களின் சிறப்பு மெனு.",
     service5Included: [
       "பஃபே மெனு: வெல்கம் சூப், பன்னீர் டிக்கா, மஷ்ரூம் பிரியாணி, வெள்ளை குருமா",
@@ -438,7 +438,7 @@ const translations = {
     // Philosophy Section
     philTitle: "எங்கள் சமையல் தத்துவம்",
     philSub: "நவீன நேர்த்தியுடன் பாரம்பரியத்தை உயிர்ப்புடன் வைத்திருத்தல்",
-    philDesc1: "ஸ்ரீ சங்கரா கேட்டரிங்கில், உணவு என்பது வெறும் பசி ஆற்றுவது மட்டுமல்ல—அது கலாச்சாரம், சுவை மற்றும் ஒற்றுமையின் கொண்டாட்டம் என்று நாங்கள் நம்புகிறோம். சிறந்த பொருட்களைத் தேர்ந்தெடுத்து, பாரம்பரிய முறைகளை மாற்றாமல், நவீன நேர்த்தியுடன் உங்களுக்கு வழங்குகிறோம்.",
+    philDesc1: "ஸ்ரீ சங்கராஆ கேட்டரிங்கில், உணவு என்பது வெறும் பசி ஆற்றுவது மட்டுமல்ல—அது கலாச்சாரம், சுவை மற்றும் ஒற்றுமையின் கொண்டாட்டம் என்று நாங்கள் நம்புகிறோம். சிறந்த பொருட்களைத் தேர்ந்தெடுத்து, பாரம்பரிய முறைகளை மாற்றாமல், நவீன நேர்த்தியுடன் உங்களுக்கு வழங்குகிறோம்.",
     philDesc2: "பாரம்பரிய தென்னிந்திய திருமண விருந்தாக இருந்தாலும் அல்லது நவீன கார்ப்பரேட் பஃபேவாக இருந்தாலும், எங்கள் சமையல்காரர்கள் ஒவ்வொரு உணவும் உண்மையான சுவையுடனும் நேர்த்தியுடனும் தயாரிக்கப்படுவதை உறுதி செய்கிறார்கள்.",
     philPoint1: "100% சுத்தமான சைவ மற்றும் தரமான பொருட்கள்",
     philPoint2: "தலைமுறைகள் கடந்த பாரம்பரிய சமையல் முறைகள்",
@@ -476,7 +476,7 @@ const translations = {
     // Footer
     quickLinks: "முக்கிய இணைப்புகள்",
     followUs: "சமூக வலைத்தளங்கள்",
-    footerText: "© 2026 ஸ்ரீ சங்கரா கேட்டரிங் சர்வீஸ். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
+    footerText: "© 2026 ஸ்ரீ சங்கராஆ கேட்டரிங் சர்வீஸ். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
     phone: "தொலைபேசி",
     email: "மின்னஞ்சல்",
     address: "முகவரி",
@@ -487,13 +487,13 @@ const translations = {
     bookingHours: "திங்கள் — ஞாயிறு · காலை 10:00 — இரவு 9:00",
     bookingPhoneLabel: "தொலைபேசி / வாட்ஸ்அப்",
     bookingInstaLabel: "இன்ஸ்டாகிராம்",
-    bookingInstaValue: "@srisankaracatering",
+    bookingInstaValue: "@srisankaraacatering",
     waBooking: "வாட்ஸ்அப் முன்பதிவு",
     directions: "வழிசெலுத்தல்",
     ourShopHere: "எங்கள் சமையலறை இங்கே உள்ளது!",
     openInGoogleMaps: "கூகுள் மேப்ஸில் திறக்கவும்",
     liveLocation: "நேரலை இருப்பிடம்",
-    mapAddressFull: "ஸ்ரீ சங்கரா கேட்டரிங் சர்வீஸ், எண்.8/14, சங்கம் தெரு, வெங்கடாபுரம், அம்பத்தூர், சென்னை - 600 053",
+    mapAddressFull: "ஸ்ரீ சங்கராஆ கேட்டரிங் சர்வீஸ், எண்.8/14, சங்கம் தெரு, வெங்கடாபுரம், அம்பத்தூர், சென்னை - 600 053",
     mapReviews: "4.9 ★ (500+ விமர்சனங்கள்)",
 
     // Philosophy Section

@@ -91,7 +91,7 @@ export default function SplashScreen() {
           <motion.img
             layoutId="deity-image"
             src="/deity.png"
-            alt="Sri Sankara Catering Deity"
+            alt="Sri Sankaraa Catering Deity"
             className={styles.splashImage}
             transition={{ duration: 0.85, ease: [0.77, 0, 0.175, 1] }}
           />

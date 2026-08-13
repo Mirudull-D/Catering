@@ -29,6 +29,18 @@
   margin: 0;
   /* Kill anything trying to break out of viewport */
   max-width: 100%;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+button, a, input, select, textarea {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+button:focus, button:focus-visible, button:active,
+a:focus, a:focus-visible, a:active {
+  outline: none !important;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent !important;
 }
 
 html {

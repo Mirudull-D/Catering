@@ -12,7 +12,8 @@ export default function BookingModal({ isOpen, onClose }) {
     const phone = document.getElementById('b-phone').value;
     const occasion = document.getElementById('b-occasion').value;
     const text = `Hi, I would like to enquire about catering.%0A%0AName: ${name}%0APhone: ${phone}%0AOccasion: ${occasion}`;
-    window.open(`https://wa.me/919840874966?text=${text}`, '_blank');
+    const whatsappNum = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '9962548644';
+    window.open(`https://wa.me/${whatsappNum}?text=${text}`, '_blank');
   };
 
   return (
@@ -40,7 +41,7 @@ export default function BookingModal({ isOpen, onClose }) {
             
             <div className={styles.formGroup}>
               <label htmlFor="b-phone">Phone Number</label>
-              <input type="tel" id="b-phone" className={styles.input} placeholder="+91 98408 74966" required />
+              <input type="tel" id="b-phone" className={styles.input} placeholder="99625 48644" required />
             </div>
             
             <div className={styles.formGroup}>

@@ -100,7 +100,7 @@ export default function TestimonialsSection() {
               </div>
               <h2 className={styles.sectionTitle}>{t('testimonialsTitle') || 'Loved by Hosts Across Chennai'}</h2>
               <p className={styles.sectionSub}>
-                Real reviews and heartfelt feedback from clients who trusted Sri Sankara Catering.
+                Real reviews and heartfelt feedback from clients who trusted Sri Sankaraa Catering.
               </p>
             </div>
 
@@ -240,7 +240,7 @@ export default function TestimonialsSection() {
                   <span>SHARE YOUR FEEDBACK</span>
                 </div>
                 <h3 className={styles.modalTitle}>{t('writeReview') || 'Write a Review'}</h3>
-                <p className={styles.modalDesc}>Share your catering experience with Sri Sankara Catering Services.</p>
+                <p className={styles.modalDesc}>Share your catering experience with Sri Sankaraa Catering Services.</p>
               </div>
               
               <form className={styles.reviewModalForm} onSubmit={handleSubmit}>
@@ -337,12 +337,12 @@ export default function TestimonialsSection() {
                   <span className={styles.videoBadge}>Catering Reel Highlight</span>
                   <h3 className={styles.videoTitle}>
                     {(!selectedVideo.title || /\.(mp4|webm|mov|png|jpg|jpeg|webp)$/i.test(selectedVideo.title) || /^\d{5,}/.test(selectedVideo.title)) 
-                      ? 'Sri Sankara Catering Event' 
+                      ? 'Sri Sankaraa Catering Event' 
                       : selectedVideo.title}
                   </h3>
                 </div>
                 <a 
-                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919840874966'}?text=${encodeURIComponent(`Hi, I saw your video showcase on the website and would like to inquire about booking!`)}`}
+                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '9962548644'}?text=${encodeURIComponent(`Hi, I saw your video showcase on the website and would like to inquire about booking!`)}`}
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className={styles.videoBookBtn}

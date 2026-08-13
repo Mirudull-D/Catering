@@ -40,8 +40,9 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   align-items: stretch;
 }
@@ -49,7 +50,8 @@
 .cardWrapper {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: auto;
+  width: calc((100% - 4rem) / 3);
 }
 
 /* Modal Base */
@@ -445,8 +447,8 @@
 
 /* Responsive Grid & Mobile Modal Sheet */
 @media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+  .cardWrapper {
+    width: calc((100% - 2rem) / 2);
   }
   .modalGrid {
     grid-template-columns: 1fr;
@@ -460,8 +462,11 @@
   }
 
   .grid {
-    grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .cardWrapper {
+    width: 100%;
   }
 
   .sectionTitle {

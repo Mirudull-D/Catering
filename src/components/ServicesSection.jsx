@@ -6,8 +6,8 @@ import { useLanguage } from '../context/LanguageContext';
 import ServiceCard from './ServiceCard';
 import styles from './ServicesSection.module.css';
 
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919840874966';
-const PHONE_NUMBER = process.env.NEXT_PUBLIC_PHONE_NUMBER || '+91 98408 74966';
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '9962548644';
+const PHONE_NUMBER = process.env.NEXT_PUBLIC_PHONE_NUMBER || '99625 48644';
 
 const ServiceModal = ({ isOpen, onClose, service, onOpenBooking, t }) => {
   if (!isOpen || !service) return null;
@@ -37,7 +37,7 @@ const ServiceModal = ({ isOpen, onClose, service, onOpenBooking, t }) => {
             {/* LEFT COLUMN: Title, Desc, Capacity Box, 4 Feature Pills */}
             <div className={styles.modalLeftPane}>
               <div className={styles.modalHeaderInfo}>
-                <span className={styles.categoryTag}>SRI SANKARA CATERING</span>
+                <span className={styles.categoryTag}>SRI SANKARAA CATERING</span>
                 <h2 className={styles.modalTitle}>{service.title}</h2>
                 <p className={styles.modalDesc}>{service.desc}</p>
               </div>
@@ -146,7 +146,7 @@ const BookModal = ({ isOpen, onClose, service }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const msg = `Hi Sri Sankara Catering, I want to book the *${service.title}* package.\n\n*Name:* ${formData.name}\n*Contact:* ${formData.phone}\n*Date:* ${formData.date}\n*Remarks:* ${formData.remarks}`;
+    const msg = `Hi Sri Sankaraa Catering, I want to book the *${service.title}* package.\n\n*Name:* ${formData.name}\n*Contact:* ${formData.phone}\n*Date:* ${formData.date}\n*Remarks:* ${formData.remarks}`;
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     onClose();
   };
@@ -182,7 +182,7 @@ const BookModal = ({ isOpen, onClose, service }) => {
               <label className={styles.inputLabel}>Contact Number</label>
               <input 
                 type="tel" 
-                placeholder="+91 98765 43210" 
+                placeholder="99625 48644" 
                 required 
                 value={formData.phone} 
                 onChange={e => setFormData({...formData, phone: e.target.value})} 
@@ -228,14 +228,6 @@ export default function ServicesSection() {
   const [selectedBookService, setSelectedBookService] = useState(null);
 
   const services = [
-    { 
-      id: 1, 
-      title: t('service1'), 
-      desc: t('service1Desc'), 
-      included: t('service1Included'), 
-      image: '/gallery/south_indian_meals_1785684185063.png',
-      pdfUrl: '/brochures/Brahmin Menu Tiffin & Lunch.pdf'
-    },
     { 
       id: 2, 
       title: t('service2'), 

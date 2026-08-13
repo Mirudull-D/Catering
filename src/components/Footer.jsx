@@ -9,7 +9,7 @@ export default function Footer({ isAdmin = false }) {
   const { lang, t } = useLanguage();
   const { openBookingModal } = useBooking();
 
-  const PHONE_NUMBER = process.env.NEXT_PUBLIC_PHONE_NUMBER || '+91 99625 48644';
+  const PHONE_NUMBER = process.env.NEXT_PUBLIC_PHONE_NUMBER || '99625 48644';
   const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '9962548644';
   const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=No.8%2F14,+Sangam+Street,+Venkatapuram,+Ambattur,+Chennai+-+600053";
 
@@ -32,7 +32,7 @@ export default function Footer({ isAdmin = false }) {
           <div className={styles.container}>
             <div className={styles.bottomBar}>
               <div className={styles.leftCopyright}>
-                © 2026 Sri Sankara Catering Services. All Rights Reserved
+                © 2026 Sri Sankaraa Catering Services. All Rights Reserved
               </div>
               <div className={styles.centerPowered}>
                 Powered by <a href="https://www.cenexasystems.com" target="_blank" rel="noopener noreferrer" className={styles.cenexaLink}><strong>Cenexa Systems</strong></a> © 2026
@@ -124,7 +124,7 @@ export default function Footer({ isAdmin = false }) {
                 </div>
 
                 <div className={styles.contactItem}>
-                  <span className={styles.contactText}>Working Hours: Mon–Sun, 10AM–8PM</span>
+                  <span className={styles.contactText}>Working Hours: Mon — Sun · 10:00 AM — 9:00 PM</span>
                 </div>
               </div>
             </div>
@@ -133,7 +133,7 @@ export default function Footer({ isAdmin = false }) {
           {/* Screenshot-Style Sleek Horizontal Bottom Bar */}
           <div className={styles.bottomBar}>
             <div className={styles.leftCopyright}>
-              © 2026 Sri Sankara Catering Services. All Rights Reserved
+              © 2026 Sri Sankaraa Catering Services. All Rights Reserved
             </div>
 
             <div className={styles.centerPowered}>
